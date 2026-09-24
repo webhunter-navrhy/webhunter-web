@@ -1136,3 +1136,20 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 .reel-row { animation-duration: 90s; }
 .reel-tile { width: clamp(220px, 20vw, 290px); }
 @media (max-width: 767px) { .reel-rows { transform: none; } .reel::before, .reel::after { height: 170px; } }
+
+/* ---------- CAPABILITIES (real sites as proof) ---------- */
+.cap { margin-top: var(--gap-xl); }
+.cap-head { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--gap-lg); align-items: end; margin-bottom: 1.6rem; }
+.cap-head h3 { font-size: clamp(1.6rem, 2.7vw, 2.4rem); letter-spacing: -0.04em; line-height: 1.05; }
+.cap-head h3 .serif { color: var(--blue); }
+.cap-head p { color: var(--muted); max-width: 42ch; justify-self: end; }
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cap-item { display: grid; grid-template-columns: 128px 1fr; gap: 14px; align-items: center; padding: 10px 14px 10px 10px; background: #fff; border-radius: 20px; box-shadow: var(--shadow-soft); transition: transform 0.5s var(--ease-expo), box-shadow 0.5s; }
+.cap-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.cap-item img { width: 128px; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; }
+.cap-item b { display: block; font-weight: 500; font-size: 1.02rem; letter-spacing: -0.02em; }
+.cap-item .m { display: block; font-size: 0.84rem; color: var(--muted); line-height: 1.4; margin-top: 0.1rem; }
+.cap-item small { display: inline-block; margin-top: 0.4rem; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.copy-chips .chip-link { background: var(--text); color: var(--lime); box-shadow: none; }
+@media (max-width: 1024px) { .cap-grid { grid-template-columns: 1fr 1fr; } .cap-head { grid-template-columns: 1fr; } .cap-head p { justify-self: start; } }
+@media (max-width: 640px) { .cap-grid { grid-template-columns: 1fr; } }
