@@ -1819,3 +1819,47 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 @media (max-width: 767px) { .bn-blue > .bn-obj { width: 56%; right: -4%; top: 12%; } }
 .bn-blue > .bn-obj { width: 56%; right: 3%; top: 12%; }
 .bento .b-card:hover { z-index: 5; }
+
+/* ---------- HERO RING CARDS in banner style ---------- */
+.hc-card.hk { padding: 14px; gap: 0; color: var(--text); }
+.hc-card.hk.bnv-blue, .hc-card.hk.bnv-dark { color: #fff; }
+.hc-card.hk .bn-fx *, .hc-card.hk .bn-obj { animation: none; }
+.hc-card.hk .bn-fx .sp { animation: bnSp 3.2s ease-in-out infinite; }
+.hc-card.hk .bn-pat { background-size: 14px 14px; }
+.hk-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.hk-chip { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; background: rgba(255,255,255,0.92); color: var(--text); }
+.hk-chip svg { width: 10px; height: 10px; }
+.hk-chip.dark { background: var(--text); color: var(--lime); }
+.hk-chip.lime { background: var(--lime); color: var(--text); }
+.hk-live { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 4px 9px; border-radius: 999px; background: var(--lime); color: var(--text); }
+.hk-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.hk-big { font-size: 58px; line-height: 0.95; letter-spacing: -0.06em; margin-top: 12px; font-weight: 400; }
+.hk-big small { font-size: 14px; letter-spacing: 0; margin-left: 4px; opacity: 0.65; }
+.hk-title { font-size: 30px; line-height: 0.98; letter-spacing: -0.05em; margin-top: 12px; }
+.hk-title.sm { font-size: 24px; }
+.hk-panel { margin-top: auto; background: #fff; color: var(--text); border-radius: 14px; padding: 10px 12px; box-shadow: inset 0 1px 0 #fff, 0 10px 24px -8px rgba(10,40,100,0.28); }
+.hk-panel .kv:first-child { border-top: 0; margin-top: 0 !important; }
+.hk-panel .serp-bar { margin: 0 0 8px; }
+.hk-panel .serp-top { padding: 8px 10px; }
+.hk-panel .q { margin-top: 0; }
+.hk-panel p { margin-top: 6px !important; font-size: 12px; color: #1E2731; }
+.hk-panel .tog { padding: 6px 0; font-size: 12px; }
+.hk-panel .tog:first-child { border-top: 0; }
+.hk-shot { padding: 5px; margin-top: 10px; flex: 1; display: flex; flex-direction: column; }
+.hk-shot .browser { padding: 2px 4px 6px; }
+.hk-shot .site-hero { flex: 1; height: auto; border-radius: 10px; }
+.hk-name { margin-top: 10px; font-size: 16px; letter-spacing: -0.02em; }
+.hk-field { display: flex; align-items: center; font-size: 13px; padding: 10px 12px; }
+.hk-enter { margin-left: auto; color: var(--muted); }
+.hk-note { display: block; margin-top: 8px; font-size: 11.5px; color: #26330a; }
+.hk-obj { position: absolute; }
+.hk-bolt { width: 44px; right: 16px; top: 12px; }
+.hk-mag { width: 86px; right: 10px; top: 20px; }
+.hk-link { width: 104px; right: 8px; top: 34px; }
+.hk-bub { width: 84px; right: 12px; top: 30px; }
+.hk-shld { width: 62px; right: 16px; top: 18px; }
+.hc-card.hk.hc-main { padding: 20px; }
+.hc-card.hk.hc-main .k-title { margin-top: 14px; }
+/* old per-card styles neutralised */
+.hc-card.hk.hc-send { background: linear-gradient(160deg, #DDF98E 0%, #C9F266 50%, #B2E046 100%); padding: 14px; }
+.hc-card.hk .gauge { display: none; }
