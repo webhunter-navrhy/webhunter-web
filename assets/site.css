@@ -1443,3 +1443,95 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 }
 @media (prefers-reduced-motion: reduce) { .bn-fx *, .bn-obj { animation: none !important; } }
 .b-dark .shld { width: 21%; right: 6%; top: 30%; }
+
+/* ---------- BANNER SYSTEM (reused across the site) ---------- */
+.bnx { position: relative; overflow: hidden; isolation: isolate; }
+.bnx > *:not(.bn-fx) { position: relative; z-index: 2; }
+.bnv-blue { background: linear-gradient(160deg, #4B86FF 0%, #1E62F0 45%, #0C36A8 100%); color: #fff; }
+.bnv-blue .bn-fx { color: #fff; }
+.bnv-blue .bn-orb.o1 { background: radial-gradient(circle, rgba(201,242,102,0.4), transparent 65%); }
+.bnv-blue .bn-orb.o2 { background: radial-gradient(circle, rgba(140,200,255,0.55), transparent 65%); }
+.bnv-sky { background: linear-gradient(165deg, #F4F8FF 0%, #DCE8FF 55%, #C4D8FF 100%); }
+.bnv-sky .bn-fx { color: #1E62F0; }
+.bnv-sky .bn-pat { opacity: 0.08; }
+.bnv-sky .bn-orb.o1 { background: radial-gradient(circle, rgba(201,242,102,0.6), transparent 65%); }
+.bnv-sky .bn-orb.o2 { background: radial-gradient(circle, rgba(30,98,240,0.22), transparent 65%); }
+.bnv-sky .sp { color: #1E62F0; }
+.bnv-lime { background: linear-gradient(160deg, #DDF98E 0%, #C9F266 50%, #B2E046 100%); }
+.bnv-lime .bn-fx { color: #0A0E14; }
+.bnv-lime .bn-pat { opacity: 0.06; }
+.bnv-lime .bn-orb.o1 { background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 65%); }
+.bnv-lime .bn-orb.o2 { background: radial-gradient(circle, rgba(30,98,240,0.16), transparent 65%); }
+.bnv-lime .sp { color: #1E62F0; }
+.bnv-dark { background: radial-gradient(120% 90% at 85% 20%, #16306E 0%, #0B1430 45%, #070B12 100%); color: #fff; }
+.bnv-dark .bn-fx { color: #6E9BFF; }
+.bnv-dark .bn-pat { opacity: 0.08; }
+.bnv-dark .bn-orb.o1 { background: radial-gradient(circle, rgba(47,107,255,0.5), transparent 65%); }
+.bnv-dark .bn-orb.o2 { background: radial-gradient(circle, rgba(201,242,102,0.14), transparent 65%); }
+.bnv-dark .sp { color: var(--lime); }
+
+/* services panels */
+.sv-vis.bnx { background-clip: padding-box; }
+.sv-vis .ob-sv { width: 30%; max-width: 150px; right: 5%; top: 6%; opacity: 0.95; }
+.sv-vis .ob-cur { width: 18%; max-width: 110px; right: 5%; top: 10%; }
+.sv-vis .ob-bolt { width: 20%; max-width: 90px; right: 6%; top: 8%; }
+.sv-vis.bnv-lime .speed-bars div { color: #26330a; }
+.sv-vis.bnv-lime .speed-bars div i { background: rgba(10,14,20,0.12); }
+.sv-vis.bnv-lime .gauge svg circle:first-child { stroke: rgba(10,14,20,0.12); }
+.sv-vis.bnv-dark .cp-badge { box-shadow: 0 0 0 1px rgba(255,255,255,0.15); }
+.sv-vis.bnv-blue .geo-row { box-shadow: 0 8px 24px rgba(5,20,60,0.2); }
+
+/* process steps */
+.ps-vis.bnx { background: linear-gradient(165deg, #F4F8FF 0%, #DCE8FF 60%, #C9DBFF 100%); }
+.ps-vis .ob-step { width: 34%; right: -4%; top: -6%; z-index: 1; }
+
+/* values as mini banners */
+.val.bnx { box-shadow: 0 1px 1px rgba(10,30,70,0.06), 0 16px 36px rgba(10,40,110,0.14); padding: 1.3rem 1.3rem 1.5rem; min-height: 230px; display: flex; flex-direction: column; justify-content: flex-end; }
+.val .ob-val { width: 34%; max-width: 110px; right: 8%; top: 10%; }
+.val.bnv-blue p, .val.bnv-dark p { color: rgba(255,255,255,0.78); }
+.val.bnv-dark p a { color: #fff; }
+.val.bnv-lime p { color: #26330a; }
+.val.bnv-blue b::before, .val.bnv-dark b::before { background: var(--lime); }
+.val.bnv-lime b::before { background: var(--text); }
+
+/* GEO section */
+.chat-wrap { position: relative; }
+.chat-wrap .chat { position: relative; z-index: 2; }
+.geo-spark { width: 110px; right: -34px; top: -52px; z-index: 3; }
+.geo-bubble { width: 120px; left: -56px; bottom: -40px; z-index: 3; }
+
+/* FAQ call card */
+.call-card.bnx::before { display: none; }
+.call-card .ob-call { width: 96px; right: 16px; top: 14px; }
+
+/* contact */
+.cta-copy { position: relative; }
+.cta-link { width: clamp(110px, 12vw, 170px); right: 0; top: -1.5rem; z-index: 3; }
+
+/* realizace cta band */
+.cta-band.bnx::before { display: none; }
+.cta-band .band-sw { width: clamp(120px, 13vw, 190px); right: 24%; top: 12%; }
+.cta-band .band-coin { width: clamp(80px, 8vw, 120px); right: 8%; top: 8%; }
+
+@media (max-width: 1024px) { .cta-band .band-sw, .cta-band .band-coin { opacity: 0.35; } }
+@media (max-width: 767px) {
+  .geo-spark { width: 80px; right: -10px; top: -40px; }
+  .geo-bubble { width: 84px; left: -10px; bottom: -34px; }
+  .cta-link { width: 90px; top: -2.5rem; }
+  .val.bnx { min-height: 190px; }
+}
+.bnx .bn-obj { will-change: transform; }
+/* placement fixes */
+.val.bnx { min-height: 270px; }
+.val .ob-val { width: 78px; max-width: none; right: 14px; top: 14px; }
+.geo-bubble { left: -64px; bottom: auto; top: 46%; width: 104px; }
+.cta-link { right: 6%; top: -5.8rem; width: clamp(100px, 10vw, 140px); }
+.call-card .ob-call { width: 72px; right: 14px; top: 14px; }
+@media (max-width: 1024px) { .geo-bubble { display: none; } }
+@media (max-width: 767px) {
+  .val.bnx { min-height: 250px; }
+  .geo-spark { width: 62px; right: 6px; top: -46px; }
+  .cta-link { display: none; }
+}
+.cta-link { top: auto; bottom: 16%; right: 6%; width: clamp(110px, 11vw, 150px); }
+.cta-link { bottom: 43%; right: 1%; }

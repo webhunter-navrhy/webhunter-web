@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Pause CSS animation loops in sections that are off screen
   const offIO = new IntersectionObserver(entries => entries.forEach(en => en.target.classList.toggle('is-off', !en.isIntersecting)), { rootMargin: '100px 0px' });
-  $$('.hero, .marquee, .strip, .reel, .bento, .geo, .showcase, .sub-hero, .process').forEach(el => offIO.observe(el));
+  $$('.hero, .marquee, .strip, .reel, .bento, .services, .team, .faq, .cta, .cta-band, .geo, .showcase, .sub-hero, .process').forEach(el => offIO.observe(el));
   const heroEl = $('.hero');
 
   // In-view triggers for CSS animations
