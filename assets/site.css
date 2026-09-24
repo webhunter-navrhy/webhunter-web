@@ -1126,3 +1126,13 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 .wt-grid .wt-big .pf-vp { min-height: 0; }
 @media (max-width: 1024px) { .wt-grid { grid-template-columns: 1fr 1fr; } .wt-grid .wt-big { grid-column: 1 / -1; } }
 @media (max-width: 767px) { .wt-grid { grid-template-columns: 1fr; } }
+/* compact reel (homepage) */
+.reel { padding: 0 0 var(--section-py); margin-bottom: 0; }
+.reel::before, .reel::after { top: auto; height: 240px; bottom: var(--section-py); }
+.reel-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.reel-head h2 { margin-top: 1rem; font-size: clamp(1.9rem, 3.4vw, 3rem); }
+.reel-head h2 .serif { color: var(--blue); }
+.reel-rows { transform: none; }
+.reel-row { animation-duration: 90s; }
+.reel-tile { width: clamp(220px, 20vw, 290px); }
+@media (max-width: 767px) { .reel-rows { transform: none; } .reel::before, .reel::after { height: 170px; } }

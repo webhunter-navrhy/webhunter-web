@@ -337,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.showcase .sc-item', { y: 30, opacity: 0, duration: 1, stagger: 0.06, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 75%' } });
   });
   ifEl('.sv-grid', el => rise(gsap.utils.toArray('.sv'), el, { stagger: 0.08 }));
-  ifEl('.reel', el => gsap.fromTo('.reel-rows', { rotate: -2 }, { rotate: -6, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1 } }));
 
   // Process: cards rise, track fills (no pin)
   ifEl('.p-steps', el => {
