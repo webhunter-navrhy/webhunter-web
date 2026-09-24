@@ -177,7 +177,7 @@ p { text-wrap: pretty; }
 .nav-links a:hover { background: rgba(255,255,255,0.16); }
 .nav.scrolled .nav-links a { color: var(--text); }
 .nav.scrolled .nav-links a:hover { background: rgba(10,14,20,0.05); }
-.nav .btn { padding-left: 1.2rem; font-size: 0.72rem; }
+.nav .btn { padding-left: 1.2rem; font-size: 0.72rem; transition: box-shadow 0.4s var(--ease-out), background 0.3s var(--ease-out); }
 .nav .btn .arr { width: 2.1rem; height: 2.1rem; }
 .nav-toggle { display: none; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); place-items: center; }
 .nav-toggle span { display: block; width: 18px; height: 1.5px; background: #fff; margin: 2.5px auto; transition: transform 0.4s var(--ease-expo); }
@@ -1675,7 +1675,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .from('.hc-card', { y: 260, opacity: 0, duration: 1.6, stagger: { each: 0.08, from: 'center' } }, 0.6)
     .from('.hero-card', { y: 40, opacity: 0, duration: 1.2 }, 1.1)
     .from('.badge', { scale: 0, rotate: -90, duration: 1.2 }, 1.2)
-    .from('.nav-inner > *', { y: -20, opacity: 0, duration: 1, stagger: 0.06 }, 0.2);
+    .from('.nav-inner > *', { y: -20, opacity: 0, duration: 1, stagger: 0.06, clearProps: 'transform' }, 0.2);
   if (window.innerWidth >= 1100) tl.from('.rail-group', { x: -30, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.5);
 
   // Ring follows mouse
