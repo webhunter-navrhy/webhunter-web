@@ -29,7 +29,7 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 
 <link rel="preload" as="image" href="img/hero-sky.jpg">
-<link rel="stylesheet" href="assets/site.css?v=1790261394">
+<link rel="stylesheet" href="assets/site.css?v=1790262269">
 </head>
 <body>
 
@@ -345,23 +345,24 @@
     </div>
 
     <div class="sv-grid">
-      <article class="sv wide observe">
+      <article class="sv wide observe sv-ba">
         <div class="sv-vis" style="padding:0">
-          <div class="cmp-slider" data-compare>
-            <div class="cmp-layer cmp-before">
-              <div class="tpl-nav"><b>Firma s.r.o.</b><div><span>Úvod</span><span>O nás</span><span>Služby</span><span>Kontakt</span></div></div>
-              <div class="tpl-banner">Vítejte na našich stránkách</div>
-              <div class="tpl-boxes"><div>Služba 1</div><div>Služba 2</div><div>Služba 3</div></div>
-            </div>
-            <div class="cmp-layer cmp-after real"><img decoding="async" src="img/pf/cmp-charolais.jpg" alt="Web Farma Tájek" loading="lazy"></div>
+          <div class="cmp-slider ba" data-compare data-ba>
+            <div class="cmp-layer cmp-before"><img decoding="async" src="img/ba/charolais-before.jpg" alt="Původní web Farma Tájek z roku 2023" loading="lazy" data-ba-before></div>
+            <div class="cmp-layer cmp-after real"><img decoding="async" src="img/ba/charolais-after.jpg" alt="Nový web Farma Tájek od WebHunter" loading="lazy" data-ba-after></div>
             <div class="cmp-handle"><i>‹ ›</i></div>
-            <span class="cmp-tag l">Šablona</span><span class="cmp-tag r">Na míru · Farma Tájek</span>
+            <span class="cmp-tag l" data-ba-l>Předtím · 2023</span><span class="cmp-tag r">Teď · náš web</span>
           </div>
         </div>
         <div class="sv-text">
           <span class="idx">01</span>
           <h3>Web na míru</h3>
-          <p>Žádné šablony. Každý web navrhujeme pro konkrétní firmu, její zákazníky a cíle. Posuňte jezdcem: vlevo šablona, vpravo náš web pro rodinnou farmu z jižních Čech.</p>
+          <p>Žádné šablony. Každý web navrhujeme pro konkrétní firmu, její zákazníky a cíle. Posuňte jezdcem: vlevo původní web klienta z internetového archivu, vpravo web, který jsme mu postavili.</p>
+          <div class="ba-tabs" role="tablist" aria-label="Vyberte klienta">
+            <button class="on" data-ba-case="charolais" data-year="2023" data-name="Farma Tájek" data-url="https://charolais.cz">Farma Tájek</button>
+            <button data-ba-case="alissa" data-year="2024" data-name="Alissa Beauté" data-url="https://alissabeaute-ks.cz">Alissa Beauté</button>
+            <button data-ba-case="vysluni" data-year="2021" data-name="Portál Výsluní" data-url="https://bdvysluni.cz">Portál Výsluní</button>
+          </div>
         </div>
       </article>
 
@@ -645,6 +646,6 @@
 </footer>
 
 <a href="#kontakt" class="m-cta" data-m-cta>Chci návrh zdarma <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-<script src="assets/site.js?v=1790261394" defer></script>
+<script src="assets/site.js?v=1790262269" defer></script>
 </body>
 </html>

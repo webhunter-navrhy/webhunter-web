@@ -108,6 +108,27 @@ document.addEventListener('DOMContentLoaded', () => {
     c.addEventListener('pointerdown', e => set(e.clientX));
   });
 
+  // Real before/after cases
+  const ba = $('[data-ba]');
+  if (ba) {
+    const bImg = $('[data-ba-before]', ba), aImg = $('[data-ba-after]', ba), lTag = $('[data-ba-l]', ba);
+    const tabs = $$('[data-ba-case]');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      if (t.classList.contains('on')) return;
+      tabs.forEach(x => x.classList.toggle('on', x === t));
+      const k = t.dataset.baCase, pre = [new Image(), new Image()];
+      pre[0].src = `img/ba/${k}-before.jpg`; pre[1].src = `img/ba/${k}-after.jpg`;
+      ba.classList.add('swap');
+      Promise.all(pre.map(im => im.decode().catch(() => {}))).then(() => setTimeout(() => {
+        bImg.src = pre[0].src; aImg.src = pre[1].src;
+        bImg.alt = `Původní web ${t.dataset.name} z roku ${t.dataset.year}`; aImg.alt = `Nový web ${t.dataset.name} od WebHunter`;
+        lTag.textContent = `Předtím · ${t.dataset.year}`;
+        ba.classList.remove('swap');
+        if (hasGsap) { const o = { p: 88 }; gsap.to(o, { p: 50, duration: 1.2, ease: 'expo.inOut', onUpdate: () => ba.style.setProperty('--pos', o.p + '%') }); }
+      }, 200));
+    }));
+  }
+
   // Team comparison: sequential checks
   $$('.cmp .mk.yes').forEach((m, i) => { m.style.transitionDelay = (0.2 + i * 0.12) + 's'; });
 
@@ -420,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Compare intro sweep
   ifEl('[data-compare]', cmpS => {
     const o = { p: 88 };
-    gsap.to(o, { p: 21, duration: 1.8, ease: 'expo.inOut', scrollTrigger: { trigger: cmpS, start: 'top 75%' },
+    gsap.to(o, { p: 50, duration: 1.8, ease: 'expo.inOut', scrollTrigger: { trigger: cmpS, start: 'top 75%' },
       onUpdate: () => cmpS.style.setProperty('--pos', o.p + '%') });
   });
 
