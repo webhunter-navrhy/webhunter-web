@@ -1153,3 +1153,57 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 .copy-chips .chip-link { background: var(--text); color: var(--lime); box-shadow: none; }
 @media (max-width: 1024px) { .cap-grid { grid-template-columns: 1fr 1fr; } .cap-head { grid-template-columns: 1fr; } .cap-head p { justify-self: start; } }
 @media (max-width: 640px) { .cap-grid { grid-template-columns: 1fr; } }
+
+/* ---------- HOMEPAGE SHOWCASE ---------- */
+.work-home { padding: 0 0 var(--section-py); }
+.wh-head { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--gap-lg); align-items: end; margin-bottom: var(--gap-lg); }
+.wh-head h2 { margin-top: 1.2rem; }
+.wh-head h2 .serif { color: var(--blue); }
+.wh-head p { color: var(--muted); max-width: 44ch; }
+.wh-head .btn { margin-top: 1.3rem; }
+.home-sc { padding: clamp(2.5rem, 4.5vw, 4rem) 0; }
+.home-sc .sc-item.on .sc-btn .nm { font-size: 1.45rem; }
+@media (max-width: 1024px) { .wh-head { grid-template-columns: 1fr; } }
+
+/* ---------- WHO WE ARE ---------- */
+.who { display: grid; grid-template-columns: 1fr 1.05fr; gap: var(--gap-xl); align-items: center; }
+.who-copy h2 { margin-top: 1.2rem; }
+.who-copy h2 .serif { color: var(--blue); }
+.who-copy p { color: var(--muted); margin-top: 1.2rem; max-width: 48ch; line-height: 1.7; }
+.who-copy .who-hint { color: var(--blue); margin-top: 1.8rem; font-size: 0.66rem; }
+.orb { position: relative; width: min(100%, 520px); aspect-ratio: 1; justify-self: center; }
+.orb-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.orb-lines circle, .orb-lines line { fill: none; stroke: rgba(10,14,20,0.14); stroke-width: 1; stroke-dasharray: 3 5; }
+.orb-core {
+  position: absolute; left: 50%; top: 50%; width: 46%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--ink); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8%;
+  box-shadow: 0 30px 70px rgba(7, 11, 18, 0.3), 0 0 0 10px rgba(201, 242, 102, 0.18);
+}
+.orb-core .mono { color: var(--lime); font-size: 0.6rem; }
+.orb-core b { font-weight: 400; font-size: clamp(1.2rem, 2vw, 1.6rem); letter-spacing: -0.035em; line-height: 1.1; margin-top: 0.4rem; }
+.orb-core p { font-size: clamp(0.72rem, 0.95vw, 0.84rem); line-height: 1.45; color: #B7C0CB; margin-top: 0.5rem; }
+.orb-core.swap b, .orb-core.swap p { animation: orbIn 0.5s var(--ease-expo); }
+@keyframes orbIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.orb-node {
+  position: absolute;
+  left: calc(50% + 40% * cos(calc(-90deg + var(--k) * 60deg)));
+  top: calc(50% + 40% * sin(calc(-90deg + var(--k) * 60deg)));
+  transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.orb-node i { width: clamp(52px, 5.5vw, 68px); aspect-ratio: 1; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: var(--shadow-soft); transition: background 0.35s, transform 0.5s var(--ease-expo), box-shadow 0.35s; }
+.orb-node i svg { width: 42%; height: 42%; }
+.orb-node span { font-size: 0.84rem; letter-spacing: -0.01em; white-space: nowrap; background: var(--bg); padding: 0 0.3rem; border-radius: 6px; }
+.orb-node:hover i, .orb-node.on i { background: var(--lime); transform: scale(1.1); box-shadow: var(--shadow-lift); }
+.orb-node:focus-visible i { outline: 2px solid var(--blue); outline-offset: 3px; }
+.vals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: var(--gap-xl); }
+.val { background: #fff; border-radius: 22px; padding: 1.3rem 1.3rem 1.4rem; box-shadow: var(--shadow-soft); }
+.val b { display: block; font-weight: 500; font-size: 1.05rem; letter-spacing: -0.02em; line-height: 1.25; }
+.val b::before { content: ''; display: block; width: 26px; height: 3px; border-radius: 2px; background: var(--lime); margin-bottom: 0.9rem; }
+.val p { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin-top: 0.5rem; }
+@media (max-width: 1024px) { .who { grid-template-columns: 1fr; } .vals { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .vals { grid-template-columns: 1fr; } .orb-node span { font-size: 0.7rem; } .orb-core { width: 50%; } .orb-core p { display: none; } }
+.orb-node i { width: clamp(52px, 5.5vw, 68px); height: clamp(52px, 5.5vw, 68px); aspect-ratio: auto; }
+.orb-node i svg { width: 24px; height: 24px; }
+.cmp-slider { --pos: 21%; }
+.cmp-after.real img { object-position: center 46%; }

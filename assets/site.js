@@ -154,7 +154,30 @@ document.addEventListener('DOMContentLoaded', () => {
     new IntersectionObserver((en, obs) => { if (en[0].isIntersecting) { runChat(); obs.disconnect(); } }, { threshold: 0.4 }).observe(chat);
   }
 
-  // ---------- Portfolio showcase (subpage) ----------
+  // ---------- Who we are: discipline orbit ----------
+  const orb = $('.orb');
+  if (orb) {
+    const core = $('.orb-core', orb), nodes = $$('.orb-node', orb);
+    const kEl = $('[data-orb-k]', orb), tEl = $('[data-orb-t]', orb), dEl = $('[data-orb-d]', orb);
+    const def = [kEl.textContent, tEl.textContent, dEl.textContent];
+    let idx = -1, user = false, visible = false;
+    const pick = i => {
+      idx = i; nodes.forEach((n, k) => n.classList.toggle('on', k === i));
+      core.classList.remove('swap'); void core.offsetWidth; core.classList.add('swap');
+      if (i < 0) { [kEl.textContent, tEl.textContent, dEl.textContent] = def; return; }
+      kEl.textContent = 'Co přináší vašemu webu'; tEl.textContent = nodes[i].dataset.t; dEl.textContent = nodes[i].dataset.d;
+    };
+    nodes.forEach((n, k) => {
+      n.addEventListener('mouseenter', () => { user = true; pick(k); });
+      n.addEventListener('focus', () => { user = true; pick(k); });
+      n.addEventListener('click', () => { user = true; pick(k); });
+    });
+    orb.addEventListener('mouseleave', () => { user = false; });
+    new IntersectionObserver(en => { visible = en[0].isIntersecting; }, { threshold: 0.4 }).observe(orb);
+    setInterval(() => { if (visible && !user) pick((idx + 1) % nodes.length); }, 3200);
+  }
+
+  // ---------- Portfolio showcase ----------
   const sc = $('.showcase');
   if (sc) {
     const items = $$('.sc-item', sc);
@@ -352,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Compare intro sweep
   ifEl('[data-compare]', cmpS => {
     const o = { p: 88 };
-    gsap.to(o, { p: 42, duration: 1.8, ease: 'expo.inOut', scrollTrigger: { trigger: cmpS, start: 'top 75%' },
+    gsap.to(o, { p: 21, duration: 1.8, ease: 'expo.inOut', scrollTrigger: { trigger: cmpS, start: 'top 75%' },
       onUpdate: () => cmpS.style.setProperty('--pos', o.p + '%') });
   });
 
