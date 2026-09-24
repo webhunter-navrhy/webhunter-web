@@ -130,6 +130,39 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('mouseleave', () => { btn.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1)'; btn.style.transform = ''; });
   });
 
+  // Hero URL form -> prefill contact form
+  const heroForm = $('[data-hero-url]');
+  const goContact = (focusSel) => {
+    const target = $('#kontakt');
+    if (!target) return;
+    if (lenis) lenis.scrollTo(target, { offset: -10, duration: 1.4 }); else target.scrollIntoView({ behavior: 'smooth' });
+    const f = $(focusSel);
+    setTimeout(() => { if (!f) return; f.focus({ preventScroll: true }); const fld = f.closest('.fld'); if (fld) { fld.classList.remove('flash'); void fld.offsetWidth; fld.classList.add('flash'); } }, 1450);
+  };
+  if (heroForm) {
+    heroForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const v = $('#hero-web').value.trim();
+      if (!v) { heroForm.classList.remove('shake'); void heroForm.offsetWidth; heroForm.classList.add('shake'); $('#hero-web').focus(); return; }
+      const web = $('.form [name="web"]');
+      if (web) web.value = v.replace(/^https?:\/\//i, '').replace(/\/$/, '');
+      goContact('.form [name="email"]');
+    });
+    const noWeb = $('[data-no-web]');
+    if (noWeb) noWeb.addEventListener('click', e => { e.preventDefault(); e.stopImmediatePropagation(); goContact('.form [name="popis"]'); }, true);
+  }
+
+  // Mobile sticky CTA: hidden over hero and contact form
+  const mCta = $('[data-m-cta]');
+  if (mCta) {
+    const hide = new Set();
+    const sync = () => mCta.classList.toggle('show', hide.size === 0 && window.scrollY > 200);
+    const mio = new IntersectionObserver(en => { en.forEach(x => x.isIntersecting ? hide.add(x.target) : hide.delete(x.target)); sync(); }, { threshold: 0.15 });
+    $$('.hero, .sub-hero, #kontakt, .cta-band').forEach(el => mio.observe(el));
+    window.addEventListener('scroll', sync, { passive: true });
+    toggle.addEventListener('click', () => document.body.classList.toggle('menu-lock', links.classList.contains('open')));
+  }
+
   // Form (demo)
   const form = $('.form');
   if (form) form.addEventListener('submit', e => { e.preventDefault(); form.classList.add('sent'); });
