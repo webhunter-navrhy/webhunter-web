@@ -1627,3 +1627,83 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 /* FAQ open item as dark banner */
 .qa.open { background: radial-gradient(120% 120% at 90% 0%, #16306E 0%, #0B1430 50%, #070B12 100%); }
 .qa.open::before { color: #6E9BFF; }
+
+/* =================================================================
+   CARD CRAFT v2 — richer banner cards
+   ================================================================= */
+/* dotted grid that fades out, replaces stripes */
+.bn-pat {
+  inset: -10%; opacity: 0.22;
+  background-image: radial-gradient(currentColor 1.1px, transparent 1.5px);
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, rgba(0,0,0,0.5) 40%, transparent 75%);
+          mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, rgba(0,0,0,0.5) 40%, transparent 75%);
+  animation: bnDots 14s linear infinite;
+}
+@keyframes bnDots { to { transform: translate(18px, 18px); } }
+.bnv-sky .bn-pat, .bn-sky .bn-pat, .b-free.bn-sky .bn-pat { opacity: 0.18; }
+.bnv-lime .bn-pat, .b-lime.bn .bn-pat { opacity: 0.12; }
+.bnv-dark .bn-pat, .b-dark.bn .bn-pat { opacity: 0.3; }
+/* concentric rings from the top-right corner (static) */
+.bn-fx::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-radial-gradient(circle at 100% 0%, transparent 0 46px, currentColor 46px 47px, transparent 47px 92px);
+  opacity: 0.07;
+  -webkit-mask-image: radial-gradient(80% 80% at 100% 0%, #000, transparent 80%); mask-image: radial-gradient(80% 80% at 100% 0%, #000, transparent 80%);
+}
+.bnv-lime .bn-fx::before, .b-lime.bn .bn-fx::before { opacity: 0.05; }
+/* glass edge + top gloss + cursor spotlight */
+.bnx::after, .bn::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 4;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 0 0 1px rgba(255,255,255,0.14);
+  background:
+    radial-gradient(360px circle at var(--mx, 50%) var(--my, -30%), rgba(255,255,255,var(--spot, 0)), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 28%);
+  transition: --spot 0.4s var(--ease-out);
+}
+@property --spot { syntax: '<number>'; inherits: true; initial-value: 0; }
+.bnx:hover, .bn:hover { --spot: 0.22; }
+.bnv-dark::after, .b-dark.bn::after { box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 0 0 1px rgba(110,155,255,0.16); }
+.bnv-sky::after, .bn-sky::after { box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(30,98,240,0.10); }
+.bnv-lime::after, .b-lime.bn::after { box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), inset 0 0 0 1px rgba(10,14,20,0.06); }
+/* colour-tinted, layered shadows */
+.bnv-blue, .bn-blue { box-shadow: 0 1px 2px rgba(12,54,168,0.2), 0 20px 44px -12px rgba(30,98,240,0.55); }
+.bnv-sky, .bn-sky { box-shadow: 0 1px 2px rgba(30,98,240,0.08), 0 20px 44px -14px rgba(30,98,240,0.32); }
+.bnv-lime, .b-lime.bn { box-shadow: 0 1px 2px rgba(90,120,20,0.15), 0 20px 44px -14px rgba(130,180,30,0.55); }
+.bnv-dark, .b-dark.bn { box-shadow: 0 1px 2px rgba(7,11,18,0.3), 0 22px 48px -14px rgba(7,11,18,0.6); }
+/* hover: gentle 3D tilt */
+.tilt { transition: transform 0.6s var(--ease-expo), box-shadow 0.6s var(--ease-out); transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)); }
+.tilt:hover { --ty: -4px; }
+/* 3D objects: glow halo + parallax toward cursor (independent of float animation) */
+.bn-obj { translate: calc(var(--px, 0) * 14px) calc(var(--py, 0) * 10px); transition: translate 0.8s var(--ease-expo);
+  filter: drop-shadow(0 22px 26px rgba(5, 20, 60, 0.32)) drop-shadow(0 0 28px rgba(255, 255, 255, 0.22)); }
+.bnv-dark .bn-obj, .b-dark .bn-obj { filter: drop-shadow(0 22px 26px rgba(0,0,0,0.5)) drop-shadow(0 0 34px rgba(47,107,255,0.45)); }
+.bnv-lime .bn-obj, .b-lime .bn-obj { filter: drop-shadow(0 20px 22px rgba(60,80,10,0.35)) drop-shadow(0 0 26px rgba(255,255,255,0.5)); }
+/* inner white panels read as raised glass */
+.st-panel, .bn-blue .inner, .free-panel, .b-photo .inner { box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(10,30,70,0.06), 0 14px 32px -8px rgba(10,40,100,0.22); }
+.free-panel { background: rgba(255,255,255,0.9); }
+
+/* number chips */
+.n-chip { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; background: rgba(255,255,255,0.9); color: var(--text); box-shadow: 0 4px 12px rgba(10,30,70,0.12); }
+.bnv-sky .n-chip { background: var(--text); color: #fff; }
+.bnv-lime .n-chip { background: var(--text); color: var(--lime); }
+.bnv-dark .n-chip { background: var(--lime); color: var(--text); }
+
+/* services: stronger type */
+.sv.bnx .sv-text { padding: 1.2rem 0.9rem 0.9rem; grid-template-columns: 1fr; gap: 0.4rem; }
+.sv.bnx .sv-text .idx { display: none; }
+.sv.bnx .sv-text h3 { font-size: clamp(1.55rem, 2.2vw, 2rem); letter-spacing: -0.04em; display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+.sv.bnx .sv-text p { grid-column: 1; font-size: 0.95rem; max-width: 52ch; }
+.sv.bnx .ba-tabs { grid-column: 1; }
+.sv.bnx .sv-vis { border-radius: 22px; }
+
+/* values: number chip on top, bigger title */
+.val.bnx { justify-content: space-between; min-height: 280px; }
+.val.bnx b { font-size: 1.22rem; letter-spacing: -0.03em; margin-top: auto; }
+.val.bnx b::before { display: none; }
+.val .ob-val { top: 22px; right: 16px; width: 86px; }
+@media (hover: none) { .tilt { transform: none; } }
+.val.bnx .n-chip { align-self: flex-start; }
+.tilt { transform: translateY(var(--ty, 0px)); }
+.sv-cta.bnx { padding: 1.6rem; }
+.sv-cta.bnx .mono { margin-top: 0.2rem; }

@@ -237,6 +237,20 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => { if (visible && !user) pick((idx + 1) % nodes.length); }, 3200);
   }
 
+  // ---------- Card spotlight, tilt and object parallax ----------
+  if (finePointer) $$('.bnx, .bn').forEach(card => {
+    const tilt = card.classList.contains('tilt');
+    let raf = 0, ev = null;
+    const apply = () => {
+      raf = 0; const r = card.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width, y = (ev.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      card.style.setProperty('--px', ((x - 0.5) * 2).toFixed(3)); card.style.setProperty('--py', ((y - 0.5) * 2).toFixed(3));
+    };
+    card.addEventListener('pointermove', e => { ev = e; if (!raf) raf = requestAnimationFrame(apply); });
+    card.addEventListener('pointerleave', () => { ['--px', '--py', '--rx', '--ry'].forEach(v => card.style.removeProperty(v)); });
+  });
+
   // ---------- Portfolio showcase ----------
   const sc = $('.showcase');
   if (sc) {
@@ -409,9 +423,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from(el, { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
   gsap.utils.toArray('.reveal-group').forEach(g => {
-    gsap.from(g.querySelectorAll('.reveal-item'), { y: 40, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'expo.out', scrollTrigger: { trigger: g, start: 'top 85%' } });
+    gsap.from(g.querySelectorAll('.reveal-item'), { y: 40, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'expo.out', clearProps: 'transform,translate,scale,rotate', scrollTrigger: { trigger: g, start: 'top 85%' } });
   });
-  ifEl('.bento', el => gsap.from('.b-card', { y: 70, opacity: 0, scale: 0.96, duration: 1.2, stagger: { each: 0.1, from: 'random' }, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+  ifEl('.bento', el => gsap.from('.b-card', { y: 70, opacity: 0, scale: 0.96, duration: 1.2, stagger: { each: 0.1, from: 'random' }, ease: 'expo.out', clearProps: 'transform,translate,scale,rotate', scrollTrigger: { trigger: el, start: 'top 85%' } }));
   // cards have CSS transitions on transform — disable them while GSAP animates
   const rise = (targets, trigger, vars) => {
     gsap.set(targets, { transition: 'none' });
@@ -427,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Process: cards rise, track fills (no pin)
   ifEl('.p-steps', el => {
-    gsap.from('.p-step', { y: 90, opacity: 0, duration: 1.3, stagger: 0.15, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
+    gsap.from('.p-step', { y: 90, opacity: 0, duration: 1.3, stagger: 0.15, ease: 'expo.out', clearProps: 'transform,translate,scale,rotate', scrollTrigger: { trigger: el, start: 'top 85%' } });
     const nodes = $$('.p-node');
     gsap.to('.p-track .line i', {
       scaleX: 1, ease: 'none',
