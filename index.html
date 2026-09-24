@@ -46,7 +46,7 @@
   --body: clamp(0.9375rem, 1vw, 1.0625rem);
   --small: clamp(0.8125rem, 0.9vw, 0.875rem);
 
-  --section-py: clamp(6rem, 12vw, 10rem);
+  --section-py: clamp(4.5rem, 8vw, 7rem);
   --gap-xl: clamp(4rem, 7vw, 6rem);
   --gap-lg: clamp(2.5rem, 4vw, 4rem);
   --gap-md: clamp(1.5rem, 2.5vw, 2.5rem);
@@ -406,32 +406,20 @@ p { text-wrap: pretty; }
 .b-card p { font-size: 0.9rem; line-height: 1.5; }
 .b-photo .inner p { color: var(--muted); margin-top: 0.5rem; }
 
-/* Receipt card */
-.b-receipt { grid-row: span 2; background: var(--bg-alt); display: flex; flex-direction: column; padding: 1.1rem; }
-.receipt {
-  flex: 1; background: #fff; border-radius: 20px 20px 6px 6px; padding: 1.4rem 1.4rem 1.2rem;
-  position: relative; box-shadow: var(--shadow-soft); display: flex; flex-direction: column;
-}
-.receipt::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -9px; height: 10px;
-  background: radial-gradient(circle at 8px -2px, transparent 7px, #fff 7.5px) 0 0 / 16px 10px repeat-x;
-}
-.receipt-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px dashed rgba(10,14,20,0.18); }
-.receipt-head .logo { color: var(--text); font-size: 1.05rem; }
-.receipt-head .mono { font-size: 0.64rem; color: var(--muted); }
-.r-line { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; font-size: 0.92rem; color: #34404C; }
-.r-line b { font-weight: 400; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.r-lines { padding: 0.5rem 0; border-bottom: 1px dashed rgba(10,14,20,0.18); }
-.r-total { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 1rem; }
-.r-total .mono { font-size: 0.66rem; color: var(--muted); }
-.r-total .b-num { font-size: clamp(3rem, 4.6vw, 4.2rem); }
-.stamp {
-  position: absolute; right: -6px; top: -14px; transform: rotate(8deg); background: #E3F6EA;
-  border: 1.5px solid var(--green); color: var(--green); border-radius: 10px; padding: 0.35rem 0.7rem;
-  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85;
-}
-.b-receipt .foot { padding: 1.3rem 0.4rem 0.2rem; font-size: 0.92rem; color: #34404C; line-height: 1.45; }
-.b-receipt .foot .serif { font-size: 1.15em; color: var(--text); }
+/* Free card (sky) */
+.b-free { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; padding: 1.1rem; isolation: isolate; background: #2b62c4; color: #fff; }
+.b-free > img { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; object-position: 30% 85%; z-index: -1; }
+.b-free::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,40,110,0.35), transparent 55%); }
+.b-free .top { padding: 0.5rem 0.5rem 0; }
+.b-free .small { font-size: 0.9rem; color: rgba(255,255,255,0.9); }
+.b-free .b-num { margin-top: 0.6rem; }
+.free-panel { color: var(--text); background: rgba(255,255,255,0.82); border: 1px solid rgba(255,255,255,0.9); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-radius: 20px; padding: 1rem 1.2rem 1.1rem; }
+.free-row { display: flex; align-items: center; gap: 0.7rem; padding: 0.45rem 0; font-size: 0.95rem; }
+.free-row + .free-row { border-top: 1px solid var(--line); }
+.free-row i { width: 22px; height: 22px; border-radius: 50%; background: var(--text); color: var(--lime); display: grid; place-items: center; flex: none; }
+.free-row i svg { width: 11px; height: 11px; }
+.free-panel p { margin-top: 0.7rem; font-size: 0.88rem; color: var(--muted); }
+.free-panel p .serif { font-size: 1.15em; color: var(--text); }
 
 .b-lime { background: var(--lime); display: flex; flex-direction: column; justify-content: space-between; }
 .b-lime .small, .b-dark .small { font-size: 0.9rem; }
@@ -460,20 +448,18 @@ p { text-wrap: pretty; }
 .p-head p { font-size: 1rem; font-weight: 300; line-height: 1.6; color: #fff; max-width: 38ch; padding: 1.2rem 1.4rem; border-radius: 22px; background: rgba(8, 35, 100, 0.38); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); justify-self: end; }
 
 .p-track { position: relative; margin: var(--gap-xl) 0 1.4rem; height: 44px; }
-.p-track .line { position: absolute; left: 22px; right: 22px; top: 50%; height: 1px; background: rgba(255,255,255,0.3); }
+.p-track .line { position: absolute; left: calc(100% / 6); right: calc(100% / 6); top: 50%; height: 1px; background: rgba(255,255,255,0.3); }
 .p-track .line i { position: absolute; inset: 0; background: var(--lime); transform-origin: left; transform: scaleX(0); }
-.p-nodes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.p-nodes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; justify-items: center; }
 .p-node { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 0.5s, color 0.5s; }
 .p-node.on { background: var(--lime); color: var(--text); border-color: var(--lime); }
 
-.p-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+.p-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: stretch; }
 .p-step {
   background: rgba(255,255,255,0.94); color: var(--text); border-radius: 28px; padding: 0.7rem;
-  box-shadow: 0 30px 70px rgba(5, 25, 80, 0.25);
+  box-shadow: 0 30px 70px rgba(5, 25, 80, 0.25); display: flex; flex-direction: column;
 }
-.p-step:nth-child(2) { margin-top: clamp(1.5rem, 4vw, 3.5rem); }
-.p-step:nth-child(3) { margin-top: clamp(3rem, 8vw, 7rem); }
-.ps-vis { background: linear-gradient(180deg, #EAF2FE, #F4F7FB); border-radius: 21px; padding: 1rem; min-height: 232px; display: flex; flex-direction: column; justify-content: center; }
+.ps-vis { background: linear-gradient(180deg, #EAF2FE, #F4F7FB); border-radius: 21px; padding: 1rem; height: 250px; display: flex; flex-direction: column; justify-content: center; }
 .ps-text { padding: 1.2rem 0.9rem 0.9rem; }
 .ps-text .mono { font-size: 0.68rem; color: var(--muted); }
 .ps-text h3 { font-size: 1.5rem; letter-spacing: -0.03em; margin: 0.45rem 0 0.5rem; }
@@ -501,7 +487,10 @@ p { text-wrap: pretty; }
 .p-foot span i svg { width: 16px; height: 16px; }
 
 /* ---------- SERVICES (bento with mocks) ---------- */
-.services { padding: var(--section-py) 0; }
+.services { padding: var(--section-py) 0; position: relative; }
+.services::before, .team::before { content: ''; position: absolute; pointer-events: none; z-index: -1; width: 60vw; height: 60vw; border-radius: 50%; }
+.services::before { left: -20vw; top: 10%; background: radial-gradient(circle, rgba(30,98,240,0.08), transparent 65%); }
+.team::before { right: -20vw; top: -10%; background: radial-gradient(circle, rgba(201,242,102,0.16), transparent 65%); }
 .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-lg); align-items: end; margin-bottom: var(--gap-lg); }
 .sec-head h2 { margin-top: 1.2rem; }
 .sec-head h2 .muted { color: #9AA5B1; }
@@ -645,7 +634,8 @@ p { text-wrap: pretty; }
 .chat-foot { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5E6875; }
 
 /* ---------- TEAM (comparison) ---------- */
-.team { padding: var(--section-py) 0; }
+.team { padding: var(--section-py) 0; position: relative; }
+.services, .team { overflow-x: clip; }
 .team-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--gap-lg); align-items: end; margin-bottom: var(--gap-lg); }
 .team-head h2 { margin-top: 1.2rem; }
 .team-head h2 .serif { color: var(--blue); }
@@ -793,7 +783,6 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
   .sv-grid { grid-template-columns: 1fr 1fr; }
   .sv.wide { grid-column: 1 / -1; }
   .p-steps { grid-template-columns: 1fr; max-width: 560px; }
-  .p-step:nth-child(n) { margin-top: 0; }
   .p-track { display: none; }
   .p-head { grid-template-columns: 1fr; }
   .p-steps { margin-top: var(--gap-lg); }
@@ -837,9 +826,9 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
   .hero-front { -webkit-mask-image: linear-gradient(180deg, transparent 70%, #000 88%); mask-image: linear-gradient(180deg, transparent 70%, #000 88%); }
 
   .bento { grid-template-columns: 1fr; grid-template-rows: none; }
-  .b-photo, .b-receipt, .b-lime, .b-dark { grid-row: auto; grid-column: auto; }
+  .b-photo, .b-free, .b-lime, .b-dark { grid-row: auto; grid-column: auto; }
   .b-photo { min-height: 460px; }
-  .b-receipt { min-height: 420px; }
+  .b-free { min-height: 440px; }
   .b-lime, .b-dark { min-height: 230px; gap: 1.5rem; }
 
   .p-frame { padding-top: 5.5rem; }
@@ -1076,19 +1065,18 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
         </div>
       </div>
 
-      <div class="b-card b-receipt">
-        <div class="receipt">
-          <div class="receipt-head"><span class="logo">WebHunter</span><span class="mono">Účtenka · návrh webu</span></div>
-          <div class="r-lines">
-            <div class="r-line">Návrh nového webu <b>0 Kč</b></div>
-            <div class="r-line">Úpravy návrhu <b>0 Kč</b></div>
-            <div class="r-line">Konzultace <b>0 Kč</b></div>
-            <div class="r-line">Závazek pokračovat <b>žádný</b></div>
-          </div>
-          <div class="r-total"><span class="mono">Celkem k úhradě</span><div class="b-num">0<span class="unit">&nbsp;Kč</span></div></div>
-          <span class="stamp">Zdarma</span>
+      <div class="b-card b-free">
+        <img class="bento-par" src="img/hero-sky.jpg" alt="" loading="lazy">
+        <div class="top">
+          <div class="small">Návrh zdarma a nezávazně</div>
+          <div class="b-num">0<span class="unit">&nbsp;Kč</span></div>
         </div>
-        <p class="foot">Nejdřív uvidíte svůj nový web. <span class="serif">Až potom</span> se rozhodujete.</p>
+        <div class="free-panel">
+          <div class="free-row"><i><svg><use href="#i-check"/></svg></i>Žádná záloha</div>
+          <div class="free-row"><i><svg><use href="#i-check"/></svg></i>Žádná smlouva předem</div>
+          <div class="free-row"><i><svg><use href="#i-check"/></svg></i>Žádný závazek pokračovat</div>
+          <p>Nejdřív uvidíte svůj nový web. <span class="serif">Až potom</span> se rozhodujete.</p>
+        </div>
       </div>
 
       <div class="b-card b-lime">
@@ -1732,6 +1720,15 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.to(o, { p: 42, duration: 1.8, ease: 'expo.inOut', scrollTrigger: { trigger: cmpS, start: 'top 75%' },
       onUpdate: () => cmpS.style.setProperty('--pos', o.p + '%') });
   }
+
+  // Frames open up as they enter (smoother section transitions)
+  const inset = window.innerWidth < 768 ? '3%' : '5%';
+  gsap.utils.toArray('.p-frame, .geo, .faq-panel, .cta-frame').forEach(fr => {
+    gsap.fromTo(fr, { clipPath: `inset(4% ${inset} 0% ${inset} round 48px)` }, {
+      clipPath: 'inset(0% 0% 0% 0% round 36px)', ease: 'none',
+      scrollTrigger: { trigger: fr, start: 'top bottom', end: 'top 30%', scrub: 0.6 }
+    });
+  });
 
   window.addEventListener('load', () => ScrollTrigger.refresh());
 });
