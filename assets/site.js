@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Pause CSS animation loops in sections that are off screen
   const offIO = new IntersectionObserver(entries => entries.forEach(en => en.target.classList.toggle('is-off', !en.isIntersecting)), { rootMargin: '100px 0px' });
-  $$('.hero, .marquee, .strip, .reel, .geo, .showcase, .sub-hero, .process').forEach(el => offIO.observe(el));
+  $$('.hero, .marquee, .strip, .reel, .bento, .geo, .showcase, .sub-hero, .process').forEach(el => offIO.observe(el));
   const heroEl = $('.hero');
 
   // In-view triggers for CSS animations
@@ -365,8 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero-pill', { y: 20, opacity: 0, duration: 1 }, 0.2)
       .from('.hero h1 .w > span', { yPercent: 110, duration: 1.2, stagger: 0.055 }, 0.3)
       .from('.hero-sub, .hero-buttons', { y: 24, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.75)
-      .from('.hc-card', { y: 260, opacity: 0, duration: 1.6, stagger: { each: 0.08, from: 'center' } }, 0.6)
-      .from('.badge', { scale: 0, rotate: -90, duration: 1.2 }, 1.2);
+      .from('.hc-card', { y: 260, opacity: 0, duration: 1.6, stagger: { each: 0.08, from: 'center' } }, 0.6);
     gsap.to('.ring-stage', { y: -80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
   });
   // Subpage hero intro
