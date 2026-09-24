@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Web Hunter</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #fff; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #0A0E14; }
+  .c { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; text-align: center; padding: 24px; }
+  .spin { width: 32px; height: 32px; border: 4px solid #e5e7eb; border-top-color: #1f2937; border-radius: 50%; animation: s 0.8s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  .muted { color: #9ca3af; font-size: 14px; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+  h1 { font-size: 56px; margin: 0; letter-spacing: -0.04em; font-weight: 500; }
+  a.b { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #C9F266; color: #0A0E14; text-decoration: none; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="c" id="v"><div class="spin" aria-label="Načítám"></div></div>
+<script>
+(function () {
+  var APP = '6a366c8ba95efe01593d4844';
+  var path = location.pathname;
+  // the site may live at the domain root (webhunter.cz) or under /webhunter-web/ (GitHub Pages preview)
+  var base = path.indexOf('/webhunter-web/') === 0 ? '/webhunter-web' : '';
+  var rel = path.slice(base.length).replace(/\/+$/, '') || '/';
+  var view = document.getElementById('v');
+  function notFound(msg) {
+    document.title = 'Stránka nenalezena | Web Hunter';
+    view.innerHTML = msg ? '<p class="muted">' + msg + '</p>' :
+      '<h1>404</h1><p class="muted">Tuhle stránku jsme nenašli.</p><a class="b" href="' + (base || '') + '/">Zpět na úvod</a>';
+  }
+  function frame(src, title, sandbox) {
+    document.title = title;
+    var f = document.createElement('iframe'); f.src = src; f.title = title.split(' |')[0];
+    if (sandbox) f.setAttribute('sandbox', sandbox); else f.setAttribute('allow', 'clipboard-read; clipboard-write');
+    document.body.innerHTML = ''; document.body.appendChild(f);
+  }
+  // 1) návrhy — identical behaviour to the previous site (/navrhy/:id → fullscreen iframe of the proposal URL)
+  var m = rel.match(/^\/navrhy\/([^\/?#]+)$/);
+  if (m) {
+    document.title = 'Návrh | Web Hunter';
+    fetch('https://base44.app/api/apps/' + APP + '/entities/Proposal/' + encodeURIComponent(m[1]), { headers: { 'X-App-Id': APP } })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (p) { if (p && p.url) frame(p.url, 'Návrh | Web Hunter', 'allow-scripts allow-same-origin allow-forms allow-popups'); else notFound('Stránka nenalezena.'); })
+      .catch(function () { notFound('Stránka nenalezena.'); });
+    return;
+  }
+  // 2) CRM (as on the previous site)
+  if (rel === '/crm') { frame('https://hunt-flow-crm.base44.app/', 'CRM | Web Hunter'); return; }
+  // 3) old routes → new sections
+  var map = { '/sluzby': '/#sluzby', '/proces': '/#proces', '/spoluprace': '/#proces', '/proc-my': '/#tym', '/o-nas': '/#tym', '/kontakt': '/#kontakt',
+    '/portfolio': '/realizace.html', '/tvorba-webu': '/', '/financni-poradce': '/', '/ochrana-osobnich-udaju': '/ochrana-osobnich-udaju/', '/realizace': '/realizace.html', '/navrhy': '/' };
+  if (map[rel]) { location.replace(base + map[rel] + (location.search || '')); return; }
+  notFound();
+})();
+</script>
+</body>
+</html>

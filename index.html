@@ -43,7 +43,7 @@
 <script src="assets/vendor/lenis.min.js" defer></script>
 
 <link rel="preload" as="image" href="img/hero-sky-1400.webp" imagesrcset="img/hero-sky-800.webp 800w, img/hero-sky-1400.webp 1400w, img/hero-sky-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
-<link rel="stylesheet" href="assets/site.min.css?v=1790279480">
+<link rel="stylesheet" href="assets/site.min.css?v=1790282682">
 </head>
 <body>
 
@@ -594,6 +594,7 @@
         <h3>Chci návrh zdarma</h3>
         <p>Vyplnění zabere asi minutu.</p>
         <div class="form-fields">
+          <label class="fld"><span>Jméno a příjmení</span><input type="text" name="name" autocomplete="name" placeholder="Jan Novák" required></label>
           <label class="fld"><span>Odkaz na současný web</span><input type="text" name="web" placeholder="www.vasefirma.cz"></label>
           <label class="fld"><span>Nebo pár vět o projektu</span><textarea name="popis" placeholder="Čím se zabýváte a pro koho…"></textarea></label>
           <div class="fld-row">
@@ -601,8 +602,9 @@
             <label class="fld"><span>Telefon (nepovinné)</span><input type="tel" name="tel" placeholder="+420"></label>
           </div>
         </div>
-        <label class="consent"><input type="checkbox" required> Souhlasím se zpracováním osobních údajů za účelem přípravy návrhu.</label>
-        <button type="submit" class="btn btn--dark">Odeslat a získat návrh <span class="arr"><svg><use href="#i-arrow"/></svg></span></button>
+        <label class="consent"><input type="checkbox" name="consent" required> Beru na vědomí, že WebHunter s.r.o. zpracuje mé údaje za účelem přípravy návrhu a odpovědi na poptávku podle <a href="ochrana-osobnich-udaju/" class="link-u" target="_blank">zásad ochrany osobních údajů</a>.</label>
+        <p class="form-err" role="alert" hidden></p>
+        <button type="submit" class="btn btn--dark" data-submit>Odeslat a získat návrh <span class="arr"><svg><use href="#i-arrow"/></svg></span></button>
       </div>
       <div class="form-ok">
         <div class="ok-ico"><svg><use href="#i-check"/></svg></div>
@@ -637,21 +639,21 @@
       </div>
       <div class="foot-col">
         <h4>Firma</h4>
-        <span>WebHunter s.r.o.</span>
-        <span>IČO: 29498511</span>
+        <span class="adm" data-adm="leads">WebHunter s.r.o.</span>
+        <span class="adm" data-adm="navrhy">IČO: 29498511</span>
         <span class="foot-cp">GDPR partner</span>
         <a href="https://www.compliancepartner.cz" target="_blank" rel="noopener" class="cp-link"><svg class="cp-mark"><use href="#cp-logo"/></svg><span>Compliance <b>Partner</b></span></a>
       </div>
     </div>
     <div class="foot-word" aria-hidden="true">Web<span class="serif">Hunter</span></div>
     <div class="foot-bottom">
-      <span>© 2026 WebHunter s.r.o. · IČO 29498511</span>
-      <span><a href="#" class="link-u">Zásady ochrany údajů</a> · <a href="#" class="link-u">Nastavení cookies</a></span>
+      <span><span class="adm" data-adm="analytics">© 2026 WebHunter s.r.o.</span> · <span class="adm" data-adm="navrhy">IČO 29498511</span></span>
+      <span><a href="ochrana-osobnich-udaju/" class="link-u">Zásady ochrany osobních údajů</a> · <button type="button" class="link-u cookie-link" data-cookie-settings>Nastavení cookies</button></span>
     </div>
   </div>
 </footer>
 
 <a href="#kontakt" class="m-cta" data-m-cta>Chci návrh zdarma <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-<script src="assets/site.min.js?v=1790279480" defer></script>
+<script src="assets/site.min.js?v=1790282682" defer></script>
 </body>
 </html>

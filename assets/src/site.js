@@ -1,3 +1,81 @@
+/* WebHunter — shared site script */
+const WH_ASSETS = (document.currentScript && document.currentScript.src.replace(/site(\.min)?\.js.*$/, '')) || 'assets/';
+const WH_VER = ((document.currentScript && document.currentScript.src.match(/[?&]v=(\d+)/)) || [])[1] || '1';
+const WH_APP = '6a366c8ba95efe01593d4844';
+const WH_API = 'https://base44.app/api/apps/' + WH_APP;
+const WH_PIXEL = '1023099023693684';
+window.whTrack = window.whTrack || function () { (window.whTrackQ = window.whTrackQ || []).push([].slice.call(arguments)); };
+
+/* ---------- Consent (GDPR) ---------- */
+const whConsent = (() => {
+  const KEY = 'wh_cookie_consent';
+  const read = () => {
+    let raw = null; try { raw = localStorage.getItem(KEY); } catch (e) {}
+    if (!raw) return null;
+    if (raw === 'all') return { a: true, m: true, legacy: true };
+    if (raw === 'necessary') return { a: false, m: false, legacy: true };
+    try { const o = JSON.parse(raw); return o && o.v ? o : null; } catch (e) { return null; }
+  };
+  const loaded = {};
+  const loadScript = (src, attrs = {}) => new Promise((res, rej) => { const el = document.createElement('script'); el.src = src; el.async = true; Object.assign(el, attrs); el.onload = res; el.onerror = rej; document.head.appendChild(el); });
+  const apply = c => {
+    if (!c) return;
+    if (c.a && !loaded.a) { loaded.a = true; loadScript(WH_ASSETS + 'track.min.js?v=' + WH_VER).catch(() => {}); }
+    if (c.m && !loaded.m) {
+      loaded.m = true;
+      /* Meta Pixel — loaded only after marketing consent */
+      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', WH_PIXEL); window.fbq('consent', 'grant'); window.fbq('track', 'PageView');
+    }
+    if (!c.m && window.fbq) { try { window.fbq('consent', 'revoke'); } catch (e) {} }
+  };
+  const save = (a, m) => {
+    const c = { v: 1, a: !!a, m: !!m, t: new Date().toISOString() };
+    try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {}
+    if (!a) { try { ['wh_vid', 'wh_first', 'wh_visits'].forEach(k => localStorage.removeItem(k)); sessionStorage.removeItem('wh_landing_session'); } catch (e) {} }
+    apply(c); return c;
+  };
+  let ui = null;
+  const build = () => {
+    const privacy = (document.querySelector('a[href$="ochrana-osobnich-udaju/"]') || {}).getAttribute ? document.querySelector('a[href$="ochrana-osobnich-udaju/"]').getAttribute('href') : 'ochrana-osobnich-udaju/';
+    const d = document.createElement('div'); d.className = 'ck'; d.hidden = true;
+    d.innerHTML = `<div class="ck-card" role="dialog" aria-modal="false" aria-labelledby="ck-t">
+      <div class="ck-head"><svg class="cp-mark" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 3 L43 10 V28 C43 40 34 50 24 54 C14 50 5 40 5 28 V10 Z" fill="#16345F"/><path d="M15 28 l6.5 6.5 L34 21" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h2 id="ck-t">Vážíme si vašeho soukromí</h2><p>Nezbytné cookies zajišťují fungování webu. Analytické nám pomáhají web zlepšovat a marketingové měří účinnost reklam. Volitelné použijeme jen s vaším souhlasem, který můžete kdykoli změnit v patičce. Více v <a href="${privacy}">zásadách ochrany osobních údajů</a>.</p></div></div>
+      <div class="ck-opts" hidden>
+        <label class="ck-opt"><b>Nezbytné</b><small>Uložení vaší volby a základní funkce webu. Vždy zapnuté.</small><span class="ck-sw"><input type="checkbox" checked disabled><i></i></span></label>
+        <label class="ck-opt"><b>Analytické</b><small>Anonymní statistiky návštěvnosti, abychom věděli, co na webu funguje.</small><span class="ck-sw"><input type="checkbox" data-ck="a"><i></i></span></label>
+        <label class="ck-opt"><b>Marketingové</b><small>Meta Pixel pro měření a cílení reklam na Facebooku a Instagramu.</small><span class="ck-sw"><input type="checkbox" data-ck="m"><i></i></span></label>
+      </div>
+      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Odmítnout vše</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše</button></div>
+    </div>`;
+    document.body.appendChild(d);
+    const opts = d.querySelector('.ck-opts'), setBtn = d.querySelector('[data-ck-set]');
+    const close = () => { d.hidden = true; document.body.classList.remove('ck-open'); };
+    d.querySelector('[data-ck-yes]').addEventListener('click', () => { save(true, true); close(); });
+    d.querySelector('[data-ck-no]').addEventListener('click', () => { save(false, false); close(); });
+    setBtn.addEventListener('click', () => {
+      if (opts.hidden) { opts.hidden = false; setBtn.textContent = 'Uložit výběr'; return; }
+      save(d.querySelector('[data-ck="a"]').checked, d.querySelector('[data-ck="m"]').checked); close();
+    });
+    return { el: d, opts, setBtn };
+  };
+  const open = (detailed) => {
+    ui = ui || build();
+    const c = read() || { a: false, m: false };
+    ui.el.querySelector('[data-ck="a"]').checked = !!c.a; ui.el.querySelector('[data-ck="m"]').checked = !!c.m;
+    ui.opts.hidden = !detailed; ui.setBtn.textContent = detailed ? 'Uložit výběr' : 'Nastavení';
+    ui.el.hidden = false; document.body.classList.add('ck-open');
+  };
+  const init = () => {
+    const c = read();
+    if (c) apply(c); else setTimeout(() => open(false), 900);
+    document.querySelectorAll('[data-cookie-settings]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); open(true); }));
+  };
+  return { read, save, open, init };
+})();
+window.whConsent = whConsent;
+
 document.addEventListener('DOMContentLoaded', () => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -34,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu
   const toggle = $('.nav-toggle');
   const links = $('.nav-links');
-  function closeMenu() { links.classList.remove('open'); toggle.classList.remove('open'); nav.classList.remove('menu-open'); }
+  function closeMenu() { links.classList.remove('open'); toggle.classList.remove('open'); nav.classList.remove('menu-open'); document.body.classList.remove('menu-lock'); }
   toggle.addEventListener('click', () => {
     const open = !links.classList.contains('open');
     links.classList.toggle('open', open); toggle.classList.toggle('open', open); nav.classList.toggle('menu-open', open);
@@ -184,9 +262,47 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => document.body.classList.toggle('menu-lock', links.classList.contains('open')));
   }
 
-  // Form (demo)
+  whConsent.init();
+
+  // Contact form -> Base44 sendContactEmail (same backend as the previous site)
   const form = $('.form');
-  if (form) form.addEventListener('submit', e => { e.preventDefault(); form.classList.add('sent'); });
+  if (form) form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const err = $('.form-err', form), v = n => (form.elements[n] ? form.elements[n].value.trim() : '');
+    const fail = m => { if (err) { err.textContent = m; err.hidden = false; } };
+    if (err) err.hidden = true;
+    if (!v('name')) return fail('Vyplňte prosím své jméno.');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) return fail('Zkontrolujte prosím e-mail.');
+    if (!v('web') && !v('popis')) return fail('Pošlete odkaz na současný web, nebo napište pár vět o projektu.');
+    if (form.elements.consent && !form.elements.consent.checked) return fail('Potvrďte prosím souhlas se zpracováním údajů.');
+    const web = v('web');
+    const payload = { name: v('name'), company: web, email: v('email'), phone: v('tel'),
+      message: (web ? 'Současný web: ' + web + '\n\n' : '') + (v('popis') || '(bez popisu)'), landing: 'Nový web – návrh zdarma do 48 h' };
+    form.classList.add('sending');
+    try {
+      const r = await fetch(WH_API + '/functions/sendContactEmail', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-App-Id': WH_APP }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error(r.status);
+      form.classList.add('sent');
+      window.whTrack('lead', 'contact_form');
+      if (window.fbq) window.fbq('track', 'Lead');
+    } catch (x) {
+      fail('Odeslání se nepovedlo. Zkuste to prosím znovu, nebo nám zavolejte na +420 777 611 634.');
+    } finally { form.classList.remove('sending'); }
+  });
+
+  // Hidden admin tools — triple-click in the footer (IČO = návrhy, © = analytika, firma = poptávky)
+  let admLoading = null;
+  const loadAdmin = () => admLoading || (admLoading = new Promise((res, rej) => {
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = WH_ASSETS + 'admin.min.css?v=' + WH_VER; document.head.appendChild(css);
+    const js = document.createElement('script'); js.src = WH_ASSETS + 'admin.min.js?v=' + WH_VER; js.onload = res; js.onerror = rej; document.head.appendChild(js);
+  }));
+  $$('[data-adm]').forEach(el => {
+    let n = 0, t = 0;
+    el.addEventListener('click', () => {
+      const now = Date.now(); n = now - t < 700 ? n + 1 : 1; t = now;
+      if (n >= 3) { n = 0; loadAdmin().then(() => window.WHAdmin.open(el.dataset.adm)); }
+    });
+  });
 
   // Chat typing
   const chat = $('[data-chat]');
@@ -460,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cio = new IntersectionObserver(en => {
       if (!en[0].isIntersecting) return; cio.disconnect();
       gsap.to(o, { p: 50, duration: 1.8, ease: 'expo.inOut',
-        onUpdate: () => { if (performance.now() - (cmpS._touched || 0) > 1200) cmpS.style.setProperty('--pos', o.p + '%'); } });
+        onUpdate: () => { if (!cmpS._touched) cmpS.style.setProperty('--pos', o.p + '%'); } });
     }, { rootMargin: '0px 0px -25% 0px' });
     cio.observe(cmpS);
   });
