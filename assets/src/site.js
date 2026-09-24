@@ -39,15 +39,21 @@ const whConsent = (() => {
   const build = () => {
     const privacy = (document.querySelector('a[href$="ochrana-osobnich-udaju/"]') || {}).getAttribute ? document.querySelector('a[href$="ochrana-osobnich-udaju/"]').getAttribute('href') : 'ochrana-osobnich-udaju/';
     const d = document.createElement('div'); d.className = 'ck'; d.hidden = true;
-    d.innerHTML = `<div class="ck-card" role="dialog" aria-modal="false" aria-labelledby="ck-t">
-      <div class="ck-head"><svg class="cp-mark" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 3 L43 10 V28 C43 40 34 50 24 54 C14 50 5 40 5 28 V10 Z" fill="#16345F"/><path d="M15 28 l6.5 6.5 L34 21" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div><h2 id="ck-t">Vážíme si vašeho soukromí</h2><p>Nezbytné cookies zajišťují fungování webu. Analytické nám pomáhají web zlepšovat a marketingové měří účinnost reklam. Volitelné použijeme jen s vaším souhlasem, který můžete kdykoli změnit v patičce. Více v <a href="${privacy}">zásadách ochrany osobních údajů</a>.</p></div></div>
+    const img = WH_ASSETS + '../img/3d/shield-s.webp';
+    d.innerHTML = `<div class="ck-card bnx bnv-dark" role="dialog" aria-modal="false" aria-labelledby="ck-t">
+      <div class="bn-fx" aria-hidden="true"><span class="bn-pat"></span><span class="bn-orb o1"></span><span class="bn-orb o2"></span><i class="sp s1"></i><i class="sp s2"></i></div>
+      <img class="ck-obj" src="${img}" alt="" width="240" height="321" decoding="async">
+      <div class="ck-head">
+        <span class="bn-chip">Cookies &amp; soukromí</span>
+        <h2 id="ck-t">Vážíme si vašeho <span class="serif">soukromí.</span></h2>
+        <p>Nezbytné cookies zajišťují fungování webu. Analytické nám pomáhají web zlepšovat a marketingové měří účinnost reklam. Volitelné použijeme jen s vaším souhlasem, který můžete kdykoli změnit v patičce. Více v <a href="${privacy}">zásadách ochrany osobních údajů</a>.</p>
+      </div>
       <div class="ck-opts" hidden>
         <label class="ck-opt"><b>Nezbytné</b><small>Uložení vaší volby a základní funkce webu. Vždy zapnuté.</small><span class="ck-sw"><input type="checkbox" checked disabled><i></i></span></label>
         <label class="ck-opt"><b>Analytické</b><small>Anonymní statistiky návštěvnosti, abychom věděli, co na webu funguje.</small><span class="ck-sw"><input type="checkbox" data-ck="a"><i></i></span></label>
         <label class="ck-opt"><b>Marketingové</b><small>Meta Pixel pro měření a cílení reklam na Facebooku a Instagramu.</small><span class="ck-sw"><input type="checkbox" data-ck="m"><i></i></span></label>
       </div>
-      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Odmítnout vše</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše</button></div>
+      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Odmítnout vše</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
     </div>`;
     document.body.appendChild(d);
     const opts = d.querySelector('.ck-opts'), setBtn = d.querySelector('[data-ck-set]');
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lenis
   let lenis = null;
   if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
     if (hasGsap) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(time => lenis.raf(time * 1000));

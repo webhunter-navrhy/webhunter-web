@@ -3,7 +3,7 @@ module.exports = {
   css: ['assets/src/site.css'],
   safelist: {
     standard: ['active','fade','flash','in','in-view','is-off','menu-lock','menu-open','on','open','out','rail-cta','scrolled','scrolling','sent','shake','show','swap','tilt','fw','hidden','js-rv','rv-in','lenis','lenis-smooth','lenis-stopped','lenis-scrolling'],
-    greedy: [/^lenis/, /view-transition/],
+    greedy: [/^lenis/, /view-transition/, /^ck/, /^bn-/, /^sp$/, /^s[12]$/, /^o[12]$/, /^arr$/, /^serif$/],
     keyframes: []
   },
   keyframes: true,

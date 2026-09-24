@@ -186,11 +186,12 @@
   function tip(host) { let t = host.querySelector('.wa-tip'); if (!t) { t = el('<div class="wa-tip" role="status" hidden></div>'); host.appendChild(t); } return t; }
   function lineChart(host, labels, series) {
     const W = 900, Hh = 240, P = { l: 44, r: 12, t: 12, b: 28 };
-    const max = Math.max(1, ...series.flatMap(s => s.values));
+    const max = Math.max(4, ...series.flatMap(s => s.values));
     const nice = Math.ceil(max / Math.pow(10, Math.floor(Math.log10(max)))) * Math.pow(10, Math.floor(Math.log10(max)));
     const x = i => P.l + (labels.length < 2 ? (W - P.l - P.r) / 2 : i * (W - P.l - P.r) / (labels.length - 1));
     const y = v => P.t + (Hh - P.t - P.b) * (1 - v / nice);
     const ticks = [0, nice / 2, nice];
+    if (!series.some(s => s.values.some(v => v > 0))) { host.innerHTML = '<p class="wa-none">Zatím žádné návštěvy v tomto období.</p>'; return; }
     const step = Math.max(1, Math.ceil(labels.length / 8));
     const svg = `<svg viewBox="0 0 ${W} ${Hh}" class="wa-svg" role="img" aria-label="Návštěvnost v čase">
       ${ticks.map(v => `<line x1="${P.l}" x2="${W - P.r}" y1="${y(v)}" y2="${y(v)}" class="wa-grid"/><text x="${P.l - 8}" y="${y(v) + 4}" text-anchor="end" class="wa-axis">${nf.format(Math.round(v))}</text>`).join('')}
@@ -236,7 +237,7 @@
     const meBtn = s.act.querySelector('[data-a="me"]');
     const meSet = () => { let v = null; try { v = localStorage.getItem('wh_notrack'); } catch (e) {} meBtn.textContent = v ? 'Tento prohlížeč se neměří ✓' : 'Neměřit tento prohlížeč'; meBtn.classList.toggle('on', !!v); };
     meBtn.addEventListener('click', () => { try { localStorage.getItem('wh_notrack') ? localStorage.removeItem('wh_notrack') : localStorage.setItem('wh_notrack', '1'); } catch (e) {} meSet(); }); meSet();
-    const state = { range: '30', page: 'all', src: 'all', dev: 'all', legacy: true };
+    const state = { range: '30', page: 'all', src: 'all', dev: 'all', legacy: false };
     let ALL = [];
     s.body.innerHTML = `
       <div class="wa-filters">
@@ -244,7 +245,6 @@
         <label><span>Stránka</span><select data-f="page"></select></label>
         <label><span>Zdroj</span><select data-f="src"></select></label>
         <label><span>Zařízení</span><select data-f="dev"><option value="all">Všechna</option><option value="desktop">Počítač</option><option value="mobile">Mobil</option><option value="tablet">Tablet</option></select></label>
-        <label class="wa-check"><input type="checkbox" data-f="legacy" checked> Včetně starého webu</label>
         <span class="wa-live"><i></i><b data-live>0</b> právě na webu</span>
       </div>
       <div class="wa-kpis"></div>
@@ -278,7 +278,8 @@
       s.sub.textContent = 'Načítám data…';
       try {
         const raw = await db.all('LandingPageMetric');
-        ALL = raw.map(normalize).filter(r => !/localhost|127\.0\.0\.1|test\.local/.test(r.host));
+        // only the new website on the production domain (old-site records are kept in the DB but not shown)
+        ALL = raw.map(normalize).filter(r => !r.legacy && /(^|\.)webhunter\.cz$/.test(r.host));
         render();
       } catch (e) { s.sub.textContent = 'Data se nepodařilo načíst.'; }
     }
@@ -296,7 +297,7 @@
       const rows = filtered(false), prevRows = filtered(true);
       const k = kpis(rows), kp = kpis(prevRows);
       const newest = ALL.length ? ALL.reduce((a, r) => r.t > a ? r.t : a, ALL[0].t) : null;
-      s.sub.textContent = `${nf.format(ALL.length)} zaznamenaných zobrazení celkem · poslední ${newest ? newest.toLocaleString('cs-CZ') : '—'}`;
+      s.sub.textContent = ALL.length ? `${nf.format(ALL.length)} zaznamenaných zobrazení celkem · poslední ${newest.toLocaleString('cs-CZ')}` : 'Měření se spustí po napojení webu na doménu webhunter.cz';
       const live = ALL.filter(r => Date.now() - r.upd < 5 * 60e3); $('[data-live]').textContent = uniq(live, r => r.sid);
       const delta = (a, b, inv) => { if (state.range === 'all' || !prevRows.length) return ''; const d = b ? Math.round((a - b) / b * 100) : (a ? 100 : 0); if (!d) return '<small class="wa-d">beze změny</small>'; const good = inv ? d < 0 : d > 0; return `<small class="wa-d ${good ? 'up' : 'down'}">${d > 0 ? '▲' : '▼'} ${Math.abs(d)} %</small>`; };
       const tiles = [['Zobrazení stránek', nf.format(k.pv), delta(k.pv, kp.pv)], ['Návštěvníci', nf.format(k.vis), delta(k.vis, kp.vis)], ['Relace', nf.format(k.ses), delta(k.ses, kp.ses)],

@@ -4,6 +4,8 @@
 (() => {
   if (window.__whTrackOn) return; window.__whTrackOn = true;
   try { if (localStorage.getItem('wh_notrack')) return; } catch (e) {}
+  // measure only on the production domain (preview / GitHub Pages / localhost is never recorded)
+  if (!/(^|\.)webhunter\.cz$/.test(location.hostname)) return;
   const APP = '6a366c8ba95efe01593d4844';
   const URL_ = 'https://base44.app/api/apps/' + APP + '/entities/LandingPageMetric';
   const H = { 'Content-Type': 'application/json', 'X-App-Id': APP };

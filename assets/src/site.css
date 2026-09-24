@@ -1947,3 +1947,89 @@ body.ck-open .m-cta { transform: translateY(140%); }
 .nav.menu-open ~ .ck, body.menu-lock .ck { display: none !important; }
 .pf-top h3 { font-size: 1.15rem; font-weight: 400; letter-spacing: -0.03em; line-height: 1.2; }
 .foot-bottom, .foot-cp { color: #8A95A3 !important; }
+
+/* =================================================================
+   SCROLL PERFORMANCE PASS — remove costly per-frame compositing work
+   ================================================================= */
+/* full-screen grain overlay forced a blend over every frame */
+body::before { display: none !important; }
+/* backdrop blurs re-render every frame when content moves underneath (fixed nav, rail, glass over parallax) */
+* { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.nav.scrolled .nav-inner { background: rgba(255,255,255,0.95); }
+.rail-group { background: rgba(255,255,255,0.92); }
+.hero-pill { background: rgba(10, 40, 110, 0.32); }
+.btn--glass { background: rgba(8, 40, 110, 0.45); }
+.hero-card, .reel-card, .free-panel { background: rgba(255,255,255,0.95); }
+.form { background: rgba(255,255,255,0.93); }
+.p-head p { background: rgba(8, 35, 100, 0.55); }
+.p-foot span { background: rgba(8, 35, 100, 0.45); }
+.cta-contact a { background: rgba(255,255,255,0.9); }
+.member .role { background: rgba(10, 25, 60, 0.55); }
+.hc-send, .hc-card.hk.bnv-sky { background-clip: padding-box; }
+/* grain on cards used mix-blend-mode (breaks compositing) */
+.bn-fx::after { mix-blend-mode: normal !important; opacity: 0.06 !important; }
+/* dotted pattern is now static (was a moving masked layer in every card) */
+.bn-pat { animation: none !important; }
+/* big frames scaled by scroll: keep them on their own GPU layer */
+.showcase, .p-frame, .geo, .faq-panel, .cta-frame, .cta-band { will-change: transform; }
+
+/* ---------- COOKIE BAR in banner style ---------- */
+.ck-card.bnx { position: relative; overflow: hidden; background: radial-gradient(120% 120% at 100% 0%, #1B3A86 0%, #0D1838 50%, #070B12 100%); color: #fff; border-radius: 28px; padding: 1.5rem 1.5rem 1.3rem; box-shadow: 0 0 0 1px rgba(110,155,255,0.18), 0 30px 70px rgba(7, 11, 18, 0.45); width: min(820px, 100%); }
+.ck-card.bnx > *:not(.bn-fx) { position: relative; z-index: 2; }
+.ck-card .bn-fx { color: #6E9BFF; border-radius: inherit; }
+.ck-card .bn-orb.o1 { background: radial-gradient(circle, rgba(47,107,255,0.5), transparent 65%); }
+.ck-card .bn-orb.o2 { background: radial-gradient(circle, rgba(201,242,102,0.14), transparent 65%); }
+.ck-card .sp { color: var(--lime); }
+.ck-obj { position: absolute !important; z-index: 1 !important; right: 22px; top: 18px; width: 78px; height: auto; filter: drop-shadow(0 16px 20px rgba(0,0,0,0.45)) drop-shadow(0 0 26px rgba(47,107,255,0.5)); animation: floatA 6s ease-in-out infinite; }
+.ck-head { display: block; padding-right: 96px; }
+.ck-head .bn-chip { display: inline-block; }
+.ck-head h2 { margin-top: 0.7rem; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.04em; line-height: 1.05; color: #fff; }
+.ck-head h2 .serif { color: var(--lime); }
+.ck-head p { color: rgba(255,255,255,0.72); font-size: 0.88rem; margin-top: 0.6rem; max-width: 62ch; }
+.ck-head p a { color: #fff; }
+.ck-opt { background: rgba(255,255,255,0.07); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); }
+.ck-opt b { color: #fff; }
+.ck-opt small { color: rgba(255,255,255,0.62); }
+.ck-sw i { background: rgba(255,255,255,0.22); }
+.ck-sw input:checked + i { background: var(--lime); }
+.ck-sw input:checked + i::after { background: var(--text); }
+.ck-btns .ck-a { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--lime); color: var(--text); padding: 0.4rem 0.4rem 0.4rem 1.2rem; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ck-btns .ck-a .arr { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--text); color: var(--lime); }
+.ck-btns .ck-a .arr svg { width: 14px; height: 14px; }
+.ck-btns .ck-r { background: rgba(255,255,255,0.1); color: #fff; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ck-btns .ck-r:hover { background: rgba(255,255,255,0.18); }
+.ck-btns .ck-s { color: rgba(255,255,255,0.8); font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; }
+@media (max-width: 600px) { .ck-head { padding-right: 64px; } .ck-obj { width: 54px; right: 14px; } .ck-card.bnx { padding: 1.2rem; } }
+/* cookie bar: compact layout */
+@media (min-width: 900px) {
+  .ck-card.bnx { width: min(980px, 100%); grid-template-columns: 1fr auto; column-gap: 2rem; align-items: end; padding: 1.3rem 1.4rem; }
+  .ck-card.bnx .ck-head { grid-column: 1; padding-right: 0; }
+  .ck-card.bnx .ck-opts { grid-column: 1 / -1; grid-row: 2; }
+  .ck-card.bnx .ck-btns { grid-column: 2; grid-row: 1; flex-direction: column; align-items: stretch; padding-left: 90px; }
+  .ck-card.bnx .ck-btns .ck-s { margin: 0; order: 3; text-align: center; }
+  .ck-card.bnx .ck-btns .ck-a { justify-content: space-between; }
+  .ck-card.bnx:has(.ck-opts:not([hidden])) .ck-btns { grid-row: 3; grid-column: 1 / -1; flex-direction: row; justify-content: flex-end; padding-left: 0; }
+  .ck-card.bnx:has(.ck-opts:not([hidden])) .ck-btns .ck-s { order: 0; margin-right: auto; }
+  .ck-card.bnx .ck-head h2 { font-size: 1.6rem; }
+  .ck-obj { right: auto; left: calc(100% - 1.4rem - 220px); top: 20px; width: 64px; }
+  .ck-card.bnx:has(.ck-opts:not([hidden])) .ck-obj { left: auto; right: 22px; }
+}
+@media (max-width: 600px) {
+  .ck { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .ck-card.bnx { max-height: calc(100svh - 24px); overflow-y: auto; gap: 0.8rem; padding: 1rem 1rem 0.9rem; border-radius: 22px; }
+  .ck-head .bn-chip { display: none; }
+  .ck-head h2 { margin-top: 0; font-size: 1.3rem; }
+  .ck-head p { font-size: 0.8rem; line-height: 1.45; margin-top: 0.4rem; }
+  .ck-obj { width: 44px; top: 12px; right: 12px; }
+  .ck-head { padding-right: 52px; }
+  .ck-btns { gap: 0.4rem; }
+  .ck-btns .ck-a, .ck-btns .ck-r { flex: 1 1 40%; justify-content: center; padding-top: 0.55rem; padding-bottom: 0.55rem; }
+  .ck-btns .ck-a .arr { display: none; }
+  .ck-opt { padding: 0.6rem 0.7rem; }
+}
+.consent span { flex: 1; }
+@media (min-width: 900px) {
+  .ck-obj, .ck-card.bnx:has(.ck-opts:not([hidden])) .ck-obj { left: 1.4rem; right: auto; top: 1.4rem; width: 58px; }
+  .ck-card.bnx .ck-head { padding-left: 80px; }
+  .ck-card.bnx .ck-btns { padding-left: 0; min-width: 210px; }
+}
