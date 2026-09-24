@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Realizace — 41 webů od WebHunter</title>
+<meta name="description" content="41 webů, které jsme navrhli a postavili: módní značky, řemeslníci, penziony, reality i investiční kluby. Prohlédněte si portfolio WebHunter.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230A0E14'/%3E%3Cpath d='M7 10l3.2 12L13 13.5 16 22l3-8.5L21.8 22 25 10' fill='none' stroke='%23C9F266' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="page-sub">
+
+<div class="scroll-progress"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M4 18h5v-5h5V8h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="8" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 3.4 7.4 8 8-4.6.6-7.4 3.4-8 8-.6-4.6-3.4-7.4-8-8 4.6-.6 7.4-3.4 8-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spark-f" viewBox="0 0 24 24"><path d="M12 2c.7 5.3 4 8.6 9.3 9.3C16 12 12.7 15.3 12 20.6 11.3 15.3 8 12 2.7 11.3 8 10.6 11.3 7.3 12 2z" fill="currentColor"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 5.3a3 3 0 0 1 0 5.4M17.5 14.4c1.6.6 2.7 2.2 3 4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.3 2.4c-.6.2-.9.7-.9 1.3v.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.6" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7l1.3-2 4 1.5v3a2 2 0 0 1-2 2A15.5 15.5 0 0 1 4.5 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 19V11M12 19V5M19 19v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 4l14 6-6 2-2 6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.3-1-1.6-1-2.7 0-1 .8-1.6 1.8-1.6h2.2a3.7 3.7 0 0 0 3.7-3.7C20.5 6.8 16.7 3.5 12 3.5z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="11" r="1.2" fill="currentColor"/><circle cx="11" cy="7.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M3 12.5 7.5 8l3 1.5 3-1.5 3.5 1 4 3.5M3 12.5l5.5 5.5c.8.8 2 .8 2.8 0l5.7-5.7M10.5 9.5l-2.5 3a1.5 1.5 0 0 0 2.2 2l2.3-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mega" viewBox="0 0 24 24"><path d="M4 10v4h3l7 4V6l-7 4zM17.5 9.5a3.5 3.5 0 0 1 0 5M8 14l1 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 4 2.4 5 5.3.6-3.9 3.6 1.1 5.3L12 15.8l-4.9 2.7 1.1-5.3-3.9-3.6 5.3-.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M7 7.3h.01M9.5 7.3h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 17l5.5-5.5 3.5 3.5L20 8M15 8h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Hlavní navigace">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="WebHunter">WebHunter</a>
+    <div class="nav-links">
+      <a href="realizace.html" class="current">Realizace</a>
+      <a href="index.html#proces">Jak to funguje</a>
+      <a href="index.html#sluzby">Co dostanete</a>
+      <a href="index.html#geo">AI vyhledávání</a>
+      <a href="index.html#tym">Tým</a>
+      <a href="index.html#faq">Otázky</a>
+    </div>
+    <a href="index.html#kontakt" class="btn btn--lime">Chci návrh zdarma <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<main>
+<section class="sub-hero" id="top">
+  <div class="sub-frame">
+    <div class="sub-bg"><img class="sky-par" src="img/hero-sky.jpg" alt="" fetchpriority="high"></div>
+    <div class="sub-copy">
+      <div class="crumbs mono"><a href="index.html">Úvod</a> <span>/</span> Realizace</div>
+      <h1><span class="w"><span>41</span></span> <span class="w"><span>webů.</span></span> <span class="w"><span>Každý</span></span> <span class="w"><span>jiný.</span></span><br><span class="l2"><span class="w"><span><em class="serif">Žádná</em></span></span> <span class="w"><span><em class="serif">šablona.</em></span></span></span></h1>
+      <p>Módní značky, kováři, penziony, realitní makléři i investiční kluby. Každý web jsme navrhli pro konkrétní firmu a to, co mají její zákazníci udělat — zavolat, poptat nebo koupit.</p>
+      <div class="work-stats">
+        <div><b>41</b><span>realizací</span></div>
+        <div><b>6</b><span>oborů</span></div>
+        <div><b>4</b><span>jazyky webů</span></div>
+      </div>
+    </div>
+    <div class="fan" aria-hidden="true"><div class="fan-card fc0"><span class="pf-bar"><i></i><i></i><i></i><span>credora.cz</span></span><img src="img/pf/credora-cz.jpg" alt="" width="960" height="600"></div><div class="fan-card fc1"><span class="pf-bar"><i></i><i></i><i></i><span>kovotuk.cz</span></span><img src="img/pf/kovotuk-cz.jpg" alt="" width="960" height="600"></div><div class="fan-card fc2"><span class="pf-bar"><i></i><i></i><i></i><span>f-fashion.cz</span></span><img src="img/pf/f-fashion-cz.jpg" alt="" width="960" height="600"></div></div>
+  </div>
+</section>
+
+<section class="sub-sec">
+  <div class="container sub-intro">
+    <span class="label reveal">Vybrané realizace</span>
+    <h2 class="reveal">Osm webů, na které jsme <span class="serif">nejvíc hrdí.</span></h2>
+  </div>
+  <div class="showcase" style="--pc:#C9A45C;--pb:#17120E">
+    <div class="sc-grid">
+      <div class="sc-side">
+        <div class="sc-top"><span class="mono">Vybrané realizace · <span data-sc-count>01</span> / 08</span>
+          <div class="sc-nav"><button data-sc="-1" aria-label="Předchozí"><svg style="transform:rotate(-135deg)"><use href="#i-arrow"/></svg></button><button data-sc="1" aria-label="Další"><svg style="transform:rotate(45deg)"><use href="#i-arrow"/></svg></button></div>
+        </div>
+        <ol class="sc-list">
+        <li class="sc-item on" data-slug="f-fashion-cz" data-url="https://f-fashion.cz" data-dom="f-fashion.cz" data-pc="#C9A45C" data-pb="#17120E">
+          <button class="sc-btn" aria-expanded="true"><span class="n">01</span><span class="nm">F-Fashion</span><span class="ob">Dámská móda</span></button>
+          <div class="sc-detail"><div>
+            <h3>Elegance bez kompromisů</h3>
+            <p>Rodinná firma s téměř dvacetiletou tradicí a čtyřmi prodejnami v Praze. Web stojí na silné fotografii a redakčním layoutu, aby zákaznice hned věděly, kam si pro nový kousek dojít.</p>
+            <div class="sc-chips"><span>Redakční design</span><span>4 prodejny</span><span>Příběh značky</span></div>
+            <a class="sc-link" href="https://f-fashion.cz" target="_blank" rel="noopener">Otevřít f-fashion.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="kovotuk-cz" data-url="https://kovotuk.cz" data-dom="kovotuk.cz" data-pc="#F0782A" data-pb="#17100C">
+          <button class="sc-btn" aria-expanded="false"><span class="n">02</span><span class="nm">KovoTuk</span><span class="ob">Kovářství</span></button>
+          <div class="sc-detail"><div>
+            <h3>Žár výhně i na webu</h3>
+            <p>Žádná sériová výroba — a web tomu odpovídá. Tmavá dílna, oheň a galerie kusů, které lidem doma slouží. Každá sekce vede k jedinému cíli: poptat výrobu.</p>
+            <div class="sc-chips"><span>Galerie výrobků</span><span>Poptávka výroby</span><span>Dílna od roku 2011</span></div>
+            <a class="sc-link" href="https://kovotuk.cz" target="_blank" rel="noopener">Otevřít kovotuk.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="pension-maty-cz" data-url="https://pension-maty.cz" data-dom="pension-maty.cz" data-pc="#E8812F" data-pb="#1A130E">
+          <button class="sc-btn" aria-expanded="false"><span class="n">03</span><span class="nm">Pension Maty</span><span class="ob">Ubytování</span></button>
+          <div class="sc-detail"><div>
+            <h3>Dovolená začíná už na webu</h3>
+            <p>Rodinný penzion v Horní Tříči u Vysokého nad Jizerou. Letecký záběr, wellness, pokoje a ceník přehledně na jednom místě — a tlačítko Zarezervovat pobyt je vždy po ruce. Česky i německy.</p>
+            <div class="sc-chips"><span>Rezervace pobytu</span><span>Wellness a okolí</span><span>Česky i německy</span></div>
+            <a class="sc-link" href="https://pension-maty.cz" target="_blank" rel="noopener">Otevřít pension-maty.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="charolais-cz" data-url="https://charolais.cz" data-dom="charolais.cz" data-pc="#A8C66C" data-pb="#0F1A10">
+          <button class="sc-btn" aria-expanded="false"><span class="n">04</span><span class="nm">Farma Tájek</span><span class="ob">Chov skotu</span></button>
+          <div class="sc-detail"><div>
+            <h3>Rodinná farma, která působí světově</h3>
+            <p>150 krav a jalovic na 260 hektarech. Web staví na krajině a fotkách stáda, představí tři plemena — Charolais, Parthenais a Limousine — a vede k prodeji plemenných býků.</p>
+            <div class="sc-chips"><span>Býci na prodej</span><span>3 plemena</span><span>Galerie farmy</span></div>
+            <a class="sc-link" href="https://charolais.cz" target="_blank" rel="noopener">Otevřít charolais.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="pecezitalie-cz" data-url="https://pecezitalie.cz" data-dom="pecezitalie.cz" data-pc="#D4622B" data-pb="#1B120D">
+          <button class="sc-btn" aria-expanded="false"><span class="n">05</span><span class="nm">J2 Italské pece</span><span class="ob">Výhradní distributor Goti</span></button>
+          <div class="sc-detail"><div>
+            <h3>Řemeslo, které se nedá uspěchat</h3>
+            <p>Ručně vyráběné pece z Florencie od roku 1973. Web vypráví, jak pec vzniká během pěti dní v ohni, představí dvanáct modelů a dovede k nezávazné poptávce.</p>
+            <div class="sc-chips"><span>Katalog 12 modelů</span><span>Příběh výroby</span><span>Galerie instalací</span></div>
+            <a class="sc-link" href="https://pecezitalie.cz" target="_blank" rel="noopener">Otevřít pecezitalie.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="ratiborska-jandemelreality-cz" data-url="https://ratiborska.jandemelreality.cz" data-dom="ratiborska.jandemelreality.cz" data-pc="#3FB26B" data-pb="#101915">
+          <button class="sc-btn" aria-expanded="false"><span class="n">06</span><span class="nm">Rodinný dům Píšť</span><span class="ob">Prodej nemovitosti</span></button>
+          <div class="sc-detail"><div>
+            <h3>Jedna nemovitost, vlastní web</h3>
+            <p>Dům za 20,99 mil. Kč dostal šest kapitol — dům, technologie, zahradu, půdorysy, lokalitu a 66 fotografií. Na každé stránce je po ruce tlačítko pro domluvení prohlídky.</p>
+            <div class="sc-chips"><span>Web pro 1 nemovitost</span><span>66 fotografií</span><span>Půdorysy a lokalita</span></div>
+            <a class="sc-link" href="https://ratiborska.jandemelreality.cz" target="_blank" rel="noopener">Otevřít ratiborska.jandemelreality.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="klight-cz" data-url="https://klight.cz" data-dom="klight.cz" data-pc="#9B6BFF" data-pb="#130B25">
+          <button class="sc-btn" aria-expanded="false"><span class="n">07</span><span class="nm">Keylight</span><span class="ob">Comedy produkce</span></button>
+          <div class="sc-detail"><div>
+            <h3>Mladý tým, velké ambice</h3>
+            <p>Nezávislá produkce zábavních pořadů. Web ukazuje výsledky — přes 3 miliony zhlédnutí — a tři vlastní formáty, aby značky viděly, proč v show nepůsobí jako reklamní pauza.</p>
+            <div class="sc-chips"><span>Výsledky a čísla</span><span>3 vlastní formáty</span><span>Spolupráce se značkami</span></div>
+            <a class="sc-link" href="https://klight.cz" target="_blank" rel="noopener">Otevřít klight.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        <li class="sc-item" data-slug="credora-cz" data-url="https://www.credora.cz" data-dom="credora.cz" data-pc="#4FA37B" data-pb="#0B1D15">
+          <button class="sc-btn" aria-expanded="false"><span class="n">08</span><span class="nm">Credentia Aurora</span><span class="ob">Business klub</span></button>
+          <div class="sc-detail"><div>
+            <h3>Úspěch je otázka správných lidí</h3>
+            <p>Uzavřený klub majitelů firem a investorů. Web v klidné, prémiové typografii vysvětlí, co členství řeší, jak funguje vstup a co členové vidí dřív než trh.</p>
+            <div class="sc-chips"><span>Přihláška do klubu</span><span>Deal-flow</span><span>Česky i anglicky</span></div>
+            <a class="sc-link" href="https://www.credora.cz" target="_blank" rel="noopener">Otevřít credora.cz <i><svg><use href="#i-arrow"/></svg></i></a>
+          </div></div>
+          <span class="sc-prog"><i></i></span>
+        </li>
+        </ol>
+      </div>
+      <div class="sc-stage">
+        <span class="sc-badge"><i><svg><use href="#i-check"/></svg></i>Živý web</span>
+        <div class="sc-browser">
+          <div class="sc-bar"><i></i><i></i><i></i><a class="sc-url" href="https://f-fashion.cz" target="_blank" rel="noopener"><svg><use href="#i-shield"/></svg><span data-sc-dom>f-fashion.cz</span></a></div>
+          <div class="sc-vp sc-swap"><img data-sc-desk src="img/pf/f-fashion-cz-feat.jpg" alt="Web F-Fashion"><span class="sc-hint">Najeďte pro pauzu</span></div>
+        </div>
+        <div class="sc-phone sc-swap"><img data-sc-mob src="img/pf/f-fashion-cz-m.jpg" alt="Mobilní verze webu F-Fashion"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sub-sec archive-sec" id="archiv">
+  <div class="container archive">
+    <div class="arch-head">
+      <h2 class="reveal">Všech 41 realizací. <span class="serif">Najeďte a projeďte si je.</span></h2>
+      <div class="filters reveal" role="tablist"><button class="filter on" data-f="all">Vše<sup>41</sup></button><button class="filter" data-f="reality">Reality a bydlení<sup>9</sup></button><button class="filter" data-f="firmy">Řemesla a firmy<sup>7</sup></button><button class="filter" data-f="obchod">Obchod a e-shopy<sup>6</sup></button><button class="filter" data-f="pece">Zdraví a péče<sup>4</sup></button><button class="filter" data-f="byznys">Byznys a finance<sup>6</sup></button><button class="filter" data-f="zazitky">Zážitky, kreativa a komunity<sup>9</sup></button></div>
+    </div>
+    <div class="pf-grid">
+      <a class="pf-card" href="https://rkvitkadlec.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>rkvitkadlec.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/rkvitkadlec-cz.jpg" alt="Web Reality Centrum Praha — rkvitkadlec.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/rkvitkadlec-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Reality Centrum Praha</h4><small>rkvitkadlec.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Prémiové reality v Praze od roku 1997. Nabídka nemovitostí, služby a osobní přístup makléře.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://alissabeaute-ks.cz" target="_blank" rel="noopener" data-cat="pece">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>alissabeaute-ks.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/alissabeaute-ks-cz.jpg" alt="Web Alissa Beauté — alissabeaute-ks.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/alissabeaute-ks-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zdraví a péče</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Alissa Beauté</h4><small>alissabeaute-ks.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Kosmetické studio ve Žďáře nad Sázavou. Ošetření, přístroje, ceník a reálné výsledky klientek.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://galenit-e.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>galenit-e.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/galenit-e-cz.jpg" alt="Web Galenit — galenit-e.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/galenit-e-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Galenit</h4><small>galenit-e.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Elektroinstalace pro firmy i domácnosti. Přehled služeb, vybrané realizace a nezávazná poptávka.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://jakubmachalaphoto.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>jakubmachalaphoto.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/jakubmachalaphoto-cz.jpg" alt="Web Jakub Machala — jakubmachalaphoto.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/jakubmachalaphoto-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Jakub Machala</h4><small>jakubmachalaphoto.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Svatební a portrétní fotograf. Filmová estetika a světelná stopa, která se kreslí při scrollování.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://www.axoncapital.eu" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>axoncapital.eu</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/axoncapital-eu.jpg" alt="Web Axon Capital — axoncapital.eu" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/axoncapital-eu-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Axon Capital</h4><small>axoncapital.eu</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Investiční holding a ekosystém pěti pilířů. Složitá struktura převedená do srozumitelného příběhu.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://comedy.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>comedy.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/comedy-cz.jpg" alt="Web Comedy &amp; Beat Circus — comedy.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/comedy-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Comedy &amp; Beat Circus</h4><small>comedy.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Jediný cirkusový band v Česku. Neonový svět, koncerty a show pro děti — ve třech jazycích.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://molvergroup.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>molvergroup.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/molvergroup-cz.jpg" alt="Web Molver Group — molvergroup.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/molvergroup-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Molver Group</h4><small>molvergroup.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Zámečnické a svařovací práce po celé ČR i Evropě. Česky, anglicky a německy.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://hasobeh.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>hasobeh.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/hasobeh-cz.jpg" alt="Web Hasoběh — hasobeh.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/hasobeh-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Hasoběh</h4><small>hasobeh.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Letní běžecký závod pod Karlštejnem. Odpočet do startu, online registrace s platbou a výsledky.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://jt-auto.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>jt-auto.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/jt-auto-cz.jpg" alt="Web JT Auto — jt-auto.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/jt-auto-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>JT Auto</h4><small>jt-auto.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Dovoz prověřených vozů z Německa. Auta skladem i dovoz na objednávku ve čtyřech krocích.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://f-fashion.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>f-fashion.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/f-fashion-cz.jpg" alt="Web F-Fashion — f-fashion.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/f-fashion-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>F-Fashion</h4><small>f-fashion.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Rodinná firma s téměř dvacetiletou tradicí a čtyřmi prodejnami v Praze. Web stojí na silné fotografii a redakčním layoutu, aby zákaznice hned věděly, kam si pro nový kousek dojít.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://kovotuk.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>kovotuk.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/kovotuk-cz.jpg" alt="Web KovoTuk — kovotuk.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/kovotuk-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>KovoTuk</h4><small>kovotuk.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Žádná sériová výroba — a web tomu odpovídá. Tmavá dílna, oheň a galerie kusů, které lidem doma slouží. Každá sekce vede k jedinému cíli: poptat výrobu.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://pension-maty.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>pension-maty.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/pension-maty-cz.jpg" alt="Web Pension Maty — pension-maty.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/pension-maty-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Pension Maty</h4><small>pension-maty.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Rodinný penzion v Horní Tříči u Vysokého nad Jizerou. Letecký záběr, wellness, pokoje a ceník přehledně na jednom místě — a tlačítko Zarezervovat pobyt je vždy po ruce. Česky i německy.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://charolais.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>charolais.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/charolais-cz.jpg" alt="Web Farma Tájek — charolais.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/charolais-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Farma Tájek</h4><small>charolais.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>150 krav a jalovic na 260 hektarech. Web staví na krajině a fotkách stáda, představí tři plemena — Charolais, Parthenais a Limousine — a vede k prodeji plemenných býků.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://pecezitalie.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>pecezitalie.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/pecezitalie-cz.jpg" alt="Web J2 Italské pece — pecezitalie.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/pecezitalie-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>J2 Italské pece</h4><small>pecezitalie.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Ručně vyráběné pece z Florencie od roku 1973. Web vypráví, jak pec vzniká během pěti dní v ohni, představí dvanáct modelů a dovede k nezávazné poptávce.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://ratiborska.jandemelreality.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>ratiborska.jandemelreality.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/ratiborska-jandemelreality-cz.jpg" alt="Web Rodinný dům Píšť — ratiborska.jandemelreality.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/ratiborska-jandemelreality-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Rodinný dům Píšť</h4><small>ratiborska.jandemelreality.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Dům za 20,99 mil. Kč dostal šest kapitol — dům, technologie, zahradu, půdorysy, lokalitu a 66 fotografií. Na každé stránce je po ruce tlačítko pro domluvení prohlídky.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://klight.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>klight.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/klight-cz.jpg" alt="Web Keylight — klight.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/klight-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Keylight</h4><small>klight.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Nezávislá produkce zábavních pořadů. Web ukazuje výsledky — přes 3 miliony zhlédnutí — a tři vlastní formáty, aby značky viděly, proč v show nepůsobí jako reklamní pauza.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://www.credora.cz" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>credora.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/credora-cz.jpg" alt="Web Credentia Aurora — credora.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/credora-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span><span class="pf-feat">Vybraná</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Credentia Aurora</h4><small>credora.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Uzavřený klub majitelů firem a investorů. Web v klidné, prémiové typografii vysvětlí, co členství řeší, jak funguje vstup a co členové vidí dřív než trh.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://najemsradosti.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>najemsradosti.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/najemsradosti-cz.jpg" alt="Web Nájem s radostí — najemsradosti.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/najemsradosti-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Nájem s radostí</h4><small>najemsradosti.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Správa pronájmu bytů s kalkulačkou výnosu hned pod úvodem a garancí nájmu až 600 000 Kč.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://revotele.com" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>revotele.com</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/revotele-com.jpg" alt="Web Revotele — revotele.com" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/revotele-com-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Revotele</h4><small>revotele.com</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Anglický web pro enterprise zákaznickou podporu s živými metrikami a jasnou nabídkou služeb.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://vrsovicka76.jakubfrydrych.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>vrsovicka76.jakubfrydrych.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/vrsovicka76-jakubfrydrych-cz.jpg" alt="Web Byt Vršovická — vrsovicka76.jakubfrydrych.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/vrsovicka76-jakubfrydrych-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Byt Vršovická</h4><small>vrsovicka76.jakubfrydrych.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Prodejní web pro jeden byt 3+1 v Praze 10. Galerie, videoprohlídka a orientační splátka hypotéky.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://sport-active.cz" target="_blank" rel="noopener" data-cat="pece">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>sport-active.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/sport-active-cz.jpg" alt="Web SportActive — sport-active.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/sport-active-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zdraví a péče</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>SportActive</h4><small>sport-active.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Pilates a zdravá záda v Bystřici nad Pernštejnem. Rozvrh lekcí, rezervace a cvičení doma.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://bomarspedice.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>bomarspedice.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/bomarspedice-cz.jpg" alt="Web BOMAR Spedice — bomarspedice.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/bomarspedice-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>BOMAR Spedice</h4><small>bomarspedice.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Kamionová spedice mezi Evropou a Asií od roku 1993. Poptávka přepravy vyplněná za 30 sekund.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://bystricesvizi.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>bystricesvizi.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/bystricesvizi-cz.jpg" alt="Web Bystřice s vizí — bystricesvizi.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/bystricesvizi-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Bystřice s vizí</h4><small>bystricesvizi.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Volební web koalice pro komunální volby 2026. Program, kandidáti a aktuality z kampaně.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://obrazy-z-nitra.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>obrazy-z-nitra.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/obrazy-z-nitra-cz.jpg" alt="Web Obrazy z nitra — obrazy-z-nitra.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/obrazy-z-nitra-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Obrazy z nitra</h4><small>obrazy-z-nitra.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Galerie a e-shop energetických obrazů, reprodukcí a obrazů na přání. Česky i anglicky.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://autoservistria.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>autoservistria.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/autoservistria-cz.jpg" alt="Web Autoservis Tria — autoservistria.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/autoservistria-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Autoservis Tria</h4><small>autoservistria.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Servis osobních i nákladních vozidel v Kladně a Praze. Více než 14 značek pod jednou střechou.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://vacekterapie.cz" target="_blank" rel="noopener" data-cat="pece">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>vacekterapie.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/vacekterapie-cz.jpg" alt="Web Vacek Terapie — vacekterapie.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/vacekterapie-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zdraví a péče</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Vacek Terapie</h4><small>vacekterapie.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Psychoterapeut pro jednotlivce, páry i rodiny. Klidný web s ceníkem a online rezervací.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://realitykubista.com" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>realitykubista.com</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/realitykubista-com.jpg" alt="Web Jiří Kubišta — realitykubista.com" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/realitykubista-com-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Jiří Kubišta</h4><small>realitykubista.com</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Osobní web realitního poradce. Nabídka, služby a reference na jednom místě.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://ondrejhucek.cz" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>ondrejhucek.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/ondrejhucek-cz.jpg" alt="Web Ondřej Hucek — ondrejhucek.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/ondrejhucek-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Ondřej Hucek</h4><small>ondrejhucek.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Nezávislý finanční poradce. Rozcestník podle typu klienta, orientační kalkulačky a reference.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://realitynekvinda.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>realitynekvinda.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/realitynekvinda-cz.jpg" alt="Web Reality Nekvinda — realitynekvinda.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/realitynekvinda-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Reality Nekvinda</h4><small>realitynekvinda.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Rozcestník realitní kanceláře: reality, odhady a hypotéky na jednom místě.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://bydlenityniste.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>bydlenityniste.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/bydlenityniste-cz.jpg" alt="Web Bydlení Týniště — bydlenityniste.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/bydlenityniste-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Bydlení Týniště</h4><small>bydlenityniste.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Kampaňová stránka pro diskrétní prodej nemovitostí v Týništi — bez veřejné inzerce.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://psychologickaporadnahk.cz" target="_blank" rel="noopener" data-cat="pece">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>psychologickaporadnahk.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/psychologickaporadnahk-cz.jpg" alt="Web Anna Krčmová — psychologickaporadnahk.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/psychologickaporadnahk-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zdraví a péče</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Anna Krčmová</h4><small>psychologickaporadnahk.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Poradenství při rozvodu a péči o děti. Důvěryhodný web s jasným postupem spolupráce.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://buben-media.cz" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>buben-media.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/buben-media-cz.jpg" alt="Web Buben Media — buben-media.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/buben-media-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Buben Media</h4><small>buben-media.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Výkonnostní marketing pro e-shopy. Výsledky klientů, případové studie a audit zdarma.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://papapech.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>papapech.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/papapech-cz.jpg" alt="Web Papa Pech — papapech.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/papapech-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Papa Pech</h4><small>papapech.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Režisér a videomaker. Online kurzy, e-shop a zakázková video produkce.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://drzimetipalce.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>drzimetipalce.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/drzimetipalce-cz.jpg" alt="Web Držíme ti palce — drzimetipalce.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/drzimetipalce-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Držíme ti palce</h4><small>drzimetipalce.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Charitativní platforma: vyberte si ambasadora a podpořte děti s onkologickým onemocněním.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://nonstopzamky.cz" target="_blank" rel="noopener" data-cat="firmy">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>nonstopzamky.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/nonstopzamky-cz.jpg" alt="Web Nonstop Zámky — nonstopzamky.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/nonstopzamky-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Řemesla a firmy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Nonstop Zámky</h4><small>nonstopzamky.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Zámečnická pohotovost Kladno 24/7. Web postavený na jediném cíli — aby lidé hned zavolali.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://maja-sn.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>maja-sn.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/maja-sn-cz.jpg" alt="Web MAJA-SN — maja-sn.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/maja-sn-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>MAJA-SN</h4><small>maja-sn.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Rodinná firma pro správu nemovitostí a vedení účetnictví domů a SVJ.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://bdvysluni.cz" target="_blank" rel="noopener" data-cat="reality">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>bdvysluni.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/bdvysluni-cz.jpg" alt="Web Portál Výsluní — bdvysluni.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/bdvysluni-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Reality a bydlení</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Portál Výsluní</h4><small>bdvysluni.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Členský portál bytového družstva v Neratovicích. Aktuality, schůze, dokumenty a hlášení závad.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://merited.second-foundation.eu" target="_blank" rel="noopener" data-cat="byznys">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>merited.second-foundation.eu</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/merited-second-foundation-eu.jpg" alt="Web Merited — merited.second-foundation.eu" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/merited-second-foundation-eu-tall.jpg" alt=""></div>
+          <span class="pf-cat">Byznys a finance</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Merited</h4><small>merited.second-foundation.eu</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Anglická soutěž pro řešitele těžkých problémů s žebříčkem a hlavní cenou v San Franciscu.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://postatrojka.cz" target="_blank" rel="noopener" data-cat="zazitky">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>postatrojka.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/postatrojka-cz.jpg" alt="Web Pošta Trojka — postatrojka.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/postatrojka-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Zážitky, kreativa a komunity</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Pošta Trojka</h4><small>postatrojka.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>Místní pošta v Havířově. Služby, otevírací doba a cesta k nově otevřené pobočce.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://aquacoolers.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>aquacoolers.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/aquacoolers-cz.jpg" alt="Web AQUAcoolers — aquacoolers.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/aquacoolers-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>AQUAcoolers</h4><small>aquacoolers.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>E-shop s rozvozem pramenité vody v barelech, výdejníky a servisem pro firmy i domácnosti.</p>
+        </div>
+      </a>
+      <a class="pf-card" href="https://bekabazar.cz" target="_blank" rel="noopener" data-cat="obchod">
+        <div class="pf-shot">
+          <div class="pf-bar"><i></i><i></i><i></i><span>bekabazar.cz</span></div>
+          <div class="pf-vp"><img class="pf-thumb" src="img/pf/bekabazar-cz.jpg" alt="Web Beka Bazar — bekabazar.cz" loading="lazy" width="960" height="600"><img class="pf-tall" data-src="img/pf/bekabazar-cz-tall.jpg" alt=""></div>
+          <span class="pf-cat">Obchod a e-shopy</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-top"><div><h4>Beka Bazar</h4><small>bekabazar.cz</small></div><span class="pf-go"><svg><use href="#i-arrow"/></svg></span></div>
+          <p>E-shop největšího bazaru kancelářského nábytku v ČR a SR včetně výkupu a pronájmu.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cb-grid">
+    <div>
+      <span class="label">Váš web může být další</span>
+      <h2>Návrh zdarma. <span class="serif">Do 48 hodin.</span></h2>
+      <p>Pošlete odkaz na současný web nebo pár vět o firmě. Potom se sami rozhodnete, zda budete chtít pokračovat.</p>
+    </div>
+    <div class="cb-actions">
+      <a href="index.html#kontakt" class="btn btn--lime">Chci návrh zdarma <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <a href="tel:+420777611634" class="cb-tel"><svg><use href="#i-phone"/></svg>+420 777 611 634</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <a href="index.html" class="logo">WebHunter</a>
+        <p>Weby na míru pro firmy, podnikatele a organizace. Návrh zdarma do 48 hodin.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navigace</h4>
+        <a href="realizace.html" class="link-u">Realizace</a>
+        <a href="index.html#proces" class="link-u">Jak to funguje</a>
+        <a href="index.html#sluzby" class="link-u">Co dostanete</a>
+        <a href="index.html#geo" class="link-u">AI vyhledávání</a>
+        <a href="index.html#faq" class="link-u">Otázky</a>
+      </div>
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <a href="tel:+420777611634" class="link-u">+420 777 611 634</a>
+        <a href="mailto:info.webhunter@email.cz" class="link-u">info.webhunter@email.cz</a>
+      </div>
+      <div class="foot-col">
+        <h4>Firma</h4>
+        <span>WebHunter s.r.o.</span>
+        <span>IČO: 29498511</span>
+        <span>GDPR partner: Compliance Partner</span>
+      </div>
+    </div>
+    <div class="foot-word" aria-hidden="true">Web<span class="serif">Hunter</span></div>
+    <div class="foot-bottom">
+      <span>© 2026 WebHunter s.r.o. · IČO 29498511</span>
+      <span><a href="#" class="link-u">Zásady ochrany údajů</a> · <a href="#" class="link-u">Nastavení cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
