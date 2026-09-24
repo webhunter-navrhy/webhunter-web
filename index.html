@@ -665,11 +665,11 @@ p { text-wrap: pretty; }
 .cmp-col .d .m-lbl { display: none; }
 
 /* ---------- FAQ ---------- */
-.faq { padding: 0 var(--frame-inset) var(--section-py); }
+.faq { padding: 0 var(--frame-inset) var(--frame-inset); }
 .faq-panel {
   position: relative; overflow: hidden; border-radius: var(--r-xl);
-  background: radial-gradient(70% 60% at 100% 0%, rgba(30,98,240,0.14), transparent 70%), linear-gradient(160deg, #E3ECF8 0%, #EEF2F7 55%, #F2F5F8 100%);
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: radial-gradient(70% 60% at 100% 0%, rgba(30,98,240,0.14), transparent 70%), linear-gradient(160deg, #E1EBF8 0%, #E8EEF6 100%);
+  padding: clamp(4rem, 7vw, 6rem) 0;
 }
 .faq-deco { position: absolute; right: -2vw; bottom: -12vw; font-family: var(--font-serif); font-style: italic; font-size: clamp(20rem, 40vw, 40rem); line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(30,98,240,0.12); pointer-events: none; }
 .faq-grid { position: relative; display: grid; grid-template-columns: 0.85fr 1.3fr; gap: var(--gap-xl); align-items: start; }
@@ -708,14 +708,14 @@ p { text-wrap: pretty; }
 /* ---------- CTA / CONTACT ---------- */
 .cta { padding: 0 var(--frame-inset) var(--frame-inset); }
 .cta-frame {
-  position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-xl); min-height: min(880px, 100svh);
+  position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-xl); min-height: min(780px, 100svh);
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--gap-lg); align-items: center;
-  padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 8vw, 8rem) clamp(3rem, 6vw, 5rem);
+  padding: clamp(4.5rem, 7vw, 6rem) clamp(1.5rem, 8vw, 8rem) clamp(3rem, 6vw, 5rem);
 }
 .cta-bg { position: absolute; inset: -6% 0; z-index: -1; }
 .cta-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(80% 60% at 20% 20%, rgba(255,255,255,0.55), transparent 70%), linear-gradient(180deg, rgba(214, 233, 255, 0.55) 0%, rgba(214,233,255,0) 55%); }
 .cta-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
-.cta-copy { align-self: start; padding-top: 2rem; }
+.cta-copy { align-self: start; padding-top: 0.5rem; }
 .cta-copy .label { color: #3B4A5A; }
 .cta h2 { font-size: clamp(2.6rem, 5.4vw, 5.4rem); line-height: 0.98; letter-spacing: -0.055em; margin-top: 1.3rem; }
 .cta h2 .serif { color: var(--blue); }
