@@ -59,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-section]').forEach(s => io.observe(s));
   }
 
+  // Pause CSS animation loops in sections that are off screen
+  const offIO = new IntersectionObserver(entries => entries.forEach(en => en.target.classList.toggle('is-off', !en.isIntersecting)), { rootMargin: '100px 0px' });
+  $$('.hero, .marquee, .strip, .geo, .showcase, .sub-hero, .process').forEach(el => offIO.observe(el));
+  const heroEl = $('.hero');
+
   // In-view triggers for CSS animations
   const vio = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in-view'); vio.unobserve(en.target); } });
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let secs = 48 * 3600 - 1;
     setInterval(() => {
       secs = secs > 0 ? secs - 1 : 48 * 3600 - 1;
+      if (heroEl && heroEl.classList.contains('is-off')) return;
       const h = String(Math.floor(secs / 3600)).padStart(2, '0');
       const m = String(Math.floor(secs % 3600 / 60)).padStart(2, '0');
       const s = String(secs % 60).padStart(2, '0');
@@ -223,16 +229,21 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc]', sc).forEach(b => b.addEventListener('click', () => show(cur + (+b.dataset.sc), true)));
     sc.addEventListener('mouseenter', () => hover = true);
     sc.addEventListener('mouseleave', () => hover = false);
-    new IntersectionObserver(en => { inView = en[0].isIntersecting; }, { threshold: 0.35 }).observe(sc);
-    let last = performance.now();
+    const bars = items.map(x => $('.sc-prog i', x));
+    let last = 0, running = false, shownIdx = -1;
     const tick = now => {
-      const dt = now - last; last = now;
-      if (inView && !hover) elapsed += dt;
-      items.forEach((x, k) => { $('.sc-prog i', x).style.transform = `scaleX(${k === cur ? Math.min(1, elapsed / DUR) : 0})`; });
+      if (!inView) { running = false; return; }
+      const dt = last ? now - last : 0; last = now;
+      if (!hover) elapsed += dt;
+      if (shownIdx !== cur) { bars.forEach(b => b.style.transform = 'scaleX(0)'); shownIdx = cur; }
+      bars[cur].style.transform = `scaleX(${Math.min(1, elapsed / DUR)})`;
       if (elapsed >= DUR) show(cur + 1);
       requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    new IntersectionObserver(en => {
+      inView = en[0].isIntersecting;
+      if (inView && !running) { running = true; last = 0; requestAnimationFrame(tick); }
+    }, { threshold: 0.2 }).observe(sc);
   }
 
   // ---------- Portfolio cards: hover scroll-through ----------
@@ -287,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!hasGsap) { $$('.fw').forEach(w => w.classList.add('on')); return; }
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
   const ifEl = (sel, fn) => { const el = $(sel); if (el) fn(el); };
 
   gsap.to('.scroll-progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
@@ -337,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fws = gsap.utils.toArray('.fw');
   if (fws.length) ScrollTrigger.create({
     trigger: '.fill-text', start: 'top 80%', end: 'bottom 45%', scrub: true,
-    onUpdate: self => { const n = Math.round(self.progress * fws.length); fws.forEach((w, i) => w.classList.toggle('on', i < n)); }
+    onUpdate: self => { const n = Math.round(self.progress * fws.length); if (n === fws._n) return; fws._n = n; fws.forEach((w, i) => w.classList.toggle('on', i < n)); }
   });
 
   // Reveals
@@ -380,10 +392,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Frames open up as they enter (smoother section transitions)
-  const inset = window.innerWidth < 768 ? '3%' : '5%';
+  const from = window.innerWidth < 768 ? 0.95 : 0.92;
   gsap.utils.toArray('.showcase, .p-frame, .geo, .faq-panel, .cta-frame, .cta-band').forEach(fr => {
-    gsap.fromTo(fr, { clipPath: `inset(4% ${inset} 0% ${inset} round 48px)` }, {
-      clipPath: 'inset(0% 0% 0% 0% round 36px)', ease: 'none',
+    gsap.fromTo(fr, { scale: from, transformOrigin: '50% 0%' }, {
+      scale: 1, ease: 'none', force3D: true,
       scrollTrigger: { trigger: fr, start: 'top bottom', end: 'top 30%', scrub: 0.6 }
     });
   });

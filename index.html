@@ -15,6 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 
+<link rel="preload" as="image" href="img/hero-sky.jpg">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -87,7 +88,7 @@
 <!-- HERO -->
 <section class="hero" id="top" data-section="top">
   <div class="hero-frame">
-    <div class="hero-bg"><img class="sky-par" src="img/hero-sky.jpg" alt="Modrá obloha s mraky" fetchpriority="high"></div>
+    <div class="hero-bg"><img decoding="async" class="sky-par" src="img/hero-sky.jpg" alt="Modrá obloha s mraky" fetchpriority="high"></div>
     <div class="hero-tint"></div>
 
     <div class="hero-content">
@@ -121,7 +122,7 @@
 
         <div class="hc" style="--i:-1"><div class="hc-float"><div class="hc-card hc-site">
           <div class="browser"><i></i><i></i><i></i><span>ratiborska.jandemelreality.cz</span></div>
-          <div class="site-hero real"><img src="img/pf/ratiborska-jandemelreality-cz.jpg" alt=""></div>
+          <div class="site-hero real"><img decoding="async" src="img/pf/ratiborska-jandemelreality-cz.jpg" alt=""></div>
           <div class="site-meta k-row"><span style="font-size:12.5px;color:var(--muted)">Naše realizace</span><span class="chip green">Online</span></div>
         </div></div></div>
 
@@ -158,7 +159,7 @@
       </div>
     </div>
 
-    <div class="hero-front" aria-hidden="true"><img class="sky-par" src="img/hero-sky.jpg" alt=""></div>
+    <div class="hero-front" aria-hidden="true"><img decoding="async" class="sky-par" src="img/hero-sky.jpg" alt=""></div>
 
     <a href="#proces" class="hero-card">
       <div class="mono" style="color:var(--muted);font-size:.64rem">Jak to u nás chodí</div>
@@ -166,7 +167,7 @@
       <div class="hero-card-foot">
         <div class="big-zero">0&nbsp;Kč<small>za návrh</small></div>
         <div class="avatars">
-          <img src="img/a-1.jpg" alt=""><img src="img/a-2.jpg" alt=""><img src="img/a-3.jpg" alt="">
+          <img decoding="async" src="img/a-1.jpg" alt=""><img decoding="async" src="img/a-2.jpg" alt=""><img decoding="async" src="img/a-3.jpg" alt="">
           <span class="go"><svg><use href="#i-arrow"/></svg></span>
         </div>
       </div>
@@ -176,10 +177,10 @@
   </div>
 
   <a href="#kontakt" class="badge" aria-label="Chci návrh zdarma">
-    <svg class="txt" viewBox="0 0 132 132" aria-hidden="true">
+    <span class="txt-rot"><svg class="txt" viewBox="0 0 132 132" aria-hidden="true">
       <defs><path id="circ" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
       <text><textPath href="#circ">Návrh zdarma · do 48 hodin · nezávazně ·</textPath></text>
-    </svg>
+    </svg></span>
     <span class="core"><svg><use href="#i-arrow"/></svg></span>
   </a>
 </section>
@@ -202,7 +203,7 @@
 
     <div class="bento">
       <div class="b-card b-photo">
-        <img class="bento-par" src="img/person.jpg" alt="Spokojená klientka" loading="lazy">
+        <img decoding="async" class="bento-par" src="img/person.jpg" alt="Spokojená klientka" loading="lazy">
         <div class="top">
           <span class="logo">WebHunter</span>
           <span class="sq"><svg><use href="#i-chart"/></svg></span>
@@ -214,7 +215,7 @@
       </div>
 
       <div class="b-card b-free">
-        <img class="bento-par" src="img/hero-sky.jpg" alt="" loading="lazy">
+        <img decoding="async" class="bento-par" src="img/hero-sky.jpg" alt="" loading="lazy">
         <div class="top">
           <div class="small">Návrh zdarma a nezávazně</div>
           <div class="b-num">0<span class="unit">&nbsp;Kč</span></div>
@@ -249,93 +250,10 @@
   </div>
 </section>
 
-<!-- WORK (homepage showcase) -->
-<section class="work-home" id="realizace" data-section="realizace">
-  <div class="container wh-head">
-    <div>
-      <span class="label reveal">Realizace</span>
-      <h2 class="reveal">Weby, které už <span class="serif">přivádějí zákazníky.</span></h2>
-    </div>
-    <div class="reveal">
-      <p>Videomaker, svatební fotograf, běžecký závod, studio pilates i rodinná farma. Pět z 41 webů, které jsme postavili.</p>
-      <a href="realizace.html" class="btn btn--dark">Všech 41 realizací <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-    </div>
-  </div>
-  <div class="showcase home-sc" style="--pc:#E0569B;--pb:#1E0D18">
-    <div class="sc-grid">
-      <div class="sc-side">
-        <div class="sc-top"><span class="mono">Vybrané realizace · <span data-sc-count>01</span> / 05</span>
-          <div class="sc-nav"><button data-sc="-1" aria-label="Předchozí"><svg style="transform:rotate(-135deg)"><use href="#i-arrow"/></svg></button><button data-sc="1" aria-label="Další"><svg style="transform:rotate(45deg)"><use href="#i-arrow"/></svg></button></div>
-        </div>
-        <ol class="sc-list">
-        <li class="sc-item on" data-slug="papapech-cz" data-url="https://papapech.cz" data-dom="papapech.cz" data-pc="#E0569B" data-pb="#1E0D18">
-          <button class="sc-btn" aria-expanded="true"><span class="n">01</span><span class="nm">Papa Pech</span><span class="ob">Videomaker</span></button>
-          <div class="sc-detail"><div>
-            <h3>Osobní značka, která prodává kurzy</h3>
-            <p>Režisér a influencer se 40M+ zhlédnutími pro klienty. Web spojuje osobní značku, zakázkovou produkci a e-shop s online kurzy Videomástr — v jeho vlastním, hravém tónu.</p>
-            <div class="sc-chips"><span>E-shop s kurzy</span><span>Zakázková produkce</span><span>Osobní značka</span></div>
-            <a class="sc-link" href="https://papapech.cz" target="_blank" rel="noopener">Otevřít papapech.cz <i><svg><use href="#i-arrow"/></svg></i></a>
-          </div></div>
-          <span class="sc-prog"><i></i></span>
-        </li>
-        <li class="sc-item" data-slug="jakubmachalaphoto-cz" data-url="https://jakubmachalaphoto.cz" data-dom="jakubmachalaphoto.cz" data-pc="#D9D2C3" data-pb="#141414">
-          <button class="sc-btn" aria-expanded="false"><span class="n">02</span><span class="nm">Jakub Machala</span><span class="ob">Svatební fotograf</span></button>
-          <div class="sc-detail"><div>
-            <h3>Filmová estetika na každém scrollu</h3>
-            <p>Černobílé portréty, světelná stopa, která se kreslí při scrollování, a galerie, díky které si páry fotografa vyberou dřív, než mu napíšou.</p>
-            <div class="sc-chips"><span>Animovaná světelná stopa</span><span>Galerie</span><span>Ceník a termíny</span></div>
-            <a class="sc-link" href="https://jakubmachalaphoto.cz" target="_blank" rel="noopener">Otevřít jakubmachalaphoto.cz <i><svg><use href="#i-arrow"/></svg></i></a>
-          </div></div>
-          <span class="sc-prog"><i></i></span>
-        </li>
-        <li class="sc-item" data-slug="hasobeh-cz" data-url="https://hasobeh.cz" data-dom="hasobeh.cz" data-pc="#E53935" data-pb="#150B0B">
-          <button class="sc-btn" aria-expanded="false"><span class="n">03</span><span class="nm">Hasoběh</span><span class="ob">Běžecký závod</span></button>
-          <div class="sc-detail"><div>
-            <h3>Od odpočtu po výsledky</h3>
-            <p>Web pro letní běžecký závod pod Karlštejnem: odpočet do startu, kategorie, harmonogram, online registrace s platbou i výsledky. Všechno na jednom místě.</p>
-            <div class="sc-chips"><span>Online registrace</span><span>Platba startovného</span><span>Výsledky a galerie</span></div>
-            <a class="sc-link" href="https://hasobeh.cz" target="_blank" rel="noopener">Otevřít hasobeh.cz <i><svg><use href="#i-arrow"/></svg></i></a>
-          </div></div>
-          <span class="sc-prog"><i></i></span>
-        </li>
-        <li class="sc-item" data-slug="sport-active-cz" data-url="https://sport-active.cz" data-dom="sport-active.cz" data-pc="#C9A27A" data-pb="#1A1510">
-          <button class="sc-btn" aria-expanded="false"><span class="n">04</span><span class="nm">SportActive</span><span class="ob">Pilates</span></button>
-          <div class="sc-detail"><div>
-            <h3>Pohyb, který tělo skutečně potřebuje</h3>
-            <p>Lekce pilates a zdravých zad s Oľgou Königovou. Web vede k jedinému kroku — rezervaci lekce — a nabízí rozvrh, místa cvičení, členství i videa na cvičení doma.</p>
-            <div class="sc-chips"><span>Rezervace lekcí</span><span>Rozvrh</span><span>Členství a videa</span></div>
-            <a class="sc-link" href="https://sport-active.cz" target="_blank" rel="noopener">Otevřít sport-active.cz <i><svg><use href="#i-arrow"/></svg></i></a>
-          </div></div>
-          <span class="sc-prog"><i></i></span>
-        </li>
-        <li class="sc-item" data-slug="charolais-cz" data-url="https://charolais.cz" data-dom="charolais.cz" data-pc="#A8C66C" data-pb="#0F1A10">
-          <button class="sc-btn" aria-expanded="false"><span class="n">05</span><span class="nm">Farma Tájek</span><span class="ob">Chov skotu</span></button>
-          <div class="sc-detail"><div>
-            <h3>Rodinná farma, která působí světově</h3>
-            <p>150 krav a jalovic na 260 hektarech. Web staví na krajině a fotkách stáda, představí tři plemena — Charolais, Parthenais a Limousine — a vede k prodeji plemenných býků.</p>
-            <div class="sc-chips"><span>Býci na prodej</span><span>3 plemena</span><span>Galerie farmy</span></div>
-            <a class="sc-link" href="https://charolais.cz" target="_blank" rel="noopener">Otevřít charolais.cz <i><svg><use href="#i-arrow"/></svg></i></a>
-          </div></div>
-          <span class="sc-prog"><i></i></span>
-        </li>
-        </ol>
-      </div>
-      <div class="sc-stage">
-        <span class="sc-badge"><i><svg><use href="#i-check"/></svg></i>Živý web</span>
-        <div class="sc-browser">
-          <div class="sc-bar"><i></i><i></i><i></i><a class="sc-url" href="https://papapech.cz" target="_blank" rel="noopener"><svg><use href="#i-shield"/></svg><span data-sc-dom>papapech.cz</span></a></div>
-          <div class="sc-vp sc-swap"><img data-sc-desk src="img/pf/papapech-cz-feat.jpg" alt="Web Papa Pech" loading="lazy"><span class="sc-hint">Najeďte pro pauzu</span></div>
-        </div>
-        <div class="sc-phone sc-swap"><img data-sc-mob src="img/pf/papapech-cz-m.jpg" alt="Mobilní verze webu Papa Pech" loading="lazy"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section class="process" id="proces" data-section="proces">
   <div class="p-frame">
-    <div class="p-bg"><img class="sky-par" src="img/process-sky.jpg" alt="Modrá obloha se sluncem" loading="lazy"></div>
+    <div class="p-bg"><img decoding="async" class="sky-par" src="img/process-sky.jpg" alt="Modrá obloha se sluncem" loading="lazy"></div>
     <div class="container">
       <div class="p-head">
         <div>
@@ -367,7 +285,7 @@
         <article class="p-step">
           <div class="ps-vis">
             <div class="vis-preview">
-              <div class="img real"><img src="img/pf/jakubmachalaphoto-cz.jpg" alt="Návrh webu Jakub Machala" loading="lazy"></div>
+              <div class="img real"><img decoding="async" src="img/pf/jakubmachalaphoto-cz.jpg" alt="Návrh webu Jakub Machala" loading="lazy"></div>
               <div class="meta"><span>jakubmachalaphoto.cz</span><span class="chip green">Hotovo</span></div>
             </div>
           </div>
@@ -418,7 +336,7 @@
               <div class="tpl-banner">Vítejte na našich stránkách</div>
               <div class="tpl-boxes"><div>Služba 1</div><div>Služba 2</div><div>Služba 3</div></div>
             </div>
-            <div class="cmp-layer cmp-after real"><img src="img/pf/cmp-charolais.jpg" alt="Web Farma Tájek" loading="lazy"></div>
+            <div class="cmp-layer cmp-after real"><img decoding="async" src="img/pf/cmp-charolais.jpg" alt="Web Farma Tájek" loading="lazy"></div>
             <div class="cmp-handle"><i>‹ ›</i></div>
             <span class="cmp-tag l">Šablona</span><span class="cmp-tag r">Na míru · Farma Tájek</span>
           </div>
@@ -523,39 +441,19 @@
         <a href="#kontakt" class="btn btn--lime">Chci návrh <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
       </article>
     </div>
-    <div class="cap">
-      <div class="cap-head">
-        <h3 class="reveal">Nejen prezentace. <span class="serif">Web umí i prodávat a rezervovat.</span></h3>
-        <p class="reveal">Každá funkce níže už běží na webu, který jsme postavili. Klikněte a vyzkoušejte si ji.</p>
-      </div>
-      <div class="cap-grid reveal-group">
-        <a class="cap-item reveal-item" href="https://bekabazar.cz" target="_blank" rel="noopener">
-          <img src="img/pf/bekabazar-cz.jpg" alt="Web Beka Bazar" loading="lazy" width="960" height="600">
-          <span><b>E-shop</b><span class="m">Katalog, košík a ceny v korunách i eurech</span><small>Beka Bazar ↗</small></span>
-        </a>
-        <a class="cap-item reveal-item" href="https://papapech.cz" target="_blank" rel="noopener">
-          <img src="img/pf/papapech-cz.jpg" alt="Web Papa Pech" loading="lazy" width="960" height="600">
-          <span><b>Online kurzy</b><span class="m">Prodej kurzů vedle zakázkové produkce</span><small>Papa Pech ↗</small></span>
-        </a>
-        <a class="cap-item reveal-item" href="https://sport-active.cz" target="_blank" rel="noopener">
-          <img src="img/pf/sport-active-cz.jpg" alt="Web SportActive" loading="lazy" width="960" height="600">
-          <span><b>Rezervace lekcí</b><span class="m">Rozvrh a rezervace na pár kliknutí</span><small>SportActive ↗</small></span>
-        </a>
-        <a class="cap-item reveal-item" href="https://hasobeh.cz" target="_blank" rel="noopener">
-          <img src="img/pf/hasobeh-cz.jpg" alt="Web Hasoběh" loading="lazy" width="960" height="600">
-          <span><b>Registrace s platbou</b><span class="m">Kategorie, startovné a výsledky závodu</span><small>Hasoběh ↗</small></span>
-        </a>
-        <a class="cap-item reveal-item" href="https://drzimetipalce.cz" target="_blank" rel="noopener">
-          <img src="img/pf/drzimetipalce-cz.jpg" alt="Web Držíme ti palce" loading="lazy" width="960" height="600">
-          <span><b>Měsíční příspěvky</b><span class="m">Podpora přes vybraného ambasadora</span><small>Držíme ti palce ↗</small></span>
-        </a>
-        <a class="cap-item reveal-item" href="https://jakubmachalaphoto.cz" target="_blank" rel="noopener">
-          <img src="img/pf/jakubmachalaphoto-cz.jpg" alt="Web Jakub Machala" loading="lazy" width="960" height="600">
-          <span><b>Galerie a portfolio</b><span class="m">Fotky, ceník a poptávka termínu</span><small>Jakub Machala ↗</small></span>
-        </a>
-      </div>
-    </div>
   </div>
+</section>
+
+<!-- STRIP -->
+<section class="strip" id="realizace" data-section="realizace" aria-label="Ukázky realizací">
+  <div class="container strip-head">
+    <div>
+      <span class="label reveal">Realizace</span>
+      <h2 class="reveal">Weby, které už <span class="serif">přivádějí zákazníky.</span></h2>
+    </div>
+    <a href="realizace.html" class="btn btn--dark reveal">Všech 41 realizací <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+  </div>
+  <div class="strip-rail"><div class="strip-row"><a class="strip-tile" href="https://papapech.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>papapech.cz</span></span><img src="img/pf/papapech-cz.jpg" alt="Web Papa Pech" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Papa Pech</span></a><a class="strip-tile" href="https://jakubmachalaphoto.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>jakubmachalaphoto.cz</span></span><img src="img/pf/jakubmachalaphoto-cz.jpg" alt="Web Jakub Machala" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Jakub Machala</span></a><a class="strip-tile" href="https://hasobeh.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>hasobeh.cz</span></span><img src="img/pf/hasobeh-cz.jpg" alt="Web Hasoběh" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Hasoběh</span></a><a class="strip-tile" href="https://sport-active.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>sport-active.cz</span></span><img src="img/pf/sport-active-cz.jpg" alt="Web SportActive" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">SportActive</span></a><a class="strip-tile" href="https://charolais.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>charolais.cz</span></span><img src="img/pf/charolais-cz.jpg" alt="Web Farma Tájek" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Farma Tájek</span></a><a class="strip-tile" href="https://bekabazar.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>bekabazar.cz</span></span><img src="img/pf/bekabazar-cz.jpg" alt="Web Beka Bazar" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Beka Bazar</span></a><a class="strip-tile" href="https://ratiborska.jandemelreality.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>ratiborska.jandemelreality.cz</span></span><img src="img/pf/ratiborska-jandemelreality-cz.jpg" alt="Web Rodinný dům Píšť" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Rodinný dům Píšť</span></a><a class="strip-tile" href="https://kovotuk.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>kovotuk.cz</span></span><img src="img/pf/kovotuk-cz.jpg" alt="Web KovoTuk" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">KovoTuk</span></a><a class="strip-tile" href="https://f-fashion.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>f-fashion.cz</span></span><img src="img/pf/f-fashion-cz.jpg" alt="Web F-Fashion" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">F-Fashion</span></a><a class="strip-tile" href="https://pecezitalie.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>pecezitalie.cz</span></span><img src="img/pf/pecezitalie-cz.jpg" alt="Web J2 Italské pece" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">J2 Italské pece</span></a><a class="strip-tile" href="https://pension-maty.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>pension-maty.cz</span></span><img src="img/pf/pension-maty-cz.jpg" alt="Web Pension Maty" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Pension Maty</span></a><a class="strip-tile" href="https://drzimetipalce.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>drzimetipalce.cz</span></span><img src="img/pf/drzimetipalce-cz.jpg" alt="Web Držíme ti palce" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Držíme ti palce</span></a><a class="strip-tile" href="https://rkvitkadlec.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>rkvitkadlec.cz</span></span><img src="img/pf/rkvitkadlec-cz.jpg" alt="Web Reality Centrum Praha" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Reality Centrum Praha</span></a><a class="strip-tile" href="https://alissabeaute-ks.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>alissabeaute-ks.cz</span></span><img src="img/pf/alissabeaute-ks-cz.jpg" alt="Web Alissa Beauté" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Alissa Beauté</span></a><a class="strip-tile" href="https://galenit-e.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>galenit-e.cz</span></span><img src="img/pf/galenit-e-cz.jpg" alt="Web Galenit" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Galenit</span></a><a class="strip-tile" href="https://www.axoncapital.eu" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>axoncapital.eu</span></span><img src="img/pf/axoncapital-eu.jpg" alt="Web Axon Capital" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Axon Capital</span></a><a class="strip-tile" href="https://papapech.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>papapech.cz</span></span><img src="img/pf/papapech-cz.jpg" alt="Web Papa Pech" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Papa Pech</span></a><a class="strip-tile" href="https://jakubmachalaphoto.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>jakubmachalaphoto.cz</span></span><img src="img/pf/jakubmachalaphoto-cz.jpg" alt="Web Jakub Machala" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Jakub Machala</span></a><a class="strip-tile" href="https://hasobeh.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>hasobeh.cz</span></span><img src="img/pf/hasobeh-cz.jpg" alt="Web Hasoběh" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Hasoběh</span></a><a class="strip-tile" href="https://sport-active.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>sport-active.cz</span></span><img src="img/pf/sport-active-cz.jpg" alt="Web SportActive" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">SportActive</span></a><a class="strip-tile" href="https://charolais.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>charolais.cz</span></span><img src="img/pf/charolais-cz.jpg" alt="Web Farma Tájek" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Farma Tájek</span></a><a class="strip-tile" href="https://bekabazar.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>bekabazar.cz</span></span><img src="img/pf/bekabazar-cz.jpg" alt="Web Beka Bazar" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Beka Bazar</span></a><a class="strip-tile" href="https://ratiborska.jandemelreality.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>ratiborska.jandemelreality.cz</span></span><img src="img/pf/ratiborska-jandemelreality-cz.jpg" alt="Web Rodinný dům Píšť" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Rodinný dům Píšť</span></a><a class="strip-tile" href="https://kovotuk.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>kovotuk.cz</span></span><img src="img/pf/kovotuk-cz.jpg" alt="Web KovoTuk" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">KovoTuk</span></a><a class="strip-tile" href="https://f-fashion.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>f-fashion.cz</span></span><img src="img/pf/f-fashion-cz.jpg" alt="Web F-Fashion" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">F-Fashion</span></a><a class="strip-tile" href="https://pecezitalie.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>pecezitalie.cz</span></span><img src="img/pf/pecezitalie-cz.jpg" alt="Web J2 Italské pece" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">J2 Italské pece</span></a><a class="strip-tile" href="https://pension-maty.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>pension-maty.cz</span></span><img src="img/pf/pension-maty-cz.jpg" alt="Web Pension Maty" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Pension Maty</span></a><a class="strip-tile" href="https://drzimetipalce.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>drzimetipalce.cz</span></span><img src="img/pf/drzimetipalce-cz.jpg" alt="Web Držíme ti palce" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Držíme ti palce</span></a><a class="strip-tile" href="https://rkvitkadlec.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>rkvitkadlec.cz</span></span><img src="img/pf/rkvitkadlec-cz.jpg" alt="Web Reality Centrum Praha" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Reality Centrum Praha</span></a><a class="strip-tile" href="https://alissabeaute-ks.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>alissabeaute-ks.cz</span></span><img src="img/pf/alissabeaute-ks-cz.jpg" alt="Web Alissa Beauté" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Alissa Beauté</span></a><a class="strip-tile" href="https://galenit-e.cz" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>galenit-e.cz</span></span><img src="img/pf/galenit-e-cz.jpg" alt="Web Galenit" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Galenit</span></a><a class="strip-tile" href="https://www.axoncapital.eu" target="_blank" rel="noopener" tabindex="-1"><span class="pf-bar"><i></i><i></i><i></i><span>axoncapital.eu</span></span><img src="img/pf/axoncapital-eu.jpg" alt="Web Axon Capital" loading="lazy" decoding="async" width="960" height="600"><span class="strip-cap">Axon Capital</span></a></div></div>
 </section>
 
 <!-- GEO (dark) -->
@@ -648,7 +546,7 @@
 <!-- CTA / CONTACT -->
 <section class="cta" id="kontakt" data-section="kontakt">
   <div class="cta-frame">
-    <div class="cta-bg"><img class="sky-par" src="img/cta-clouds.jpg" alt="Mraky na modré obloze" loading="lazy"></div>
+    <div class="cta-bg"><img decoding="async" class="sky-par" src="img/cta-clouds.jpg" alt="Mraky na modré obloze" loading="lazy"></div>
     <div class="cta-copy">
       <span class="label reveal">Začněte tady</span>
       <h2 class="reveal">Pošlete odkaz. <span class="serif">Za 48 hodin</span> uvidíte svůj nový web.</h2>
@@ -658,7 +556,7 @@
         <li><i><svg><use href="#i-check"/></svg></i>Konkrétní návrh, ne obecná nabídka</li>
         <li><i><svg><use href="#i-check"/></svg></i>Nic nám nedlužíte, ani když nepokračujete</li>
       </ul>
-      <a href="realizace.html" class="cta-clients reveal"><span class="stack"><img src="img/pf/papapech-cz.jpg" alt=""><img src="img/pf/jakubmachalaphoto-cz.jpg" alt=""><img src="img/pf/hasobeh-cz.jpg" alt=""><img src="img/pf/sport-active-cz.jpg" alt=""></span><span>Přidejte se k Papa Pechovi, Jakubu Machalovi, Hasoběhu a dalším 38 klientům.</span></a>
+      <a href="realizace.html" class="cta-clients reveal"><span class="stack"><img decoding="async" src="img/pf/papapech-cz.jpg" alt=""><img decoding="async" src="img/pf/jakubmachalaphoto-cz.jpg" alt=""><img decoding="async" src="img/pf/hasobeh-cz.jpg" alt=""><img decoding="async" src="img/pf/sport-active-cz.jpg" alt=""></span><span>Přidejte se k Papa Pechovi, Jakubu Machalovi, Hasoběhu a dalším 38 klientům.</span></a>
       <div class="cta-contact reveal">
         <a href="tel:+420777611634"><i><svg><use href="#i-phone"/></svg></i>+420 777 611 634</a>
         <a href="mailto:info.webhunter@email.cz"><i><svg><use href="#i-mail"/></svg></i>info.webhunter@email.cz</a>
