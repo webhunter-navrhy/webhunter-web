@@ -366,7 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero h1 .w > span', { yPercent: 110, duration: 1.2, stagger: 0.055 }, 0.3)
       .from('.hero-sub, .hero-buttons', { y: 24, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.75)
       .from('.hc-card', { y: 260, opacity: 0, duration: 1.6, stagger: { each: 0.08, from: 'center' } }, 0.6)
-      .from('.hero-card', { y: 40, opacity: 0, duration: 1.2 }, 1.1)
       .from('.badge', { scale: 0, rotate: -90, duration: 1.2 }, 1.2);
     gsap.to('.ring-stage', { y: -80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
   });
