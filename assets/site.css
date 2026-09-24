@@ -1707,3 +1707,115 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 .tilt { transform: translateY(var(--ty, 0px)); }
 .sv-cta.bnx { padding: 1.6rem; }
 .sv-cta.bnx .mono { margin-top: 0.2rem; }
+
+/* =================================================================
+   CARD CRAFT v3 — pop-out objects, mesh colour, grain, light rim
+   ================================================================= */
+.bnx, .bn { overflow: visible !important; }
+.bnx > *:not(.bn-fx):not(.bn-obj), .bn > *:not(.bn-fx):not(.bn-obj) { position: relative; z-index: 2; }
+.bnx > .bn-obj, .bn > .bn-obj { z-index: 1; }
+.bn-fx { border-radius: inherit; overflow: hidden; }
+/* print-like grain on every banner */
+.bn-fx::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: url(../img/grain.png) 0 0 / 160px 160px; opacity: 0.22; mix-blend-mode: overlay; }
+/* richer mesh gradients */
+.bnv-blue, .bn-blue { background:
+  radial-gradient(90% 70% at 100% 0%, rgba(120, 190, 255, 0.75), transparent 60%),
+  radial-gradient(80% 70% at 0% 100%, rgba(98, 76, 255, 0.55), transparent 60%),
+  linear-gradient(160deg, #3D7BFF 0%, #1E62F0 45%, #0B2F9E 100%); }
+.bnv-sky, .bn-sky, .b-free.bn-sky { background:
+  radial-gradient(80% 60% at 0% 0%, #FFFFFF, transparent 60%),
+  radial-gradient(70% 60% at 100% 100%, rgba(170, 150, 255, 0.35), transparent 60%),
+  linear-gradient(165deg, #EEF4FF 0%, #D6E4FF 55%, #BCD2FF 100%); }
+.bnv-lime, .b-lime.bn { background:
+  radial-gradient(80% 60% at 0% 0%, rgba(250, 255, 190, 0.95), transparent 60%),
+  radial-gradient(70% 70% at 100% 100%, rgba(120, 200, 70, 0.55), transparent 60%),
+  linear-gradient(160deg, #DDF98E 0%, #C9F266 50%, #ADDC3F 100%); }
+.bnv-dark, .b-dark.bn { background:
+  radial-gradient(70% 60% at 90% 10%, rgba(47, 107, 255, 0.55), transparent 60%),
+  radial-gradient(60% 50% at 0% 100%, rgba(30, 180, 160, 0.22), transparent 60%),
+  linear-gradient(170deg, #0F1D45 0%, #0A1128 50%, #060A12 100%); }
+/* animated light rim on hover */
+@property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+.bn-rim { position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0; transition: opacity 0.5s var(--ease-out);
+  background: conic-gradient(from var(--ang), transparent 0 55%, rgba(255,255,255,0.95) 70%, rgba(201,242,102,0.9) 78%, transparent 92%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.bnx:hover .bn-rim, .bn:hover .bn-rim { opacity: 1; animation: rimSpin 3.2s linear infinite; }
+@keyframes rimSpin { to { --ang: 360deg; } }
+.bnv-sky .bn-rim { background: conic-gradient(from var(--ang), transparent 0 55%, rgba(30,98,240,0.8) 72%, rgba(201,242,102,0.9) 80%, transparent 92%); }
+.bnv-lime .bn-rim { background: conic-gradient(from var(--ang), transparent 0 55%, rgba(255,255,255,0.95) 70%, rgba(30,98,240,0.8) 80%, transparent 92%); }
+
+/* ---- pop-out positions ---- */
+.bn-blue > .bn-obj { width: 64%; left: 50%; margin-left: -32%; top: -7%; }
+.bn-sky > .coin-a { width: 46%; right: 2%; top: -9%; }
+.bn-sky > .coin-b { width: 30%; right: 42%; top: 22%; }
+.b-lime > .mag { width: 34%; right: -5%; top: -22%; }
+.b-lime > .star { width: 15%; right: 30%; top: -6%; }
+.b-dark > .shld { width: 23%; right: -4%; top: 20%; }
+.p-step > .st-link { width: 60%; right: -8%; top: 10%; }
+.p-step > .st-check { width: 46%; right: -6%; top: 4%; }
+.p-step > .st-shot { width: 66%; right: -9%; top: 16%; }
+.p-step > .st-sw { width: 32%; left: 36%; top: 34%; z-index: 2; }
+.val > .ob-val { width: 100px; right: 8px; top: -30px; }
+.sv > .sv-obj { width: 96px; right: -10px; top: -18px; }
+.sv > .sv-cur { width: 76px; right: 6px; top: -14px; }
+.sv > .sv-shld { width: 72px; left: -10px; right: auto; top: -16px; }
+.sv > .sv-bolt { width: 52px; right: 4px; top: -18px; }
+.sv > .sv-sw { width: 118px; right: -12px; bottom: -14px; top: auto; }
+.call-card > .ob-call { width: 84px; right: -14px; top: -26px; }
+.cta-band > .band-sw { width: clamp(130px, 14vw, 200px); right: 22%; top: -12%; }
+.cta-band > .band-coin { width: clamp(90px, 9vw, 130px); right: 6%; top: -10%; }
+
+/* ---- hero cards as banners ---- */
+.hc-card.bnx { padding: 16px; }
+.hc-card.bnv-blue, .hc-card.bnv-dark { color: #fff; }
+.hc-card.bnv-blue .k-label, .hc-card.bnv-dark .k-label { color: rgba(255,255,255,0.7); }
+.hc-card.bnv-lime .k-label { color: #3d4a17; }
+.hc-card.bnv-sky .k-label { color: #4A5B7A; }
+.hc-card .serp-bar, .hc-card .hc-ai .q { background: rgba(255,255,255,0.85); }
+.hc-card.bnv-lime .q { background: rgba(255,255,255,0.75); }
+.hc-card.bnv-lime .skel, .hc-card.bnv-sky .skel { background: rgba(255,255,255,0.7); }
+.hc-card.bnv-lime .chip, .hc-card.bnv-sky .chip:not(.green) { background: rgba(255,255,255,0.85); }
+.hc-card.hc-site { padding: 8px 8px 12px; }
+.hc-card.hc-site .browser span { background: rgba(255,255,255,0.18); color: #fff; }
+.hc-card.hc-site .browser i { background: rgba(255,255,255,0.35); }
+.hc-card.hc-site .site-meta span:first-child { color: rgba(255,255,255,0.85) !important; }
+.hc-card.hc-site .site-hero { box-shadow: 0 10px 24px rgba(5,20,60,0.3); }
+.hc-card.hc-send { background: none; }
+.hc-card.hc-send.bnv-blue { background:
+  radial-gradient(90% 70% at 100% 0%, rgba(120, 190, 255, 0.75), transparent 60%),
+  radial-gradient(80% 70% at 0% 100%, rgba(98, 76, 255, 0.55), transparent 60%),
+  linear-gradient(160deg, #3D7BFF 0%, #1E62F0 45%, #0B2F9E 100%); }
+.hc-card.bnv-dark .kv { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+.hc-card.bnv-dark .kv b { color: #fff; }
+.hc-card.bnv-dark .tog { border-color: rgba(255,255,255,0.12); }
+.hc-card.bnv-lime .kv { border-color: rgba(10,14,20,0.12); color: #3d4a17; }
+.hc-card.hc-gdpr .k-title, .hc-card.hc-main .k-title { color: #fff; }
+.hc-card .gauge svg circle:first-child { stroke: rgba(10,14,20,0.12); }
+.hc-card > .hc-pop { z-index: 3; filter: drop-shadow(0 14px 16px rgba(5,20,60,0.35)); }
+.hp-sw { width: 88px; right: -26px; top: -40px; }
+.hp-link { width: 110px; right: -30px; top: -34px; }
+.hp-mag { width: 70px; right: -20px; top: -34px; }
+.hp-spark { width: 60px; right: -16px; top: -30px; }
+.hp-bolt { width: 40px; right: -8px; top: -34px; }
+.hp-shield { width: 58px; right: -18px; top: -30px; }
+.hc-card .bn-fx .sp { width: 11px; height: 11px; }
+.hc-card { overflow: visible; }
+@media (max-width: 767px) {
+  .val > .ob-val { top: -20px; width: 84px; }
+  .b-lime > .mag { right: -2%; top: -14%; }
+  .b-dark > .shld { right: 0; }
+  .sv > .sv-obj { right: -4px; width: 76px; }
+  .p-step > .st-link, .p-step > .st-check, .p-step > .st-shot { right: -4%; }
+}
+@media (prefers-reduced-motion: reduce) { .bnx:hover .bn-rim, .bn:hover .bn-rim { animation: none; } }
+.bnx > .bn-obj, .bn > .bn-obj { position: absolute; z-index: 3; pointer-events: none; }
+.bn > .bn-obj { z-index: 3; }
+.b-free > .bn-obj { inset: auto; height: auto; object-fit: contain; }
+.b-free > .coin-a { width: 46%; right: 2%; top: -9%; }
+.b-free > .coin-b { width: 30%; right: 42%; top: 20%; }
+.bn-blue > .bn-obj { width: 60%; left: auto; right: -9%; margin-left: 0; top: 11%; }
+.b-free > .coin-a { width: 40%; right: -7%; top: -12%; }
+.b-free > .coin-b { width: 26%; right: 36%; top: 29%; }
+@media (max-width: 767px) { .bn-blue > .bn-obj { width: 56%; right: -4%; top: 12%; } }
+.bn-blue > .bn-obj { width: 56%; right: 3%; top: 12%; }
+.bento .b-card:hover { z-index: 5; }
