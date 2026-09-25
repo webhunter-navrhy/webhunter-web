@@ -75,8 +75,6 @@ def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type=
 {FONTS}
 
 <script src="assets/vendor/gsap.min.js" defer></script>
-<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
-<script src="assets/vendor/lenis.min.js" defer></script>
 
 <link rel="preload" as="image" href="img/hero-sky-1400.webp" imagesrcset="img/hero-sky-800.webp 800w, img/hero-sky-1400.webp 1400w, img/hero-sky-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="assets/site.min.css?v=1">

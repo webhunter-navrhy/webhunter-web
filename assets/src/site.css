@@ -2441,3 +2441,28 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
   .post-card-top { padding-right: 84px; }
   .post-card, .post-feat { min-height: 300px; }
 }
+
+/* ---------- PERF: scroll-linked effects run on the compositor (CSS scroll-driven animations) ---------- */
+@supports (animation-timeline: view()) {
+  .sky-par { animation: wh-par linear both; animation-timeline: view(); animation-range: cover; }
+  .bento-par { animation: wh-par-s linear both; animation-timeline: view(); animation-range: cover; }
+  .ring-stage { animation: wh-ring linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+  .scroll-progress { animation: wh-prog linear both; animation-timeline: scroll(root); }
+}
+@keyframes wh-par { from { translate: 0 -5%; } to { translate: 0 5%; } }
+@keyframes wh-par-s { from { translate: 0 -4%; } to { translate: 0 4%; } }
+@keyframes wh-ring { to { translate: 0 -80px; } }
+@keyframes wh-prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .sky-par, .bento-par, .ring-stage { animation: none; } }
+.is-off .sky-par, .is-off .bento-par, .is-off.sky-par { animation-play-state: running !important; }
+@media (max-width: 767px) { .ring-stage { animation: none !important; } }
+
+/* ---------- LITE MODE (weaker computers): same layout and colours, no GPU-heavy glass & decorative motion ---------- */
+.lite *, .lite *::before, .lite *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.lite .nav.scrolled .nav-inner { background: rgba(255,255,255,0.96); }
+.lite .rail-group { background: rgba(236,241,250,0.94); }
+.lite .bn-pat, .lite .bn-orb, .lite .bn-shine, .lite .bn-fx .sp { animation: none !important; }
+.lite .bn-fx::after { display: none; }
+.lite .bn-fx { -webkit-mask-image: none; }
+.lite .sky-par, .lite .bento-par { animation: none !important; }
+.lite .form { background: rgba(255,255,255,0.97); }

@@ -8,6 +8,11 @@ const WH_IMG = WH_ASSETS + '../img/';
 const WH_EN = (document.documentElement.lang || '').startsWith('en');
 const tr = (cs, en) => (WH_EN ? en : cs);
 if (navigator.webdriver) document.documentElement.classList.add('wh-bot');
+// Lite mode for weaker computers (few cores / little memory / reduced motion): no glass blur, calmer card effects
+const WH_LITE = /[?&]lite=1/.test(location.search) || (!/[?&]lite=0/.test(location.search) && (
+  (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches));
+if (WH_LITE) document.documentElement.classList.add('lite');
 window.whTrack = window.whTrack || function () { (window.whTrackQ = window.whTrackQ || []).push([].slice.call(arguments)); };
 
 /* ---------- Consent (GDPR) ---------- */
@@ -105,23 +110,13 @@ window.whConsent = whConsent;
 document.addEventListener('DOMContentLoaded', () => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  const hasGsap = typeof gsap !== 'undefined';
   const nav = $('.nav');
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-  // Lenis
-  let lenis = null;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    if (hasGsap) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(time => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
-      requestAnimationFrame(raf);
-    }
-  }
+  // Native scrolling (no JS smooth-scroll library): the browser scrolls on the compositor thread,
+  // so slow trackpad scrolling stays perfectly smooth even on weaker computers.
+  const smoothTo = (el, offset = -10) => window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset, behavior: 'smooth' });
   $$('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
@@ -130,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!el) return;
       e.preventDefault();
       closeMenu();
-      if (lenis) lenis.scrollTo(el, { offset: id === '#top' ? 0 : -10, duration: 1.4 });
-      else el.scrollIntoView({ behavior: 'smooth' });
+      if (id === '#top') window.scrollTo({ top: 0, behavior: 'smooth' }); else smoothTo(el);
     });
   });
 
@@ -188,28 +182,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  // Rail active section — the section under the middle of the viewport (robust to fast scrolling and gaps)
+  // Rail active section — IntersectionObserver on a thin band at 45 % of the viewport (no per-frame measuring)
   const railLinks = $$('.rail a[data-sec]');
-  if (railLinks.length) {
-    const secs = $$('[data-section]');
-    let cur = '', rq = 0;
-    const upd = () => {
-      rq = 0; const mid = innerHeight * 0.45; let id = secs[0].dataset.section;
-      for (const sct of secs) { if (sct.getBoundingClientRect().top <= mid) id = sct.dataset.section; else break; }
-      if (id === cur) return; cur = id;
-      railLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === id && !l.classList.contains('rail-cta')));
-    };
-    window.addEventListener('scroll', () => { if (!rq) rq = requestAnimationFrame(upd); }, { passive: true }); upd();
+  if (railLinks.length && 'IntersectionObserver' in window) {
+    const setRail = id => railLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === id && !l.classList.contains('rail-cta')));
+    const rio = new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting) setRail(x.target.dataset.section); }), { rootMargin: '-45% 0px -54% 0px' });
+    $$('[data-section]').forEach(sct => rio.observe(sct));
   }
 
-  // Blog: highlight the table-of-contents entry of the section being read
+  // Blog: highlight the table-of-contents entry of the section being read (only recalculated when a heading crosses the line)
   const tocLinks = $$('.post-toc a[href^="#"]').filter(a => a.getAttribute('href').length > 1 && a.getAttribute('href') !== '#kontakt');
-  if (tocLinks.length) {
+  if (tocLinks.length && 'IntersectionObserver' in window) {
     const heads = tocLinks.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
-    let tq = 0;
-    const tu = () => { tq = 0; let cur = heads[0]; for (const h of heads) { if (h.getBoundingClientRect().top < innerHeight * 0.35) cur = h; else break; }
+    const tu = () => { let cur = heads[0]; for (const h of heads) { if (h.getBoundingClientRect().top < innerHeight * 0.35) cur = h; else break; }
       tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur.id)); };
-    window.addEventListener('scroll', () => { if (!tq) tq = requestAnimationFrame(tu); }, { passive: true }); tu();
+    const tio = new IntersectionObserver(tu, { rootMargin: '0px 0px -65% 0px' });
+    heads.forEach(h => tio.observe(h)); tu();
   }
 
   // Banner card effects animate only while the card is (nearly) on screen — keeps the layer count low while scrolling
@@ -298,7 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const open = !qa.classList.contains('open');
     qas.forEach(o => { o.classList.remove('open'); $('.q', o).setAttribute('aria-expanded', 'false'); });
     if (open) { qa.classList.add('open'); $('.q', qa).setAttribute('aria-expanded', 'true'); }
-    if (hasGsap) setTimeout(() => ScrollTrigger.refresh(), 650);
   }));
 
   // Magnetic buttons
@@ -316,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const goContact = (focusSel) => {
     const target = $('#kontakt');
     if (!target) return;
-    if (lenis) lenis.scrollTo(target, { offset: -10, duration: 1.4 }); else target.scrollIntoView({ behavior: 'smooth' });
+    smoothTo(target);
     const f = $(focusSel);
     setTimeout(() => { if (!f) return; f.focus({ preventScroll: true }); const fld = f.closest('.fld'); if (fld) { fld.classList.remove('flash'); void fld.offsetWidth; fld.classList.add('flash'); } }, 1450);
   };
@@ -505,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     items.forEach((it, k) => $('.sc-btn', it).addEventListener('click', () => {
       show(k, true);
-      if (window.innerWidth < 1025) { if (lenis) lenis.scrollTo(stage, { offset: -90, duration: 1 }); else stage.scrollIntoView({ behavior: 'smooth' }); }
+      if (window.innerWidth < 1025) { smoothTo(stage, -90); }
     }));
     $$('[data-sc]', sc).forEach(b => b.addEventListener('click', () => show(cur + (+b.dataset.sc), true)));
     sc.addEventListener('mouseenter', () => hover = true);
@@ -567,7 +554,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (vis && anim && (!was || anim === 'all')) { c.classList.remove('fade'); void c.offsetWidth; c.style.animationDelay = Math.min(n, 12) * 0.04 + 's'; c.classList.add('fade'); }
       });
       if (moreBtn) moreBtn.hidden = !(filter === 'all' && !expanded);
-      if (hasGsap) setTimeout(() => ScrollTrigger.refresh(), 100);
     };
     $$('.filter').forEach(b => b.addEventListener('click', () => {
       $$('.filter').forEach(x => x.classList.toggle('on', x === b));
@@ -578,11 +564,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (!hasGsap) { $$('.fw').forEach(w => w.classList.add('on')); return; }
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.config({ ignoreMobileResize: true });
   const ifEl = (sel, fn) => { const el = $(sel); if (el) fn(el); };
 
-  gsap.to('.scroll-progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
 
   // Hero intro (homepage)
   const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
@@ -593,7 +576,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero h1 .w > span', { yPercent: 110, duration: 1.2, stagger: 0.055 }, 0.3)
       .from('.hero-sub, .hero-buttons', { y: 24, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.75)
       .from('.hc-card', { y: 220, opacity: 0, duration: 1.3, stagger: { each: 0.06, from: 'center' } }, 0.55);
-    gsap.to('.ring-stage', { y: -80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
   });
   // Subpage hero intro
   ifEl('.sub-frame', () => {
@@ -617,20 +599,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Parallax
-  gsap.utils.toArray('.sky-par').forEach(img => {
-    gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: img.closest('section'), start: 'top bottom', end: 'bottom top', scrub: 1 } });
-  });
-  gsap.utils.toArray('.bento-par').forEach(img => {
-    gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1 } });
-  });
+  // Parallax, scroll progress and the hero ring drift are CSS scroll-driven animations (compositor, zero JS per frame)
+
+  // Scroll progress of an element, computed only while it is on screen (no permanent scroll library loop).
+  // p = 0 when the element's top reaches `a`·viewport, 1 when its bottom reaches `b`·viewport.
+  const onProgress = (el, a, b, fn) => {
+    let q = 0, on = false;
+    const calc = () => { q = 0; const r = el.getBoundingClientRect(), vh = innerHeight;
+      fn(Math.min(1, Math.max(0, (a * vh - r.top) / (r.height + (a - b) * vh)))); };
+    const onScroll = () => { if (!q) q = requestAnimationFrame(calc); };
+    new IntersectionObserver(en => { const v = en[0].isIntersecting; if (v === on) return; on = v;
+      if (v) { window.addEventListener('scroll', onScroll, { passive: true }); calc(); } else window.removeEventListener('scroll', onScroll); }, { rootMargin: '20% 0px' }).observe(el);
+  };
 
   // Fill words
-  const fws = gsap.utils.toArray('.fw');
-  if (fws.length) ScrollTrigger.create({
-    trigger: '.fill-text', start: 'top 80%', end: 'bottom 45%', scrub: true,
-    onUpdate: self => { const n = Math.round(self.progress * fws.length); if (n === fws._n) return; fws._n = n; fws.forEach((w, i) => w.classList.toggle('on', i < n)); }
-  });
+  const fws = $$('.fw'), fillEl = $('.fill-text');
+  if (fws.length && fillEl) onProgress(fillEl, 0.8, 0.45, p => { const n = Math.round(p * fws.length); if (n === fws._n) return; fws._n = n; fws.forEach((w, i) => w.classList.toggle('on', i < n)); });
 
   // Reveals — one IntersectionObserver + CSS transitions instead of dozens of ScrollTriggers
   const rvIO = new IntersectionObserver(entries => entries.forEach(en => {
@@ -658,14 +642,10 @@ document.addEventListener('DOMContentLoaded', () => {
   ifEl('.sv-grid', el => reveal(el, $$('.sv', el), { y: 60, step: 0.08 }));
   ifEl('.p-steps', el => reveal(el, $$('.p-step', el), { y: 90, step: 0.15 }));
 
-  // Process: cards rise, track fills (no pin)
+  // Process: track fills as the steps scroll by
   ifEl('.p-steps', el => {
-    const nodes = $$('.p-node');
-    gsap.to('.p-track .line i', {
-      scaleX: 1, ease: 'none',
-      scrollTrigger: { trigger: el, start: 'top 80%', end: 'bottom 60%', scrub: 1,
-        onUpdate: self => nodes.forEach((n, i) => n.classList.toggle('on', self.progress >= i / 2 - 0.01)) }
-    });
+    const nodes = $$('.p-node'), line = $('.p-track .line i');
+    if (line) onProgress(el, 0.8, 0.6, p => { line.style.transform = `scaleX(${p})`; nodes.forEach((n, i) => n.classList.toggle('on', p >= i / 2 - 0.01)); });
   });
 
   // Compare intro sweep
@@ -679,14 +659,4 @@ document.addEventListener('DOMContentLoaded', () => {
     cio.observe(cmpS);
   });
 
-  // Frames open up as they enter (smoother section transitions)
-  const from = window.innerWidth < 768 ? 0.95 : 0.92;
-  gsap.utils.toArray('.showcase, .p-frame, .geo, .faq-panel, .cta-frame, .cta-band').forEach(fr => {
-    gsap.fromTo(fr, { scale: from, transformOrigin: '50% 0%' }, {
-      scale: 1, ease: 'none', force3D: true,
-      scrollTrigger: { trigger: fr, start: 'top bottom', end: 'top 30%', scrub: 0.6 }
-    });
-  });
-
-  window.addEventListener('load', () => ScrollTrigger.refresh());
 });
