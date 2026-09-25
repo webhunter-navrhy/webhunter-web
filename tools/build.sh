@@ -7,6 +7,7 @@ python3 tools/gen_en.py
 python3 tools/gen_legal.py
 python3 tools/gen_pages.py
 python3 tools/gen_seo_files.py
+cp 404.html navrhy/index.html
 TMP=$(mktemp -d)
 npx --yes purgecss@6 --config tools/purgecss.config.cjs --output "$TMP/" >/dev/null
 npx --yes csso-cli@4 "$TMP/site.css" -o assets/site.min.css --no-restructure

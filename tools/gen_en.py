@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 E = html.escape
 ALT = {  # production paths cs <-> en
     'home': {'cs': '/', 'en': '/en/'},
-    'work': {'cs': '/realizace.html', 'en': '/en/work.html'},
+    'work': {'cs': '/realizace', 'en': '/en/work'},  # Cloudflare Pages serves x.html at /x
     'privacy': {'cs': '/ochrana-osobnich-udaju/', 'en': '/en/privacy/'},
 }
 META = {

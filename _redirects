@@ -1,0 +1,11 @@
+# Cloudflare Pages — proposals: every /navrhy/<id> is served by the proposal viewer with a real 200 status
+/navrhy/*              /navrhy/                    200
+# old site routes
+/tvorba-webu           /sluzby/tvorba-webu/        301
+/portfolio             /realizace                  301
+/proces                /#proces                    301
+/spoluprace            /#proces                    301
+/proc-my               /#tym                       301
+/o-nas                 /#tym                       301
+/kontakt               /#kontakt                   301
+/ochrana-osobnich-udaju  /ochrana-osobnich-udaju/  301
