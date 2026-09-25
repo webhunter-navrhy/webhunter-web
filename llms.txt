@@ -21,6 +21,7 @@ English: WebHunter is a Czech web design agency. It builds custom websites and o
 - [SEO optimalizace](https://webhunter.cz/sluzby/seo/): SEO (optimalizace pro vyhledávače) je souhrn úprav, díky kterým web lépe rozumí Google a Seznam a zobrazí ho výš ve výsledcích hledání. WebHunter řeší SEO už při tvorbě webu: technickou čistotu, rychlost, strukturu stránek, texty a strukturovaná data.
 - [GEO — AI vyhledávání](https://webhunter.cz/sluzby/geo/): GEO (Generative Engine Optimization) je optimalizace webu pro vyhledávání pomocí umělé inteligence, jako je ChatGPT, Perplexity, Gemini nebo Google AI Overviews. Cílem je, aby AI správně pochopila, co firma dělá, pro koho a kde, a mohla ji citovat a doporučit.
 - [GDPR a cookies](https://webhunter.cz/sluzby/gdpr-cookies/): Každý web, který v Česku sbírá osobní údaje nebo používá analytické a marketingové cookies, musí splňovat GDPR a zákon o elektronických komunikacích. WebHunter nastavuje cookie lištu se skutečnými souhlasy, zásady ochrany osobních údajů a formuláře ve spolupráci s odborníky z Compliance Partner.
+- [Weby pro nemovitosti](https://webhunter.cz/sluzby/weby-pro-reality/): WebHunter připravuje pro realitní kanceláře a makléře samostatné prezentační weby ke konkrétním nemovitostem. Každý web má fotogalerii, parametry, mapu, kontakt přes WhatsApp a je optimalizovaný pro Google (SEO) i pro AI vyhledávače jako ChatGPT (GEO). Běží zdarma na subdoméně kanceláře a stojí 695 Kč jednorázově.
 
 ## Články (blog)
 
@@ -113,6 +114,21 @@ Ne. Souhlas musí být svobodný a stejně snadné musí být i odmítnutí. Ná
 
 ### Umíte opravit i web, který jste nedělali?
 Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.
+
+### Kolik stojí web pro jednu nemovitost?
+695 Kč jednorázově, bez dalších plateb. Doménu kupovat nemusíte, web běží na subdoméně vaší kanceláře.
+
+### Musím kupovat novou doménu?
+Ne. Web napojíme zdarma na subdoménu vaší stávající kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese mohou být všechny vaše nabídky.
+
+### Co když už mám vlastní web kanceláře?
+Nevadí, do současného webu nijak nezasahujeme. Subdoména funguje samostatně vedle něj.
+
+### Jak rychle může web běžet?
+Web k vašemu inzerátu vám pošleme už hotový. Po schválení ho spustíme a napojíme na subdoménu.
+
+### Můžu přidat video nebo 3D prohlídku?
+Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 
 ## Vybrané realizace
 

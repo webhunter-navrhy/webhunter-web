@@ -21,6 +21,7 @@ English: WebHunter is a Czech web design agency. It builds custom websites and o
 - [SEO optimalizace](https://webhunter.cz/sluzby/seo/): SEO (optimalizace pro vyhledávače) je souhrn úprav, díky kterým web lépe rozumí Google a Seznam a zobrazí ho výš ve výsledcích hledání. WebHunter řeší SEO už při tvorbě webu: technickou čistotu, rychlost, strukturu stránek, texty a strukturovaná data.
 - [GEO — AI vyhledávání](https://webhunter.cz/sluzby/geo/): GEO (Generative Engine Optimization) je optimalizace webu pro vyhledávání pomocí umělé inteligence, jako je ChatGPT, Perplexity, Gemini nebo Google AI Overviews. Cílem je, aby AI správně pochopila, co firma dělá, pro koho a kde, a mohla ji citovat a doporučit.
 - [GDPR a cookies](https://webhunter.cz/sluzby/gdpr-cookies/): Každý web, který v Česku sbírá osobní údaje nebo používá analytické a marketingové cookies, musí splňovat GDPR a zákon o elektronických komunikacích. WebHunter nastavuje cookie lištu se skutečnými souhlasy, zásady ochrany osobních údajů a formuláře ve spolupráci s odborníky z Compliance Partner.
+- [Weby pro nemovitosti](https://webhunter.cz/sluzby/weby-pro-reality/): WebHunter připravuje pro realitní kanceláře a makléře samostatné prezentační weby ke konkrétním nemovitostem. Každý web má fotogalerii, parametry, mapu, kontakt přes WhatsApp a je optimalizovaný pro Google (SEO) i pro AI vyhledávače jako ChatGPT (GEO). Běží zdarma na subdoméně kanceláře a stojí 695 Kč jednorázově.
 
 ## Články (blog)
 
@@ -113,6 +114,21 @@ Ne. Souhlas musí být svobodný a stejně snadné musí být i odmítnutí. Ná
 
 ### Umíte opravit i web, který jste nedělali?
 Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.
+
+### Kolik stojí web pro jednu nemovitost?
+695 Kč jednorázově, bez dalších plateb. Doménu kupovat nemusíte, web běží na subdoméně vaší kanceláře.
+
+### Musím kupovat novou doménu?
+Ne. Web napojíme zdarma na subdoménu vaší stávající kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese mohou být všechny vaše nabídky.
+
+### Co když už mám vlastní web kanceláře?
+Nevadí, do současného webu nijak nezasahujeme. Subdoména funguje samostatně vedle něj.
+
+### Jak rychle může web běžet?
+Web k vašemu inzerátu vám pošleme už hotový. Po schválení ho spustíme a napojíme na subdoménu.
+
+### Můžu přidat video nebo 3D prohlídku?
+Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 
 ## Vybrané realizace
 
@@ -395,4 +411,55 @@ Ne. Souhlas musí být svobodný a stejně snadné musí být i odmítnutí. Ná
 
 **Umíte opravit i web, který jste nedělali?**
 Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.
+
+## Weby pro nemovitosti
+URL: https://webhunter.cz/sluzby/weby-pro-reality/
+
+Ke každému vašemu inzerátu připravíme hotový prezentační web, který nemovitosti přivede zájemce i mimo realitní portály. Za 695 Kč jednorázově, na subdoméně vaší kanceláře.
+
+WebHunter připravuje pro realitní kanceláře a makléře samostatné prezentační weby ke konkrétním nemovitostem. Každý web má fotogalerii, parametry, mapu, kontakt přes WhatsApp a je optimalizovaný pro Google (SEO) i pro AI vyhledávače jako ChatGPT (GEO). Běží zdarma na subdoméně kanceláře a stojí 695 Kč jednorázově.
+
+- **Dohledatelná na Googlu**: Kdo hledá „dům na prodej Libín“, najde i web vaší nemovitosti, ne jen portály.
+- **Připravená pro AI**: ChatGPT i Gemini přesně pochopí, co prodáváte, kde, za kolik a s jakou dispozicí.
+- **Bez domény a poplatků**: Web běží na subdoméně vaší kanceláře, třeba nemovitost.vasekancelar.cz.
+- **Hotový předem**: Web vám ukážeme dřív, než za něj cokoli zaplatíte. Stačí ho spustit.
+
+### Co každý web obsahuje
+Nejde jen o další stránku s fotkami. Web je postavený přímo pro jednu nemovitost a vede zájemce k jedinému kroku: domluvit si prohlídku.
+
+- Velká fotogalerie a přehledné parametry
+- Mapa a popis lokality
+- Přímý kontakt na makléře přes WhatsApp i telefon
+- Možnost doplnit video nebo 3D prohlídku
+- Vzhled v barvách vaší realitní kanceláře
+- SEO pro Google a strukturovaná data
+- GEO — optimalizace pro ChatGPT, Gemini a další AI
+
+### SEO pro Google a GEO pro AI
+Lidé nehledají jen na realitních portálech. Zadávají do Googlu přímo lokalitu a cenu, a čím dál častěji se ptají umělé inteligence: „Hledám dům na prodej v Libíně do 2 milionů. Co je v nabídce?“
+
+Web připravujeme tak, aby vyhledávače i AI přesně pochopily, co se prodává, kde se nemovitost nachází, za jakou cenu a s jakou dispozicí. Vaše nabídka tak může přivést zájemce, kteří by se k ní přes portály vůbec nedostali. Víc o tom píšeme u služby GEO optimalizace.
+
+### Na subdoméně vaší kanceláře
+Nemusíte kupovat žádnou další doménu ani zasahovat do svého současného webu. Web napojíme zdarma na subdoménu kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese pak mohou být všechny vaše nabídky.
+
+### Kolik to stojí
+Web pro jednu nemovitost stojí 695 Kč jednorázově, bez dalších plateb. Nejdřív vám pošleme hotový web k vašemu inzerátu, a teprve když se vám líbí, spustíme ho.
+
+### Časté otázky
+
+**Kolik stojí web pro jednu nemovitost?**
+695 Kč jednorázově, bez dalších plateb. Doménu kupovat nemusíte, web běží na subdoméně vaší kanceláře.
+
+**Musím kupovat novou doménu?**
+Ne. Web napojíme zdarma na subdoménu vaší stávající kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese mohou být všechny vaše nabídky.
+
+**Co když už mám vlastní web kanceláře?**
+Nevadí, do současného webu nijak nezasahujeme. Subdoména funguje samostatně vedle něj.
+
+**Jak rychle může web běžet?**
+Web k vašemu inzerátu vám pošleme už hotový. Po schválení ho spustíme a napojíme na subdoménu.
+
+**Můžu přidat video nebo 3D prohlídku?**
+Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 

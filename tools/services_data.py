@@ -199,4 +199,57 @@ SERVICES = [
       ('Umíte opravit i web, který jste nedělali?', 'Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.'),
     ],
   },
+  {
+    'slug': 'weby-pro-reality',
+    'nav': 'Weby pro nemovitosti',
+    'title': 'Web pro každou nemovitost za 695 Kč — SEO a GEO | WebHunter',
+    'desc': 'Prezentační web pro konkrétní nemovitost na subdoméně vaší realitní kanceláře. Galerie, parametry, mapa, WhatsApp, SEO pro Google a GEO pro AI. 695 Kč jednorázově.',
+    'label': 'Weby pro reality',
+    'h1': 'Vlastní web pro <span class="serif">každou nemovitost.</span>',
+    'lead': 'Ke každému vašemu inzerátu připravíme hotový prezentační web, který nemovitosti přivede zájemce i mimo realitní portály. Za 695 Kč jednorázově, na subdoméně vaší kanceláře.',
+    'obj': 'magnifier',
+    'hstats': [('695 Kč', 'jednorázově'), ('0 Kč', 'za doménu'), ('SEO', '+ GEO')],
+    'hchip': 'Web je hotový předem',
+    'form': ('Odkaz na váš inzerát', 'sreality.cz/detail/…', 'Chci web k inzerátu', False),
+    'answer': 'WebHunter připravuje pro realitní kanceláře a makléře samostatné prezentační weby ke konkrétním nemovitostem. Každý web má fotogalerii, parametry, mapu, kontakt přes WhatsApp a je optimalizovaný pro Google (SEO) i pro AI vyhledávače jako ChatGPT (GEO). Běží zdarma na subdoméně kanceláře a stojí 695 Kč jednorázově.',
+    'benefits': [
+      ('bnv-blue', 'magnifier', 'Dohledatelná na Googlu', 'Kdo hledá „dům na prodej Libín“, najde i web vaší nemovitosti, ne jen portály.'),
+      ('bnv-dark', 'bubble', 'Připravená pro AI', 'ChatGPT i Gemini přesně pochopí, co prodáváte, kde, za kolik a s jakou dispozicí.'),
+      ('bnv-lime', 'coin', 'Bez domény a poplatků', 'Web běží na subdoméně vaší kanceláře, třeba nemovitost.vasekancelar.cz.'),
+      ('bnv-sky', 'check', 'Hotový předem', 'Web vám ukážeme dřív, než za něj cokoli zaplatíte. Stačí ho spustit.'),
+    ],
+    'sections': [
+      ('Co každý web obsahuje', [
+        'Nejde jen o další stránku s fotkami. Web je postavený přímo pro jednu nemovitost a vede zájemce k jedinému kroku: domluvit si prohlídku.',
+        ['Velká fotogalerie a přehledné parametry', 'Mapa a popis lokality', 'Přímý kontakt na makléře přes WhatsApp i telefon', 'Možnost doplnit video nebo 3D prohlídku', 'Vzhled v barvách vaší realitní kanceláře', 'SEO pro Google a strukturovaná data', 'GEO — optimalizace pro ChatGPT, Gemini a další AI'],
+      ]),
+      ('SEO pro Google a GEO pro AI', [
+        'Lidé nehledají jen na realitních portálech. Zadávají do Googlu přímo lokalitu a cenu, a čím dál častěji se ptají umělé inteligence: „Hledám dům na prodej v Libíně do 2 milionů. Co je v nabídce?“',
+        'Web připravujeme tak, aby vyhledávače i AI přesně pochopily, co se prodává, kde se nemovitost nachází, za jakou cenu a s jakou dispozicí. Vaše nabídka tak může přivést zájemce, kteří by se k ní přes portály vůbec nedostali. Víc o tom píšeme u služby <a href="sluzby/geo/" class="link-u">GEO optimalizace</a>.',
+      ]),
+      ('Na subdoméně vaší kanceláře', [
+        'Nemusíte kupovat žádnou další doménu ani zasahovat do svého současného webu. Web napojíme zdarma na subdoménu kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese pak mohou být všechny vaše nabídky.',
+      ]),
+      ('Kolik to stojí', [
+        'Web pro jednu nemovitost stojí 695 Kč jednorázově, bez dalších plateb. Nejdřív vám pošleme hotový web k vašemu inzerátu, a teprve když se vám líbí, spustíme ho.',
+      ]),
+    ],
+    'examples': [
+      ('ukazka-1', '6ab677c88194facc3fbf7704', 'Byt 2+kk, 48 m²', 'Praha — Radlice'),
+      ('ukazka-2', '6ab677c45a6f7e771eb2b2e0', 'Chalupa 140 m²', 'Bublava'),
+      ('ukazka-3', '6ab677c5f1901fce6a5cb22b', 'Byt 3+kk, 89 m²', 'Brno — Komárov'),
+      ('ukazka-4', '6ab677c47969e63475455725', 'Rodinný dům 120 m²', 'Lučany nad Nisou'),
+      ('ukazka-5', '6ab677c13b5969af80e7bb23', 'Byt 1+kk, 47 m²', 'Praha — Holešovice'),
+      ('ukazka-6', '6ab677c6aa4eccd60578bd27', 'Byt 3+kk, 77 m²', 'Praha — Troja'),
+    ],
+    'offer': ('Web pro jednu nemovitost', '695', 'Prezentační web pro konkrétní nemovitost na subdoméně realitní kanceláře, jednorázová platba.'),
+    'work': [],
+    'faq': [
+      ('Kolik stojí web pro jednu nemovitost?', '695 Kč jednorázově, bez dalších plateb. Doménu kupovat nemusíte, web běží na subdoméně vaší kanceláře.'),
+      ('Musím kupovat novou doménu?', 'Ne. Web napojíme zdarma na subdoménu vaší stávající kanceláře, například nemovitost.vasekancelar.cz. Na stejné adrese mohou být všechny vaše nabídky.'),
+      ('Co když už mám vlastní web kanceláře?', 'Nevadí, do současného webu nijak nezasahujeme. Subdoména funguje samostatně vedle něj.'),
+      ('Jak rychle může web běžet?', 'Web k vašemu inzerátu vám pošleme už hotový. Po schválení ho spustíme a napojíme na subdoménu.'),
+      ('Můžu přidat video nebo 3D prohlídku?', 'Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.'),
+    ],
+  },
 ]
