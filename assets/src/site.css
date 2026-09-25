@@ -161,11 +161,11 @@ p { text-wrap: pretty; }
 .nav.scrolled .nav-links a:hover { background: rgba(10,14,20,0.05); }
 .nav .btn { padding-left: 1.2rem; font-size: 0.72rem; transition: box-shadow 0.4s var(--ease-out), background 0.3s var(--ease-out); }
 .nav .btn .arr { width: 2.1rem; height: 2.1rem; }
-.nav-toggle { display: none; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); place-items: center; }
+.nav-toggle { display: none; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); place-items: center; align-content: center; }
 .nav-toggle span { display: block; width: 18px; height: 1.5px; background: #fff; margin: 2.5px auto; transition: transform 0.4s var(--ease-expo); }
 .nav.scrolled .nav-toggle { background: var(--text); }
-.nav-toggle.open span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(3.25px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { transform: translateY(-3.25px) rotate(-45deg); }
 
 /* ---------- SIDE RAIL ---------- */
 .rail { position: fixed; z-index: 150; left: calc(var(--frame-inset) + 22px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.6rem; }
@@ -2281,4 +2281,12 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
   .legal-toc.toc-long { display: flex; overflow-x: auto; max-height: none; padding: 0.5rem; border-radius: 999px; scrollbar-width: none; }
   .legal-toc.toc-long::-webkit-scrollbar { display: none; }
   .legal-toc.toc-long a { flex: none; white-space: nowrap; border-radius: 999px; background: var(--bg); }
+}
+
+/* mobile menu: the scrolled (blurred) pill must not become the containing block of the full-screen menu */
+@media (max-width: 1180px) {
+  .nav.menu-open .nav-inner { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; background: transparent !important; box-shadow: none !important; }
+}
+@media (max-width: 1180px) {
+  .nav-links.open { background: radial-gradient(90% 55% at 100% 0%, rgba(30,98,240,0.12), transparent 70%), radial-gradient(70% 45% at 0% 100%, rgba(201,242,102,0.25), transparent 70%), #F2F5F8; }
 }
