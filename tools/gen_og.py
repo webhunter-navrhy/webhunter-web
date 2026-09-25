@@ -76,6 +76,13 @@ def side_home(en=False):
 <div class="t">{'A new website for <em>your business</em>' if en else 'Nový web pro <em>vaši firmu</em>'}</div><div class="big">47:59:59</div><div class="bar"></div></div></div>'''
 
 
+def side_navrh():
+    return f'''<div class="side">
+<div class="shot" style="width:330px;right:0;top:10px;transform:rotate(5deg)"><div class="b"><i></i><i></i><i></i></div><img src="{F}img/pf/realitynekvinda-cz-480.webp"></div>
+<div class="card c-dark" style="width:330px;left:0;bottom:0;transform:rotate(-4deg)"><span class="chipk">Váš návrh</span> <span class="chipk" style="background:#E3F6EA;color:#0B7A40">● Připraveno</span>
+<div class="t">Nový web pro <em>vaši firmu</em></div><div style="margin-top:14px;font-size:18px;color:rgba(255,255,255,0.75)">Hotovo dřív, než uplynulo 48 hodin.</div><div class="bar"></div></div></div>'''
+
+
 def side_obj(obj, variant='c-lime', chip='', text=''):
     return f'''<div class="side"><div class="card {variant}" style="width:360px;height:420px;right:10px;top:25px;transform:rotate(4deg)">
 {f'<span class="chipk d">{E(chip)}</span>' if chip else ''}<img class="obj" src="{F}img/3d/{obj}.webp" style="width:250px;left:50%;top:52%;transform:translate(-50%,-50%)">
@@ -90,6 +97,7 @@ def side_work():
 def jobs():
     J = []
     J.append(('home', page_html('Tvorba webů na míru', 'Nový web zdarma <em>do&nbsp;48&nbsp;hodin.</em>', 'Potom se sami rozhodnete, zda budete chtít pokračovat.', side_home(), fs=84, mw=640)))
+    J.append(('navrh', page_html('Návrh webu zdarma', 'Váš nový web <em>je připravený.</em>', 'Prohlédněte si návrh. Zdarma a nezávazně, potom se sami rozhodnete.', side_navrh(), fs=84, mw=640, chips=['Návrh připraven'])))
     J.append(('en', page_html('Custom website design', 'Your new website, <em>free in 48 hours.</em>', 'Then you decide whether to continue.', side_home(True), fs=84, mw=640, chips=['Free concept', 'No obligation'])))
     J.append(('realizace', page_html('Realizace', '41 webů. <em>Každý jiný.</em>', 'Videomakeři, fotografové, sportovní akce, farmy, e-shopy i reality.', side_work(), fs=88, mw=600, chips=['41 realizací'])))
     J.append(('en-work', page_html('Our work', '41 websites. <em>Each different.</em>', 'Videomakers, photographers, sports events, farms, online stores and real estate.', side_work(), fs=88, mw=600, chips=['41 projects'])))
