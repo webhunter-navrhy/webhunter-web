@@ -2268,3 +2268,17 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
 .is-off .marquee-track, .is-off .reel-row, .is-off .strip-row, .is-off .hc-float, .is-off .sky-par, .is-off .bento-par, .is-off .ring, .is-off .hero-front, .is-off .sc-vp img { will-change: auto; }
 /* rounded clipping that survives 3D tilt + animated layers (Safari/Chrome square-corner bug) */
 .bn-fx { -webkit-mask-image: -webkit-radial-gradient(#fff, #000); }
+
+/* ---------- terms (VOP) ---------- */
+.legal-text h3 { font-size: 1.08rem; font-weight: 500; letter-spacing: -0.02em; margin: 1.4rem 0 0.5rem; }
+.legal-text .cl-n { font-family: var(--font-mono); font-size: 0.78em; color: var(--blue); margin-right: 0.35rem; }
+.legal-vop h2 { padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.legal-vop h2:first-child { padding-top: 0; border-top: 0; }
+.legal-vop ul + p, .legal-vop p + ul { margin-top: 0.6rem; }
+.legal-toc.toc-long { gap: 0.1rem; max-height: calc(100vh - 8rem); overflow-y: auto; overscroll-behavior: contain; }
+.legal-toc.toc-long a { font-size: 0.82rem; padding: 0.32rem 0.6rem; }
+@media (max-width: 900px) {
+  .legal-toc.toc-long { display: flex; overflow-x: auto; max-height: none; padding: 0.5rem; border-radius: 999px; scrollbar-width: none; }
+  .legal-toc.toc-long::-webkit-scrollbar { display: none; }
+  .legal-toc.toc-long a { flex: none; white-space: nowrap; border-radius: 999px; background: var(--bg); }
+}

@@ -11,7 +11,7 @@ strip = lambda s: html.unescape(re.sub(r'<[^>]+>', '', s))
 
 # (cs path, en path or None, priority)
 URLS = [('/', '/en/', '1.0'), ('/realizace.html', '/en/work.html', '0.8'), ('/sluzby/', None, '0.9')] + \
-       [(f'/sluzby/{s["slug"]}/', None, '0.9') for s in SERVICES] + [('/ochrana-osobnich-udaju/', '/en/privacy/', '0.3')]
+       [(f'/sluzby/{s["slug"]}/', None, '0.9') for s in SERVICES] + [('/ochrana-osobnich-udaju/', '/en/privacy/', '0.3'), ('/obchodni-podminky/', None, '0.3')]
 
 
 def sitemap():
@@ -68,7 +68,7 @@ def llms():
         if u in seen: continue
         seen.add(u); L.append(f'- [{strip(n)}]({u}): {strip(d)}')
     L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)',
-          f'- [English version]({SITE}/en/)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', '']
+          f'- [English version]({SITE}/en/)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 
 

@@ -156,3 +156,4 @@ Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo 
 - [Služby](https://webhunter.cz/sluzby/)
 - [English version](https://webhunter.cz/en/)
 - [Ochrana osobních údajů](https://webhunter.cz/ochrana-osobnich-udaju/)
+- [Obchodní podmínky](https://webhunter.cz/obchodni-podminky/)
