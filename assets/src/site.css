@@ -1715,7 +1715,7 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 .bnx > .bn-obj, .bn > .bn-obj { z-index: 1; }
 .bn-fx { border-radius: inherit; overflow: hidden; }
 /* print-like grain on every banner */
-.bn-fx::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: url(../img/grain.png) 0 0 / 160px 160px; opacity: 0.22; mix-blend-mode: overlay; }
+.bn-fx::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: url(../img/grain.webp) 0 0 / 160px 160px; opacity: 0.22; mix-blend-mode: overlay; }
 /* richer mesh gradients */
 .bnv-blue, .bn-blue { background:
   radial-gradient(90% 70% at 100% 0%, rgba(120, 190, 255, 0.75), transparent 60%),

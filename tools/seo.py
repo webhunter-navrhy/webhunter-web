@@ -29,6 +29,10 @@ ORG = {
   "sameAs": ["https://wa.me/420777611634"],
 }
 
+from services_data import SERVICES as _SERVICES
+ORG["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Služby WebHunter", "itemListElement": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": _s["nav"], "url": SITE + "/sluzby/" + _s["slug"] + "/", "description": _s["desc"]}} for _s in _SERVICES]}
+
 WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "WebHunter",
            "inLanguage": "cs-CZ", "publisher": {"@id": ORG_ID}}
 

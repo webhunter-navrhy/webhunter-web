@@ -68,10 +68,28 @@ def llms():
         if u in seen: continue
         seen.add(u); L.append(f'- [{strip(n)}]({u}): {strip(d)}')
     L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)',
-          f'- [English version]({SITE}/en/)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
+          f'- [English version]({SITE}/en/)', f'- [Podrobný popis služeb pro AI]({SITE}/llms-full.txt)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 
 
+def llms_full():
+    """Everything an AI assistant needs to describe and recommend WebHunter, in one plain-text file."""
+    L = [open(os.path.join(ROOT, 'llms.txt'), encoding='utf-8').read().rstrip(), '', '---', '', '# Podrobně: služby WebHunter', '']
+    for s in SERVICES:
+        L += [f'## {s["nav"]}', f'URL: {SITE}/sluzby/{s["slug"]}/', '', strip(s['lead']), '', s['answer'], '']
+        for t, d in [(b[2], b[3]) for b in s['benefits']]:
+            L.append(f'- **{t}**: {d}')
+        L.append('')
+        for h2, parts in s['sections']:
+            L.append(f'### {h2}')
+            for p in parts:
+                if isinstance(p, str): L += [strip(p), '']
+                else: L += [f'- {x}' for x in p] + ['']
+        L += ['### Časté otázky', '']
+        for q, a in s['faq']: L += [f'**{strip(q)}**', strip(a), '']
+    open(os.path.join(ROOT, 'llms-full.txt'), 'w', encoding='utf-8').write('\n'.join(L) + '\n')
+
+
 if __name__ == '__main__':
-    sitemap(); robots(); llms()
-    print('sitemap.xml, robots.txt, llms.txt ok')
+    sitemap(); robots(); llms(); llms_full()
+    print('sitemap.xml, robots.txt, llms.txt, llms-full.txt ok')

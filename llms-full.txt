@@ -158,3 +158,232 @@ Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo 
 - [Podrobný popis služeb pro AI](https://webhunter.cz/llms-full.txt)
 - [Ochrana osobních údajů](https://webhunter.cz/ochrana-osobnich-udaju/)
 - [Obchodní podmínky](https://webhunter.cz/obchodni-podminky/)
+
+---
+
+# Podrobně: služby WebHunter
+
+## Tvorba webu na míru
+URL: https://webhunter.cz/sluzby/tvorba-webu/
+
+Navrhneme a postavíme web, který vypadá skvěle a hlavně přivádí poptávky. Návrh vašeho nového webu máte zdarma do 48 hodin — ještě než cokoli podepíšete.
+
+WebHunter je česká webová agentura, která tvoří webové stránky na míru pro firmy, podnikatele a organizace. Každý klient dostane nejdřív zdarma a nezávazně konkrétní návrh nového webu do 48 hodin. Teprve potom se rozhodne, jestli chce pokračovat v realizaci.
+
+- **Návrh do 48 hodin**: Pošlete odkaz nebo pár vět o firmě. Do dvou dnů máte hotový návrh, ne prezentaci.
+- **Design, který prodává**: Každou sekci stavíme k jedinému cíli: aby návštěvník zavolal, poptal nebo koupil.
+- **SEO a GEO v základu**: Web připravíme tak, aby vás našel Google i ChatGPT, Perplexity nebo Gemini.
+- **GDPR bez starostí**: Cookies, souhlasy a osobní údaje nastavené s odborníky z Compliance Partner.
+
+### Co je v tvorbě webu zahrnuto
+Každý web navrhujeme od nuly pro konkrétní firmu. Žádné šablony, žádné kompromisy v designu. Postaráme se o strukturu stránek, texty, fotografie, technické řešení i napojení na formuláře, rezervace nebo e-shop.
+
+- Návrh designu na míru a jeho úpravy podle vás
+- Texty psané tak, aby přesvědčily zákazníka
+- Responzivní web pro mobily, tablety i počítače
+- Rychlé načítání a moderní, bezpečné technologie
+- Základní SEO, GEO a strukturovaná data
+- Cookie lišta a zásady ochrany osobních údajů
+- Napojení na analytiku, Meta Pixel a formuláře
+
+### Pro koho weby děláme
+Pro firmy, řemeslníky, poradce, realitní makléře, ubytování, sportovní akce, farmy, e-shopy i investiční kluby. Máme za sebou přes 40 realizací z nejrůznějších oborů — od kovářské dílny po privátní business klub.
+
+### Kolik stojí tvorba webu
+Cena záleží na rozsahu webu a funkcích, které potřebujete. Přesnou částku znáte vždy předem — ještě než se rozhodnete pokračovat. Návrh je zdarma a k ničemu vás nezavazuje.
+
+### Časté otázky
+
+**Jak dlouho trvá tvorba webu?**
+Návrh máte do 48 hodin. Samotná realizace menšího firemního webu obvykle trvá 1 až 3 týdny podle rozsahu a toho, jak rychle se domluvíme na podkladech.
+
+**Musím dodat texty a fotky?**
+Nemusíte. Texty vám rádi napíšeme a fotky můžeme zajistit nebo použít ty, které už máte. Stačí nám odkaz na současný web nebo pár vět o firmě.
+
+**Budu si moct web sám upravovat?**
+Ano, pokud o to stojíte, připravíme web tak, abyste si jednoduše upravili texty, fotky nebo novinky. Změny za vás ale rádi uděláme i my.
+
+**Co když se mi návrh nebude líbit?**
+Pak nemusíte pokračovat a nic nám nedlužíte. Nebo nám řeknete, co by mělo být jinak, a návrh upravíme.
+
+## Redesign webu
+URL: https://webhunter.cz/sluzby/redesign-webu/
+
+Máte web, za který se trochu stydíte? Pošlete nám na něj odkaz. Do 48 hodin uvidíte, jak by mohl vypadat, a na mobilu fungovat úplně jinak.
+
+Redesign webu je kompletní modernizace vzhledu, textů a technologie stávajícího webu. WebHunter připraví zdarma návrh nové podoby vašeho webu do 48 hodin — stačí poslat odkaz na současný web. Obsah, který funguje, zachováme a vylepšíme.
+
+- **Moderní vzhled**: Web, který působí důvěryhodně a odpovídá tomu, jak kvalitní služby nabízíte.
+- **Víc poptávek**: Jasné sdělení, výrazné výzvy k akci a formuláře, které se dají vyplnit za minutu.
+- **Rychlost a mobil**: Většina lidí přichází z telefonu. Nový web se načte rychle a na mobilu vypadá skvěle.
+- **Zachované SEO**: Staré adresy přesměrujeme, aby web o pozice ve vyhledávání nepřišel.
+
+### Kdy je čas na redesign
+Pokud je web starší než pět let, na mobilu se špatně ovládá, pomalu se načítá nebo z něj nechodí poptávky, je čas na změnu. Zastaralý web odrazuje zákazníky dřív, než si přečtou, co nabízíte.
+
+- Web nevypadá dobře na mobilu
+- Z webu nechodí poptávky ani telefonáty
+- Design neodpovídá kvalitě vašich služeb
+- Web se pomalu načítá
+- Chybí cookie lišta a zásady GDPR
+- Informace na webu jsou zastaralé
+
+### Jak redesign probíhá
+Projdeme váš současný web, zachováme to, co funguje, a navrhneme novou strukturu, texty i vzhled. Po schválení web postavíme, přesměrujeme staré adresy a spustíme ho bez výpadku.
+
+### Časté otázky
+
+**Přijdu redesignem o pozice ve vyhledávání?**
+Ne. Staré adresy přesměrujeme na nové stránky a zachováme obsah, který Google zná. Nový web bývá rychlejší a lépe strukturovaný, což pozicím pomáhá.
+
+**Můžu si nechat logo a barvy?**
+Samozřejmě. Pokud máte zavedenou značku, navrhneme nový web v jejím duchu. Pokud chcete, pomůžeme vám značku i osvěžit.
+
+**Kolik stojí redesign webu?**
+Záleží na rozsahu a funkcích. Cenu znáte vždy předem, ještě než se rozhodnete pokračovat. Návrh nové podoby je zdarma.
+
+## Tvorba e-shopů
+URL: https://webhunter.cz/sluzby/eshopy/
+
+Katalog, košík, platby, rezervace, registrace na akce nebo prodej online kurzů. Postavíme vám web, přes který se dá rovnou nakoupit.
+
+WebHunter tvoří e-shopy a weby s online prodejem na míru: katalog produktů, košík a platby, rezervace termínů, registrace na akce s platbou startovného nebo prodej online kurzů. Návrh e-shopu je zdarma do 48 hodin.
+
+- **Prodej a platby**: Košík, platby kartou a přehledné objednávky. Nakupování bez zbytečných kroků.
+- **Rezervace a registrace**: Rezervace lekcí, termínů nebo registrace na závody s platbou startovného.
+- **Online kurzy**: Prodej kurzů a digitálních produktů vedle vašich ostatních služeb.
+- **Obchodní podmínky a GDPR**: Vše, co e-shop podle zákona potřebuje, nastavíme s odborníky.
+
+### Co vám postavíme
+Od menšího e-shopu s pár produkty po katalog stovek položek. Vždy s důrazem na to, aby zákazník rychle našel, co hledá, a nákup dokončil.
+
+- E-shop s katalogem, filtry a košíkem
+- Platby kartou a převodem
+- Rezervační systém pro služby a lekce
+- Registrace na akce s online platbou
+- Prodej online kurzů a členství
+- Napojení na e-mailing a Meta Pixel
+
+### Weby, na kterých už se prodává
+Beka Bazar prodává kancelářský nábytek v korunách i eurech, AQUAcoolers rozváží vodu po celé republice, Papa Pech prodává online kurzy a Hasoběh vybírá startovné online. Podívejte se na ně níže.
+
+### Časté otázky
+
+**Na jaké platformě e-shop stavíte?**
+Vybíráme podle rozsahu a vašich potřeb — od lehkého řešení pro pár produktů po plnohodnotný e-shop. Vždy tak, aby byl rychlý a snadno se spravoval.
+
+**Umíte napojit platby?**
+Ano. Nastavíme platby kartou, převodem i další metody a napojíme potvrzovací e-maily.
+
+**Pomůžete s obchodními podmínkami?**
+Ano. Obchodní podmínky, zásady ochrany osobních údajů i cookies řešíme s odborníky z Compliance Partner.
+
+## SEO optimalizace
+URL: https://webhunter.cz/sluzby/seo/
+
+Nejhezčí web je k ničemu, když ho nikdo nenajde. Stavíme weby tak, aby jim Google rozuměl od prvního dne — technicky čisté, rychlé a se správnou strukturou.
+
+SEO (optimalizace pro vyhledávače) je souhrn úprav, díky kterým web lépe rozumí Google a Seznam a zobrazí ho výš ve výsledcích hledání. WebHunter řeší SEO už při tvorbě webu: technickou čistotu, rychlost, strukturu stránek, texty a strukturovaná data.
+
+- **Technické SEO**: Čistý kód, správné nadpisy, sitemap, přesměrování a indexace bez chyb.
+- **Rychlost webu**: Rychlý web má lepší pozice i víc zákazníků. Optimalizujeme obrázky i kód.
+- **Texty pro lidi i Google**: Obsah, který odpovídá na otázky zákazníků a obsahuje slova, která hledají.
+- **Strukturovaná data**: Informace o firmě, službách a FAQ pro bohatší výsledky ve vyhledávání.
+
+### Co SEO zahrnuje
+Každý web, který postavíme, má SEO v základu. Pro firmy, které chtějí růst, nabízíme i dlouhodobou práci na obsahu a pozicích.
+
+- Analýza klíčových slov vašeho oboru
+- Struktura stránek podle toho, co lidé hledají
+- Technická optimalizace a rychlost
+- Meta titulky a popisky pro každou stránku
+- Strukturovaná data (Schema.org)
+- Registrace do Google Search Console a Seznam Webmaster
+- Lokální SEO a Google profil firmy
+
+### SEO a GEO jdou ruku v ruce
+Stále víc lidí hledá přes umělou inteligenci. Proto každý web připravujeme i pro AI vyhledávání — podívejte se na GEO optimalizaci.
+
+### Časté otázky
+
+**Jak rychle se projeví výsledky SEO?**
+Technické SEO se projeví během několika týdnů po indexaci. Pozice u konkurenčních slov se budují měsíce. Přesné pozice nikdo zaručit nemůže — kdo to slibuje, nemluví pravdu.
+
+**Je SEO součástí každého webu?**
+Ano. Technické SEO, rychlost, strukturu a strukturovaná data řešíme u každého webu v základu.
+
+**Řešíte i Seznam?**
+Ano. V Česku hledá část lidí přes Seznam, proto web registrujeme i do Seznam Webmaster.
+
+## GEO — AI vyhledávání
+URL: https://webhunter.cz/sluzby/geo/
+
+Zákazníci se stále častěji ptají ChatGPT nebo Gemini, koho si mají vybrat. Připravíme váš web tak, aby mu AI rozuměla a mohla vás doporučit.
+
+GEO (Generative Engine Optimization) je optimalizace webu pro vyhledávání pomocí umělé inteligence, jako je ChatGPT, Perplexity, Gemini nebo Google AI Overviews. Cílem je, aby AI správně pochopila, co firma dělá, pro koho a kde, a mohla ji citovat a doporučit.
+
+- **Jasné odpovědi**: Obsah psaný tak, aby z něj AI snadno vytáhla přesnou odpověď a citovala vás.
+- **Strukturovaná data**: Fakta o firmě, službách, cenách a oblasti působení ve strojově čitelné podobě.
+- **Přístup pro AI roboty**: Soubory llms.txt a robots.txt, které AI vyhledávačům usnadní čtení webu.
+- **Důvěryhodnost**: Reference, kontakty a konkrétní informace, podle kterých AI hodnotí zdroje.
+
+### Jak se GEO liší od SEO
+SEO pomáhá, aby se web zobrazil ve výsledcích Googlu. GEO pomáhá, aby ho AI asistenti použili jako zdroj a vaši firmu přímo doporučili v odpovědi. Obojí stavíme na stejném základu: kvalitním, přehledném a pravdivém obsahu.
+
+- Stručné odpovědi na nejčastější otázky zákazníků
+- Sekce FAQ se strukturovanými daty
+- Jednoznačné informace o firmě, službách a lokalitě
+- Soubor llms.txt se shrnutím webu pro AI
+- Povolený přístup AI robotů (GPTBot, ClaudeBot, PerplexityBot…)
+- Konzistentní údaje na webu, v Google profilu i katalozích
+
+### Proč to řešit už teď
+AI vyhledávání roste velmi rychle a firmy, které AI dobře zná, získávají doporučení dřív než konkurence. Kdo začne teď, má náskok.
+
+### Časté otázky
+
+**Co je GEO?**
+GEO (Generative Engine Optimization) je optimalizace webu pro AI vyhledávače jako ChatGPT, Perplexity, Gemini nebo Google AI Overviews, aby firmu správně pochopily a doporučily.
+
+**Můžete zaručit, že mě ChatGPT doporučí?**
+Zaručit to nemůže nikdo — AI rozhoduje sama. Umíme ale výrazně zvýšit šanci tím, že web připravíme tak, aby mu AI rozuměla a důvěřovala.
+
+**Je GEO součástí nového webu?**
+Ano. Základ GEO dostane každý web, který postavíme. Pro firmy v silně konkurenčních oborech nabízíme i dlouhodobou práci na obsahu.
+
+## GDPR a cookies
+URL: https://webhunter.cz/sluzby/gdpr-cookies/
+
+Cookie lišta, souhlasy, zásady ochrany osobních údajů a formuláře nastavené správně. Na rozdíl od mnoha agentur to bereme vážně a spolupracujeme s odborníky z Compliance Partner.
+
+Každý web, který v Česku sbírá osobní údaje nebo používá analytické a marketingové cookies, musí splňovat GDPR a zákon o elektronických komunikacích. WebHunter nastavuje cookie lištu se skutečnými souhlasy, zásady ochrany osobních údajů a formuláře ve spolupráci s odborníky z Compliance Partner.
+
+- **Cookie lišta se souhlasy**: Analytika a reklamní pixely se spustí až po souhlasu návštěvníka. Tak, jak to zákon vyžaduje.
+- **Zásady ochrany údajů**: Srozumitelné zásady přesně podle toho, jaké údaje váš web opravdu zpracovává.
+- **Formuláře v pořádku**: Informace o zpracování u každého formuláře a údaje jen v nezbytném rozsahu.
+- **S odborníky**: Spolupracujeme s Compliance Partner, kteří se GDPR pro weby věnují.
+
+### Co nastavíme
+Web projdeme a nastavíme vše, co je potřeba, aby byl v souladu s GDPR a pravidly pro cookies.
+
+- Cookie lištu s volbou kategorií a odmítnutím jedním klikem
+- Blokování analytiky a pixelů do udělení souhlasu
+- Zásady ochrany osobních údajů a informace o cookies
+- Informace u kontaktních formulářů
+- Nastavení doby uchování údajů
+- Doporučení pro smlouvy se zpracovateli
+
+### Compliance Partner
+Na oblast GDPR spolupracujeme s odborníky z Compliance Partner, kteří se specializují na soulad firemních webů s GDPR a pravidly pro cookies.
+
+### Časté otázky
+
+**Potřebuje každý web cookie lištu?**
+Pokud web používá analytické nebo marketingové cookies (například Google Analytics nebo Meta Pixel), musí mít lištu, přes kterou návštěvník souhlas udělí nebo odmítne. Čistě nezbytné cookies souhlas nevyžadují.
+
+**Stačí lišta s tlačítkem „Rozumím“?**
+Ne. Souhlas musí být svobodný a stejně snadné musí být i odmítnutí. Nástroje se smí spustit až po souhlasu.
+
+**Umíte opravit i web, který jste nedělali?**
+Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.
+

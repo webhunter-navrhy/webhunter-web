@@ -35,6 +35,7 @@ def org(lang):
     if lang == 'en':
         o['description'] = 'Czech web design agency. We build custom websites and online stores with a focus on SEO, GEO (AI search) and GDPR. A free, no-obligation website concept within 48 hours.'
         o['slogan'] = 'We design your new website for free within 48 hours. Then you decide whether to continue.'
+        o.pop('hasOfferCatalog', None)
         o['knowsAbout'] = ['Website design', 'Online store development', 'Website redesign', 'SEO', 'GEO – generative engine optimisation', 'GDPR and cookies', 'Copywriting', 'Conversion optimisation']
     return o
 
@@ -171,6 +172,7 @@ if __name__ == '__main__':
         open(p, 'w', encoding='utf-8').write(s)
         # english
         e = drop_services_col(s)
+        e = re.sub(r'\s*<span class="qa-more">.*?</span>', '', e)  # links to Czech-only service pages
         e = translate(e)
         e = set_head(e, key, 'en')
         e = relink_en(e, depth)
