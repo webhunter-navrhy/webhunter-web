@@ -14,17 +14,21 @@ ALT = {  # production paths cs <-> en
     'work': {'cs': '/realizace.html', 'en': '/en/work.html'},
     'privacy': {'cs': '/ochrana-osobnich-udaju/', 'en': '/en/privacy/'},
 }
+OGT = {
+    ('home', 'cs'): ('Zdarma vám navrhneme nový web do 48 hodin', 'Pošlete odkaz na současný web a do 48 hodin uvidíte návrh nového webu. Zdarma a nezávazně, potom se sami rozhodnete.'),
+    ('home', 'en'): ('We design your new website for free within 48 hours', 'Send us a link to your current website and see your new website within 48 hours. Free and with no obligation.'),
+}
 META = {
     ('home', 'cs'): ('WebHunter — Tvorba webů na míru, návrh zdarma do 48 hodin',
-                     'Zdarma vám navrhneme nový web do 48 hodin. Potom se sami rozhodnete, zda budete chtít pokračovat. Tvorba webových stránek a e-shopů na míru s SEO, GEO a GDPR.', 'img/og.jpg'),
+                     'Zdarma vám navrhneme nový web do 48 hodin. Potom se sami rozhodnete, zda budete chtít pokračovat. Tvorba webových stránek a e-shopů na míru s SEO, GEO a GDPR.', 'img/og/home.jpg'),
     ('work', 'cs'): ('Realizace — 41 webů na míru | WebHunter',
-                     '41 webů, které jsme navrhli a postavili: videomakeři, fotografové, sportovní akce, farmy, e-shopy, řemeslníci i reality. Prohlédněte si portfolio WebHunter.', 'img/og-realizace.jpg'),
-    ('privacy', 'cs'): ('Ochrana osobních údajů a cookies | WebHunter', 'Jak WebHunter s.r.o. zpracovává osobní údaje, jaké používá cookies a jaká máte práva.', 'img/og.jpg'),
+                     '41 webů, které jsme navrhli a postavili: videomakeři, fotografové, sportovní akce, farmy, e-shopy, řemeslníci i reality. Prohlédněte si portfolio WebHunter.', 'img/og/realizace.jpg'),
+    ('privacy', 'cs'): ('Ochrana osobních údajů a cookies | WebHunter', 'Jak WebHunter s.r.o. zpracovává osobní údaje, jaké používá cookies a jaká máte práva.', 'img/og/home.jpg'),
     ('home', 'en'): ('WebHunter — Custom Website Design, Free Concept in 48 Hours',
-                     'We design your new website for free within 48 hours. Then you decide whether to continue. Custom websites and online stores with SEO, GEO and GDPR from a Czech web agency.', 'img/og.jpg'),
+                     'We design your new website for free within 48 hours. Then you decide whether to continue. Custom websites and online stores with SEO, GEO and GDPR from a Czech web agency.', 'img/og/en.jpg'),
     ('work', 'en'): ('Our Work — 41 Custom Websites | WebHunter',
-                     '41 websites we designed and built for videomakers, photographers, sports events, farms, online stores, trades and real estate. Browse the WebHunter portfolio.', 'img/og-realizace.jpg'),
-    ('privacy', 'en'): ('Privacy Policy & Cookies | WebHunter', 'How WebHunter s.r.o. processes personal data, which cookies it uses and what rights you have.', 'img/og.jpg'),
+                     '41 websites we designed and built for videomakers, photographers, sports events, farms, online stores, trades and real estate. Browse the WebHunter portfolio.', 'img/og/en-work.jpg'),
+    ('privacy', 'en'): ('Privacy Policy & Cookies | WebHunter', 'How WebHunter s.r.o. processes personal data, which cookies it uses and what rights you have.', 'img/og/en.jpg'),
 }
 SEO_LINE = re.compile(r'^<(?:link rel="(?:canonical|alternate)"|meta property="og:|meta name="(?:twitter:|theme-color|description|robots|format-detection))[^\n]*\n', re.M)
 LD_RE = re.compile(r'<script type="application/ld\+json">.*?</script>\n?', re.S)
@@ -69,7 +73,7 @@ def set_head(s, key, lang):
     title, desc, og = META[(key, lang)]
     s = SEO_LINE.sub('', s)
     s = LD_RE.sub('', s)
-    s = re.sub(r'<title>.*?</title>\n', lambda m: f'<title>{E(title)}</title>\n<meta name="description" content="{E(desc)}">\n{head_extras(ALT[key][lang], title, desc, og_img=og, lang=lang, alt=ALT[key])}\n', s, count=1)
+    s = re.sub(r'<title>.*?</title>\n', lambda m: f'<title>{E(title)}</title>\n<meta name="description" content="{E(desc)}">\n{head_extras(ALT[key][lang], title, desc, og_img=og, lang=lang, alt=ALT[key], og_title=OGT.get((key, lang), (None, None))[0], og_desc=OGT.get((key, lang), (None, None))[1])}\n', s, count=1)
     s = s.replace('</head>', '\n'.join(ld(x) for x in ld_for(key, lang, s)) + '\n</head>', 1)
     s = re.sub(r'<html lang="[a-z]+">', f'<html lang="{lang}">', s, count=1)
     return s

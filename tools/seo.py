@@ -15,7 +15,7 @@ ORG = {
   "alternateName": "WebHunter",
   "url": SITE + "/",
   "logo": SITE + "/img/logo.png",
-  "image": SITE + "/img/og.jpg",
+  "image": SITE + "/img/og/home.jpg",
   "description": "Česká webová agentura. Tvoříme webové stránky a e-shopy na míru s důrazem na SEO, GEO (AI vyhledávání) a GDPR. Návrh nového webu zdarma a nezávazně do 48 hodin.",
   "slogan": "Zdarma vám navrhneme nový web do 48 hodin. Potom se sami rozhodnete, zda budete chtít pokračovat.",
   "telephone": PHONE,
@@ -52,7 +52,7 @@ def faq_ld(pairs):
             "mainEntity": [{"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in pairs]}
 
 
-def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, robots='index, follow, max-image-preview:large, max-snippet:-1', og_type='website'):
+def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, robots='index, follow, max-image-preview:large, max-snippet:-1', og_type='website', og_title=None, og_desc=None):
     """canonical, hreflang, OG/Twitter. path = production path starting with '/'. alt = {'cs': '/x', 'en': '/en/x'}"""
     e = html.escape
     url = SITE + path
@@ -64,10 +64,12 @@ def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, rob
     out += [
         f'<meta property="og:type" content="{og_type}">', '<meta property="og:site_name" content="WebHunter">',
         f'<meta property="og:locale" content="{"cs_CZ" if lang == "cs" else "en_US"}">',
-        f'<meta property="og:title" content="{e(title)}">', f'<meta property="og:description" content="{e(desc)}">',
+        f'<meta property="og:title" content="{e(og_title or title)}">', f'<meta property="og:description" content="{e(og_desc or desc)}">',
         f'<meta property="og:url" content="{url}">', f'<meta property="og:image" content="{SITE}/{og_img}">',
-        '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
-        '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{SITE}/{og_img}">',
+        '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">', '<meta property="og:image:type" content="image/jpeg">',
+        f'<meta property="og:image:alt" content="{e(og_title or title)}">',
+        '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{e(og_title or title)}">',
+        f'<meta name="twitter:description" content="{e(og_desc or desc)}">', f'<meta name="twitter:image" content="{SITE}/{og_img}">',
         '<meta name="theme-color" content="#2b62c4">', '<meta name="format-detection" content="telephone=no">',
     ]
     return '\n'.join(out)

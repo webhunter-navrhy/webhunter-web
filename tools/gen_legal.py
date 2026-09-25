@@ -64,7 +64,7 @@ def main():
     s = re.sub(r'<main class="legal">.*?</main>', lambda m: main_html, tpl, count=1, flags=re.S)
     s = SEO_LINE.sub('', s)
     s = LD_RE.sub('', s)
-    s = re.sub(r'<title>.*?</title>\n', lambda m: f'<title>{TITLE}</title>\n<meta name="description" content="{html.escape(DESC)}">\n{head_extras(PATH, TITLE, DESC)}\n', s, count=1)
+    s = re.sub(r'<title>.*?</title>\n', lambda m: f'<title>{TITLE}</title>\n<meta name="description" content="{html.escape(DESC)}">\n{head_extras(PATH, TITLE, DESC, og_img='img/og/home.jpg')}\n', s, count=1)
     s = s.replace('</head>', ld(ORG) + '\n' + ld(breadcrumb([('Úvod', '/'), ('Obchodní podmínky', PATH)])) + '\n</head>', 1)
     s = re.sub(r'<a href="[^"]*" class="lang-sw"', '<a href="../en/" class="lang-sw"', s, count=1)
     d = os.path.join(ROOT, 'obchodni-podminky')

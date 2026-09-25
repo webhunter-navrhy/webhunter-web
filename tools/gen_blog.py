@@ -70,7 +70,7 @@ def article(a):
            breadcrumb([('Úvod', '/'), ('Blog', '/blog/'), (strip(a['h1']), path)]),
            {"@context": "https://schema.org", "@type": "BlogPosting", "@id": SITE + path + '#article', "headline": a['title'], "description": a['desc'],
             "datePublished": DATE, "dateModified": DATE, "inLanguage": "cs-CZ", "articleSection": CATS[a['cat']], "wordCount": words_n,
-            "image": SITE + '/img/og.jpg', "mainEntityOfPage": SITE + path, "url": SITE + path,
+            "image": SITE + f'/img/og/blog-{a["slug"]}.jpg', "mainEntityOfPage": SITE + path, "url": SITE + path,
             "author": {"@type": "Organization", "@id": SITE + '/#org', "name": "WebHunter"}, "publisher": {"@id": SITE + '/#org'},
             "abstract": a['answer']},
            faq_ld(a['faq'])]
@@ -133,7 +133,7 @@ def article(a):
 
 {contact('Blog: ' + a['title'])}'''
     page('../../', path, a['title'], a['desc'], lds, body_html, body_cls='page-sub page-svc page-post', og_type='article',
-         extra_head=f'\n<meta property="article:published_time" content="{DATE}">\n<meta property="article:section" content="{E(CATS[a["cat"]])}">')
+         extra_head=f'\n<meta property="article:published_time" content="{DATE}">\n<meta property="article:section" content="{E(CATS[a["cat"]])}">', og_img=f'img/og/blog-{a["slug"]}.jpg')
 
 
 def index():
@@ -165,7 +165,7 @@ def index():
 </section>
 
 {contact('Blog')}'''
-    page('../', path, title, desc, lds, body_html, body_cls='page-sub page-svc page-blog')
+    page('../', path, title, desc, lds, body_html, body_cls='page-sub page-svc page-blog', og_img='img/og/blog.jpg')
 
 
 if __name__ == '__main__':

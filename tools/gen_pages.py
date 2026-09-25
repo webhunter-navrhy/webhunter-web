@@ -19,7 +19,7 @@ def cut(s, a, b):
     return s[i:s.index(b, i) + len(b)]
 
 
-FAVICON = cut(rea, '<link rel="icon"', '>')
+FAVICON = cut(rea, '<link rel="icon"', '<!--/icons-->')
 FONTS = cut(rea, '<link rel="preload" as="font"', '</style>')
 SPRITE = cut(rea, '<svg width="0" height="0"', '</svg>\n\n<nav')[:-len('\n\n<nav')]
 NAV = cut(rea, '<nav class="nav"', '</nav>').replace(' class="current"', '')
@@ -60,7 +60,7 @@ def relink(s, R):
     return s
 
 
-def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type='website', extra_head=''):
+def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type='website', extra_head='', og_img='img/og/home.jpg'):
     nav = NAV.replace('<a href="index.html#sluzby">Co dostanete</a>', '<a href="sluzby/">Služby</a><a href="blog/">Blog</a>').replace('<a href="index.html#tym">Tým</a>', '').replace('href="en/work.html" class="lang-sw"', 'href="en/" class="lang-sw"')
     out = f'''<!DOCTYPE html>
 <html lang="cs">
@@ -69,7 +69,7 @@ def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type=
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
-{head_extras(path, title, desc, og_type=og_type)}{extra_head}
+{head_extras(path, title, desc, og_type=og_type, og_img=og_img)}{extra_head}
 {FAVICON}
 
 {FONTS}
@@ -229,7 +229,7 @@ def service_page(s):
 </section>
 
 {contact(s["nav"])}'''
-    page('../../', path, s['title'], s['desc'], lds, body)
+    page('../../', path, s['title'], s['desc'], lds, body, og_img=f'img/og/sluzby-{s["slug"]}.jpg')
 
 
 def services_index():
@@ -259,7 +259,7 @@ def services_index():
 {PROCESS}
 
 {contact('Služby')}'''
-    page('../', path, title, desc, lds, body)
+    page('../', path, title, desc, lds, body, og_img='img/og/sluzby.jpg')
 
 
 if __name__ == '__main__':
