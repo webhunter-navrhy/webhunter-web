@@ -1,0 +1,63 @@
+# WebHunter — search engines and AI assistants are welcome
+User-agent: *
+Allow: /
+Disallow: /navrhy/
+Disallow: /crm
+
+User-agent: GPTBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /navrhy/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /navrhy/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /navrhy/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: SeznamBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: CCBot
+Allow: /
+Disallow: /navrhy/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /navrhy/
+
+Sitemap: https://webhunter.cz/sitemap.xml

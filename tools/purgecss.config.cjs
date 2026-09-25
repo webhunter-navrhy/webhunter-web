@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['index.html', 'realizace.html', 'ochrana-osobnich-udaju/index.html', '404.html', 'assets/src/site.js'],
+  content: ['index.html', 'realizace.html', 'ochrana-osobnich-udaju/index.html', '404.html', 'sluzby/**/*.html', 'en/**/*.html', 'assets/src/site.js'],
   css: ['assets/src/site.css'],
   safelist: {
     standard: ['active','fade','flash','in','in-view','is-off','menu-lock','menu-open','on','open','out','rail-cta','scrolled','scrolling','sent','shake','show','swap','tilt','fw','hidden','js-rv','rv-in','m-rail','m-rail-dots','sv-rail','nav-hide','wa-fab','lenis','lenis-smooth','lenis-stopped','lenis-scrolling'],

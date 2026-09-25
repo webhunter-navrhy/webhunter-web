@@ -1,0 +1,158 @@
+# WebHunter
+
+> WebHunter s.r.o. je česká webová agentura (IČO 29498511, Praha). Tvoří webové stránky a e-shopy na míru s důrazem na SEO, GEO (optimalizace pro AI vyhledávání) a GDPR. Každý klient dostane nejdřív zdarma a nezávazně návrh nového webu do 48 hodin — teprve potom se rozhodne, zda chce pokračovat.
+
+English: WebHunter is a Czech web design agency. It builds custom websites and online stores with SEO, GEO and GDPR. Every client first gets a free, no-obligation website concept within 48 hours.
+
+## Klíčová fakta
+
+- Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).
+- Bez schůzek a technického zadání. Cena realizace je vždy známá předem.
+- 41 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
+- GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).
+- Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.
+- Kontakt: telefon +420777611634, e-mail info.webhunter@email.cz, WhatsApp https://wa.me/420777611634
+
+## Služby
+
+- [Tvorba webu na míru](https://webhunter.cz/sluzby/tvorba-webu/): WebHunter je česká webová agentura, která tvoří webové stránky na míru pro firmy, podnikatele a organizace. Každý klient dostane nejdřív zdarma a nezávazně konkrétní návrh nového webu do 48 hodin. Teprve potom se rozhodne, jestli chce pokračovat v realizaci.
+- [Redesign webu](https://webhunter.cz/sluzby/redesign-webu/): Redesign webu je kompletní modernizace vzhledu, textů a technologie stávajícího webu. WebHunter připraví zdarma návrh nové podoby vašeho webu do 48 hodin — stačí poslat odkaz na současný web. Obsah, který funguje, zachováme a vylepšíme.
+- [Tvorba e-shopů](https://webhunter.cz/sluzby/eshopy/): WebHunter tvoří e-shopy a weby s online prodejem na míru: katalog produktů, košík a platby, rezervace termínů, registrace na akce s platbou startovného nebo prodej online kurzů. Návrh e-shopu je zdarma do 48 hodin.
+- [SEO optimalizace](https://webhunter.cz/sluzby/seo/): SEO (optimalizace pro vyhledávače) je souhrn úprav, díky kterým web lépe rozumí Google a Seznam a zobrazí ho výš ve výsledcích hledání. WebHunter řeší SEO už při tvorbě webu: technickou čistotu, rychlost, strukturu stránek, texty a strukturovaná data.
+- [GEO — AI vyhledávání](https://webhunter.cz/sluzby/geo/): GEO (Generative Engine Optimization) je optimalizace webu pro vyhledávání pomocí umělé inteligence, jako je ChatGPT, Perplexity, Gemini nebo Google AI Overviews. Cílem je, aby AI správně pochopila, co firma dělá, pro koho a kde, a mohla ji citovat a doporučit.
+- [GDPR a cookies](https://webhunter.cz/sluzby/gdpr-cookies/): Každý web, který v Česku sbírá osobní údaje nebo používá analytické a marketingové cookies, musí splňovat GDPR a zákon o elektronických komunikacích. WebHunter nastavuje cookie lištu se skutečnými souhlasy, zásady ochrany osobních údajů a formuláře ve spolupráci s odborníky z Compliance Partner.
+
+## Časté otázky
+
+### Je návrh opravdu zdarma?
+Ano. Návrh vás nic nestojí a k ničemu vás nezavazuje. Platíte až za realizaci — a jen pokud se pro ni sami rozhodnete.
+
+### Co od vás potřebujeme?
+Odkaz na váš současný web. Pokud žádný nemáte, stačí pár vět o tom, co děláte a pro koho. Víc není potřeba.
+
+### Co když se mi návrh nebude líbit?
+Pak nemusíte pokračovat. Nebo nám řeknete, co by mělo být jinak, a návrh upravíme.
+
+### Kolik stojí realizace webu?
+Záleží na rozsahu. Cenu vždy znáte předem — ještě než se rozhodnete, jestli do toho půjdete.
+
+### Co je GEO a proč ho potřebuji?
+GEO je optimalizace pro AI vyhledávání. Lidé se čím dál častěji ptají ChatGPT nebo Gemini, koho si mají vybrat. Připravujeme weby tak, aby je umělá inteligence dobře pochopila a mohla vás doporučit.
+
+### Řešíte i GDPR a cookies?
+Ano, a bereme to vážně. Spolupracujeme s odborníky z Compliance Partner, takže cookies, souhlasy i zpracování osobních údajů jsou nastavené správně.
+
+### Můžu vidět weby, které jste už udělali?
+Jasně. Na stránce Realizace najdete 41 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.
+
+### Uděláte i e-shop, rezervace nebo registrace?
+Ano. Stavíme e-shopy (Beka Bazar), prodej online kurzů (Papa Pech), rezervace lekcí (SportActive), registrace na akce s platbou (Hasoběh) i měsíční příspěvky (Držíme ti palce). V návrhu rovnou uvidíte, jak by to fungovalo u vás.
+
+### Jak dlouho trvá tvorba webu?
+Návrh máte do 48 hodin. Samotná realizace menšího firemního webu obvykle trvá 1 až 3 týdny podle rozsahu a toho, jak rychle se domluvíme na podkladech.
+
+### Musím dodat texty a fotky?
+Nemusíte. Texty vám rádi napíšeme a fotky můžeme zajistit nebo použít ty, které už máte. Stačí nám odkaz na současný web nebo pár vět o firmě.
+
+### Budu si moct web sám upravovat?
+Ano, pokud o to stojíte, připravíme web tak, abyste si jednoduše upravili texty, fotky nebo novinky. Změny za vás ale rádi uděláme i my.
+
+### Co když se mi návrh nebude líbit?
+Pak nemusíte pokračovat a nic nám nedlužíte. Nebo nám řeknete, co by mělo být jinak, a návrh upravíme.
+
+### Přijdu redesignem o pozice ve vyhledávání?
+Ne. Staré adresy přesměrujeme na nové stránky a zachováme obsah, který Google zná. Nový web bývá rychlejší a lépe strukturovaný, což pozicím pomáhá.
+
+### Můžu si nechat logo a barvy?
+Samozřejmě. Pokud máte zavedenou značku, navrhneme nový web v jejím duchu. Pokud chcete, pomůžeme vám značku i osvěžit.
+
+### Kolik stojí redesign webu?
+Záleží na rozsahu a funkcích. Cenu znáte vždy předem, ještě než se rozhodnete pokračovat. Návrh nové podoby je zdarma.
+
+### Na jaké platformě e-shop stavíte?
+Vybíráme podle rozsahu a vašich potřeb — od lehkého řešení pro pár produktů po plnohodnotný e-shop. Vždy tak, aby byl rychlý a snadno se spravoval.
+
+### Umíte napojit platby?
+Ano. Nastavíme platby kartou, převodem i další metody a napojíme potvrzovací e-maily.
+
+### Pomůžete s obchodními podmínkami?
+Ano. Obchodní podmínky, zásady ochrany osobních údajů i cookies řešíme s odborníky z Compliance Partner.
+
+### Jak rychle se projeví výsledky SEO?
+Technické SEO se projeví během několika týdnů po indexaci. Pozice u konkurenčních slov se budují měsíce. Přesné pozice nikdo zaručit nemůže — kdo to slibuje, nemluví pravdu.
+
+### Je SEO součástí každého webu?
+Ano. Technické SEO, rychlost, strukturu a strukturovaná data řešíme u každého webu v základu.
+
+### Řešíte i Seznam?
+Ano. V Česku hledá část lidí přes Seznam, proto web registrujeme i do Seznam Webmaster.
+
+### Co je GEO?
+GEO (Generative Engine Optimization) je optimalizace webu pro AI vyhledávače jako ChatGPT, Perplexity, Gemini nebo Google AI Overviews, aby firmu správně pochopily a doporučily.
+
+### Můžete zaručit, že mě ChatGPT doporučí?
+Zaručit to nemůže nikdo — AI rozhoduje sama. Umíme ale výrazně zvýšit šanci tím, že web připravíme tak, aby mu AI rozuměla a důvěřovala.
+
+### Je GEO součástí nového webu?
+Ano. Základ GEO dostane každý web, který postavíme. Pro firmy v silně konkurenčních oborech nabízíme i dlouhodobou práci na obsahu.
+
+### Potřebuje každý web cookie lištu?
+Pokud web používá analytické nebo marketingové cookies (například Google Analytics nebo Meta Pixel), musí mít lištu, přes kterou návštěvník souhlas udělí nebo odmítne. Čistě nezbytné cookies souhlas nevyžadují.
+
+### Stačí lišta s tlačítkem „Rozumím“?
+Ne. Souhlas musí být svobodný a stejně snadné musí být i odmítnutí. Nástroje se smí spustit až po souhlasu.
+
+### Umíte opravit i web, který jste nedělali?
+Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo vám rovnou připravíme návrh nového webu zdarma.
+
+## Vybrané realizace
+
+- [Papa Pech](https://papapech.cz): Režisér a videomaker. Osobní značka, zakázková produkce a e-shop s online kurzy.
+- [Jakub Machala](https://jakubmachalaphoto.cz): Svatební a portrétní fotograf. Filmová estetika a světelná stopa, která se kreslí při scrollování.
+- [Hasoběh](https://hasobeh.cz): Letní běžecký závod pod Karlštejnem. Odpočet do startu, online registrace s platbou a výsledky.
+- [SportActive](https://sport-active.cz): Pilates a zdravá záda v Bystřici nad Pernštejnem. Rozvrh lekcí, rezervace a cvičení doma.
+- [Farma Tájek](https://charolais.cz): Rodinná farma v jižních Čechách. Chov plemenného skotu, býci na prodej a život na 260 hektarech.
+- [Beka Bazar](https://bekabazar.cz): E-shop největšího bazaru kancelářského nábytku v ČR a SR včetně výkupu a pronájmu.
+- [Rodinný dům Píšť](https://ratiborska.jandemelreality.cz): Prodejní web pro jeden rodinný dům: šest kapitol, půdorysy, lokalita a 66 fotografií.
+- [KovoTuk](https://kovotuk.cz): Kovářská dílna z Bruntálska. Galerie ručně kovaných kusů a poptávka výroby.
+- [F-Fashion](https://f-fashion.cz): Elegantní dámská móda s téměř dvacetiletou tradicí a čtyřmi prodejnami v Praze.
+- [J2 Italské pece](https://pecezitalie.cz): Výhradní distributor ručně vyráběných pecí Goti z Florencie. Katalog 12 modelů a poptávka.
+- [Pension Maty](https://pension-maty.cz): Rodinný penzion v Krkonoších s wellness, ceníkem a rezervací pobytu. Česky i německy.
+- [Držíme ti palce](https://drzimetipalce.cz): Charitativní platforma: vyberte si ambasadora a podpořte děti s onkologickým onemocněním.
+- [Reality Centrum Praha](https://rkvitkadlec.cz): Prémiové reality v Praze od roku 1997. Nabídka nemovitostí, služby a osobní přístup makléře.
+- [Alissa Beauté](https://alissabeaute-ks.cz): Kosmetické studio ve Žďáře nad Sázavou. Ošetření, přístroje, ceník a reálné výsledky klientek.
+- [Galenit](https://galenit-e.cz): Elektroinstalace pro firmy i domácnosti. Přehled služeb, vybrané realizace a nezávazná poptávka.
+- [Axon Capital](https://www.axoncapital.eu): Investiční holding a ekosystém pěti pilířů. Složitá struktura převedená do srozumitelného příběhu.
+- [Comedy & Beat Circus](https://comedy.cz): Jediný cirkusový band v Česku. Neonový svět, koncerty a show pro děti — ve třech jazycích.
+- [Molver Group](https://molvergroup.cz): Zámečnické a svařovací práce po celé ČR i Evropě. Česky, anglicky a německy.
+- [JT Auto](https://jt-auto.cz): Dovoz prověřených vozů z Německa. Auta skladem i dovoz na objednávku ve čtyřech krocích.
+- [Nájem s radostí](https://najemsradosti.cz): Správa pronájmu bytů s kalkulačkou výnosu hned pod úvodem a garancí nájmu až 600 000 Kč.
+- [Revotele](https://revotele.com): Anglický web pro enterprise zákaznickou podporu s živými metrikami a jasnou nabídkou služeb.
+- [BOMAR Spedice](https://bomarspedice.cz): Kamionová spedice mezi Evropou a Asií od roku 1993. Poptávka přepravy vyplněná za 30 sekund.
+- [Bystřice s vizí](https://bystricesvizi.cz): Volební web koalice pro komunální volby 2026. Program, kandidáti a aktuality z kampaně.
+- [Obrazy z nitra](https://obrazy-z-nitra.cz): Galerie a e-shop energetických obrazů, reprodukcí a obrazů na přání. Česky i anglicky.
+- [Autoservis Tria](https://autoservistria.cz): Servis osobních i nákladních vozidel v Kladně a Praze. Více než 14 značek pod jednou střechou.
+- [Vacek Terapie](https://vacekterapie.cz): Psychoterapeut pro jednotlivce, páry i rodiny. Klidný web s ceníkem a online rezervací.
+- [Jiří Kubišta](https://realitykubista.com): Osobní web realitního poradce. Nabídka, služby a reference na jednom místě.
+- [Ondřej Hucek](https://ondrejhucek.cz): Nezávislý finanční poradce. Rozcestník podle typu klienta, orientační kalkulačky a reference.
+- [Reality Nekvinda](https://realitynekvinda.cz): Rozcestník realitní kanceláře: reality, odhady a hypotéky na jednom místě.
+- [Bydlení Týniště](https://bydlenityniste.cz): Kampaňová stránka pro diskrétní prodej nemovitostí v Týništi — bez veřejné inzerce.
+- [Anna Krčmová](https://psychologickaporadnahk.cz): Poradenství při rozvodu a péči o děti. Důvěryhodný web s jasným postupem spolupráce.
+- [Buben Media](https://buben-media.cz): Výkonnostní marketing pro e-shopy. Výsledky klientů, případové studie a audit zdarma.
+- [Nonstop Zámky](https://nonstopzamky.cz): Zámečnická pohotovost Kladno 24/7. Web postavený na jediném cíli — aby lidé hned zavolali.
+- [MAJA-SN](https://maja-sn.cz): Rodinná firma pro správu nemovitostí a vedení účetnictví domů a SVJ.
+- [Portál Výsluní](https://bdvysluni.cz): Členský portál bytového družstva v Neratovicích. Aktuality, schůze, dokumenty a hlášení závad.
+- [Merited](https://merited.second-foundation.eu): Anglická soutěž pro řešitele těžkých problémů s žebříčkem a hlavní cenou v San Franciscu.
+- [Pošta Trojka](https://postatrojka.cz): Místní pošta v Havířově. Služby, otevírací doba a cesta k nově otevřené pobočce.
+- [AQUAcoolers](https://aquacoolers.cz): E-shop s rozvozem pramenité vody v barelech, výdejníky a servisem pro firmy i domácnosti.
+- [Byt Vršovická](https://vrsovicka76.jakubfrydrych.cz): Prodejní web pro jeden byt 3+1 v Praze 10. Galerie, videoprohlídka a orientační splátka hypotéky.
+- [Keylight](https://klight.cz): Nezávislá produkce comedy formátů. Výsledky, tři vlastní formáty a nabídka spolupráce pro značky.
+- [Credentia Aurora](https://www.credora.cz): Privátní klub majitelů firem a investorů. Co členství řeší, jak funguje vstup a přihláška do klubu.
+
+## Stránky
+
+- [Úvod](https://webhunter.cz/)
+- [Realizace](https://webhunter.cz/realizace.html)
+- [Služby](https://webhunter.cz/sluzby/)
+- [English version](https://webhunter.cz/en/)
+- [Ochrana osobních údajů](https://webhunter.cz/ochrana-osobnich-udaju/)

@@ -4,6 +4,9 @@ const WH_VER = ((document.currentScript && document.currentScript.src.match(/[?&
 const WH_APP = '6a366c8ba95efe01593d4844';
 const WH_API = 'https://base44.app/api/apps/' + WH_APP;
 const WH_PIXEL = '1023099023693684';
+const WH_IMG = WH_ASSETS + '../img/';
+const WH_EN = (document.documentElement.lang || '').startsWith('en');
+const tr = (cs, en) => (WH_EN ? en : cs);
 window.whTrack = window.whTrack || function () { (window.whTrackQ = window.whTrackQ || []).push([].slice.call(arguments)); };
 
 /* ---------- Consent (GDPR) ---------- */
@@ -37,10 +40,25 @@ const whConsent = (() => {
   };
   let ui = null;
   const build = () => {
-    const privacy = (document.querySelector('a[href$="ochrana-osobnich-udaju/"]') || {}).getAttribute ? document.querySelector('a[href$="ochrana-osobnich-udaju/"]').getAttribute('href') : 'ochrana-osobnich-udaju/';
+    const pl = document.querySelector('a[href$="ochrana-osobnich-udaju/"], a[href$="privacy/"]');
+    const privacy = pl ? pl.getAttribute('href') : 'ochrana-osobnich-udaju/';
     const d = document.createElement('div'); d.className = 'ck'; d.hidden = true;
     const img = WH_ASSETS + '../img/3d/shield-s.webp';
-    d.innerHTML = `<div class="ck-card bnx bnv-dark" role="dialog" aria-modal="false" aria-labelledby="ck-t">
+    d.innerHTML = WH_EN ? `<div class="ck-card bnx bnv-dark" role="dialog" aria-modal="false" aria-labelledby="ck-t">
+      <div class="bn-fx" aria-hidden="true"><span class="bn-pat"></span><span class="bn-orb o1"></span><span class="bn-orb o2"></span><i class="sp s1"></i><i class="sp s2"></i></div>
+      <img class="ck-obj" src="${img}" alt="" width="240" height="321" decoding="async">
+      <div class="ck-head">
+        <span class="bn-chip">Cookies &amp; privacy</span>
+        <h2 id="ck-t">We value your <span class="serif">privacy.</span></h2>
+        <p>Necessary cookies keep the website running. Analytics cookies help us improve it and marketing cookies measure how our ads perform. We only use optional cookies with your consent, which you can change at any time in the footer. More in our <a href="${privacy}">privacy policy</a>.</p>
+      </div>
+      <div class="ck-opts" hidden>
+        <label class="ck-opt"><b>Necessary</b><small>Stores your choice and basic website functions. Always on.</small><span class="ck-sw"><input type="checkbox" checked disabled><i></i></span></label>
+        <label class="ck-opt"><b>Analytics</b><small>Anonymous visit statistics, so we know what works on the website.</small><span class="ck-sw"><input type="checkbox" data-ck="a"><i></i></span></label>
+        <label class="ck-opt"><b>Marketing</b><small>Meta Pixel to measure and target ads on Facebook and Instagram.</small><span class="ck-sw"><input type="checkbox" data-ck="m"><i></i></span></label>
+      </div>
+      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Settings</button><button type="button" class="ck-r" data-ck-no>Reject all</button><button type="button" class="ck-a" data-ck-yes>Accept all <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
+    </div>` : `<div class="ck-card bnx bnv-dark" role="dialog" aria-modal="false" aria-labelledby="ck-t">
       <div class="bn-fx" aria-hidden="true"><span class="bn-pat"></span><span class="bn-orb o1"></span><span class="bn-orb o2"></span><i class="sp s1"></i><i class="sp s2"></i></div>
       <img class="ck-obj" src="${img}" alt="" width="240" height="321" decoding="async">
       <div class="ck-head">
@@ -61,7 +79,7 @@ const whConsent = (() => {
     d.querySelector('[data-ck-yes]').addEventListener('click', () => { save(true, true); close(); });
     d.querySelector('[data-ck-no]').addEventListener('click', () => { save(false, false); close(); });
     setBtn.addEventListener('click', () => {
-      if (opts.hidden) { opts.hidden = false; setBtn.textContent = 'Uložit výběr'; return; }
+      if (opts.hidden) { opts.hidden = false; setBtn.textContent = tr('Uložit výběr', 'Save choice'); return; }
       save(d.querySelector('[data-ck="a"]').checked, d.querySelector('[data-ck="m"]').checked); close();
     });
     return { el: d, opts, setBtn };
@@ -70,7 +88,7 @@ const whConsent = (() => {
     ui = ui || build();
     const c = read() || { a: false, m: false };
     ui.el.querySelector('[data-ck="a"]').checked = !!c.a; ui.el.querySelector('[data-ck="m"]').checked = !!c.m;
-    ui.opts.hidden = !detailed; ui.setBtn.textContent = detailed ? 'Uložit výběr' : 'Nastavení';
+    ui.opts.hidden = !detailed; ui.setBtn.textContent = detailed ? tr('Uložit výběr', 'Save choice') : tr('Nastavení', 'Settings');
     ui.el.hidden = false; document.body.classList.add('ck-open');
   };
   const init = () => {
@@ -129,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mq = window.matchMedia('(max-width: 767px)');
   const rails = [];
   const makeRail = (el, items) => {
-    if (!el || el._rail) return;
+    if (!el || el._rail || (items && !items.length)) return;
     let host = el;
     if (items) { // move a subset of children into a new rail (services: keep the before/after card full width)
       host = document.createElement('div'); host.className = el.className.replace(/\bsv-grid\b/, '') + ' sv-rail';
@@ -152,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const applyRails = () => {
     if (!mq.matches) { unRail(); return; }
-    makeRail($('.bento')); makeRail($('.p-steps')); makeRail($('.vals'));
+    makeRail($('.bento')); makeRail($('.p-steps')); makeRail($('.vals')); makeRail($('.svc-more')); makeRail($('.svc-pf'));
     const sv = $('.sv-grid'); if (sv) makeRail(sv, $$('.sv', sv).filter(n => !n.classList.contains('sv-ba')));
   };
   applyRails(); mq.addEventListener('change', applyRails);
@@ -240,12 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (t.classList.contains('on')) return;
       tabs.forEach(x => x.classList.toggle('on', x === t));
       const k = t.dataset.baCase, pre = [new Image(), new Image()];
-      pre[0].src = `img/ba/${k}-before.webp`; pre[1].src = `img/ba/${k}-after.webp`;
+      pre[0].src = `${WH_IMG}ba/${k}-before.webp`; pre[1].src = `${WH_IMG}ba/${k}-after.webp`;
       ba.classList.add('swap');
       Promise.all(pre.map(im => im.decode().catch(() => {}))).then(() => setTimeout(() => {
         bImg.src = pre[0].src; aImg.src = pre[1].src;
-        bImg.alt = `Původní web ${t.dataset.name} z roku ${t.dataset.year}`; aImg.alt = `Nový web ${t.dataset.name} od WebHunter`;
-        lTag.textContent = `Předtím · ${t.dataset.year}`;
+        bImg.alt = tr(`Původní web ${t.dataset.name} z roku ${t.dataset.year}`, `The original ${t.dataset.name} website from ${t.dataset.year}`); aImg.alt = tr(`Nový web ${t.dataset.name} od WebHunter`, `The new ${t.dataset.name} website by WebHunter`);
+        lTag.textContent = tr('Předtím', 'Before') + ` · ${t.dataset.year}`;
         ba.classList.remove('swap');
         if (hasGsap) { const o = { p: 88 }; gsap.to(o, { p: 50, duration: 1.2, ease: 'expo.inOut', onUpdate: () => { if (performance.now() - (ba._touched || 0) > 1200) ba.style.setProperty('--pos', o.p + '%'); } }); }
       }, 200));
@@ -311,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // WhatsApp quick contact (floating button on every page)
   const WA_NUM = '420777611634';
-  const isEN = (document.documentElement.lang || '').startsWith('en');
+  const isEN = WH_EN;
   const waText = isEN ? 'Hello, I am interested in a free website design.' : 'Dobrý den, mám zájem o návrh webu zdarma.';
   const waUrl = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(waText);
   const WA_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.22-8.22 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>';
@@ -330,13 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const err = $('.form-err', form), v = n => (form.elements[n] ? form.elements[n].value.trim() : '');
     const fail = m => { if (err) { err.textContent = m; err.hidden = false; } };
     if (err) err.hidden = true;
-    if (!v('name')) return fail('Vyplňte prosím své jméno.');
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) return fail('Zkontrolujte prosím e-mail.');
-    if (!v('web') && !v('popis')) return fail('Pošlete odkaz na současný web, nebo napište pár vět o projektu.');
-    if (form.elements.consent && !form.elements.consent.checked) return fail('Potvrďte prosím souhlas se zpracováním údajů.');
+    if (!v('name')) return fail(tr('Vyplňte prosím své jméno.', 'Please enter your name.'));
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) return fail(tr('Zkontrolujte prosím e-mail.', 'Please check your email address.'));
+    if (!v('web') && !v('popis')) return fail(tr('Pošlete odkaz na současný web, nebo napište pár vět o projektu.', 'Send a link to your current website or write a few lines about your project.'));
+    if (form.elements.consent && !form.elements.consent.checked) return fail(tr('Potvrďte prosím souhlas se zpracováním údajů.', 'Please confirm the data processing notice.'));
     const web = v('web');
     const payload = { name: v('name'), company: web, email: v('email'), phone: v('tel'),
-      message: (web ? 'Současný web: ' + web + '\n\n' : '') + (v('popis') || '(bez popisu)'), landing: 'Nový web – návrh zdarma do 48 h' };
+      message: (web ? 'Současný web: ' + web + '\n\n' : '') + (v('popis') || '(bez popisu)') + (WH_EN ? '\n\n[EN verze webu]' : ''), landing: form.dataset.landing || 'Nový web – návrh zdarma do 48 h' };
     form.classList.add('sending');
     try {
       const r = await fetch(WH_API + '/functions/sendContactEmail', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-App-Id': WH_APP }, body: JSON.stringify(payload) });
@@ -345,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.whTrack('lead', 'contact_form');
       if (window.fbq) window.fbq('track', 'Lead');
     } catch (x) {
-      fail('Odeslání se nepovedlo. Zkuste to prosím znovu, nebo nám zavolejte na +420 777 611 634.');
+      fail(tr('Odeslání se nepovedlo. Zkuste to prosím znovu, nebo nám zavolejte na +420 777 611 634.', 'Sending failed. Please try again or call us at +420 777 611 634.'));
     } finally { form.classList.remove('sending'); }
   });
 
@@ -366,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Chat typing
   const chat = $('[data-chat]');
   if (chat) {
-    const answer = 'Dobré reference má například <b>Koupelny Hanák</b>. Specializují se na kompletní rekonstrukce, ceny uvádějí předem a na webu mají fotky hotových zakázek i recenze zákazníků.';
+    const answer = tr('Dobré reference má například <b>Koupelny Hanák</b>. Specializují se na kompletní rekonstrukce, ceny uvádějí předem a na webu mají fotky hotových zakázek i recenze zákazníků.', '<b>Koupelny Hanák</b> has great references, for example. They specialise in complete renovations, publish their prices upfront and show photos of finished jobs and customer reviews on their website.');
     let chatDone = false;
     const runChat = () => {
       if (chatDone) return; chatDone = true;
@@ -400,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
       idx = i; nodes.forEach((n, k) => n.classList.toggle('on', k === i));
       core.classList.remove('swap'); void core.offsetWidth; core.classList.add('swap');
       if (i < 0) { [kEl.textContent, tEl.textContent, dEl.textContent] = def; return; }
-      kEl.textContent = 'Co přináší vašemu webu'; tEl.textContent = nodes[i].dataset.t; dEl.textContent = nodes[i].dataset.d;
+      kEl.textContent = tr('Co přináší vašemu webu', 'What it brings to your website'); tEl.textContent = nodes[i].dataset.t; dEl.textContent = nodes[i].dataset.d;
     };
     nodes.forEach((n, k) => {
       n.addEventListener('mouseenter', () => { user = true; pick(k); });
@@ -454,10 +472,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cnt.textContent = String(i + 1).padStart(2, '0');
       stage.classList.add('out');
       const slug = it.dataset.slug;
-      const pre = new Image(); pre.src = `img/pf/${slug}-feat.webp`;
+      const pre = new Image(); pre.src = `${WH_IMG}pf/${slug}-feat.webp`;
       const swap = () => {
         desk.style.animation = 'none';
-        desk.src = pre.src; mob.src = `img/pf/${slug}-m.webp`;
+        desk.src = pre.src; mob.src = `${WH_IMG}pf/${slug}-m.webp`;
         desk.alt = 'Web ' + $('.nm', it).textContent;
         urlA.href = it.dataset.url; domEl.textContent = it.dataset.dom;
         requestAnimationFrame(() => { desk.style.animation = ''; fit(); stage.classList.remove('out'); });
@@ -559,10 +577,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // Subpage hero intro
   ifEl('.sub-frame', () => {
-    tl.from('.sub-bg img', { scale: 1.12, duration: 2.2, ease: 'power3.out' }, 0)
-      .from('.sub-hero h1 .w > span', { yPercent: 110, duration: 1.2, stagger: 0.06 }, 0.25)
-      .from('.sub-copy .crumbs, .sub-copy p, .sub-copy .work-stats', { y: 24, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.6)
-      .from('.fan-card', { y: 160, opacity: 0, rotate: 0, duration: 1.6, stagger: 0.12 }, 0.5);
+    tl.from('.sub-bg img', { scale: 1.12, duration: 2.2, ease: 'power3.out' }, 0);
+    if ($('.sub-hero h1 .w > span')) tl.from('.sub-hero h1 .w > span', { yPercent: 110, duration: 1.2, stagger: 0.06 }, 0.25);
+    tl.from($$('.sub-copy > :not(h1)'), { y: 24, opacity: 0, duration: 1.1, stagger: 0.08 }, 0.55);
+    if ($('.fan-card')) tl.from('.fan-card', { y: 160, opacity: 0, rotate: 0, duration: 1.6, stagger: 0.12 }, 0.5);
+    if ($('.svc-hcard')) tl.from('.svc-hcard', { y: 140, opacity: 0, duration: 1.6 }, 0.5);
   });
   if (window.innerWidth >= 1100 && $('.rail-group')) tl.from('.rail-group', { x: -30, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.5);
 
