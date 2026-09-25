@@ -61,7 +61,7 @@ def relink(s, R):
 
 
 def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type='website', extra_head='', og_img='img/og/home.jpg'):
-    nav = NAV.replace('<a href="index.html#sluzby">Co dostanete</a>', '<a href="sluzby/">Služby</a><a href="blog/">Blog</a>').replace('<a href="index.html#tym">Tým</a>', '').replace('href="en/work.html" class="lang-sw"', 'href="en/" class="lang-sw"')
+    nav = NAV.replace('<a href="index.html#sluzby">Co dostanete</a>', '<a href="sluzby/">Služby</a><a href="blog/">Blog</a>').replace('<a href="index.html#podpora">Po spuštění</a>', '').replace('href="en/work.html" class="lang-sw"', 'href="en/" class="lang-sw"')
     out = f'''<!DOCTYPE html>
 <html lang="cs">
 <head>

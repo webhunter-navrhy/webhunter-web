@@ -116,6 +116,31 @@ T = {
     'Mluvíme lidsky': 'We speak plainly', 'Žádné agenturní fráze ani technický žargon. Na weby i v e-mailech.': 'No agency buzzwords or technical jargon. On websites and in emails.',
     'Web měříme poptávkami': 'We measure websites in enquiries', 'Hezký vzhled je začátek. Úspěch je, když vám web přivádí zákazníky.': 'Good looks are the start. Success is when your website brings you customers.',
     'GDPR bereme vážně': 'We take GDPR seriously', 'Cookies, souhlasy a osobní údaje řešíme s odborníky z': 'We handle cookies, consents and personal data with the experts at',
+    # ---------- after launch ----------
+    'Po spuštění': 'After launch', 'Web, který vás': 'A website that won’t', 'neomezí.': 'hold you back.',
+    'Naše práce nekončí předáním webu. Co potřebujete, upravíte si sami. A když jde o něco složitějšího, máte nás po ruce.':
+        'Our work doesn’t end at handover. Edit what you need yourself — and for anything more complex, we’re right here.',
+    'Upravíte si ho sami': 'Edit it yourself',
+    'Když ji potřebujete, dostanete přehlednou administraci. Texty, fotky nebo novinky změníte sami, bez psaní webaři.':
+        'If you need it, you get a clear admin panel. Change texts, photos or news yourself, without emailing a developer.',
+    'Rychlé úpravy do 1–2 dnů': 'Changes within 1–2 days',
+    'Když je potřeba něco složitějšího, ozvěte se. Na vaše požadavky reagujeme do jednoho až dvou pracovních dnů.':
+        'Need something more complex? Get in touch. We respond to your requests within one to two business days.',
+    'Hosting u většiny webů zdarma': 'Free hosting for most websites',
+    'Platí se jen u velkých projektů nebo rychlejších variant. Doménu si platíte přímo u jejího poskytovatele.':
+        'You only pay for large projects or faster hosting plans. The domain is paid directly to its registrar.',
+    'Postaráme se o všechno kolem': 'We handle everything around it',
+    'Napojení na doménu, spuštění, SEO a GEO, cookies a GDPR, obchodní podmínky i napojení na mailing.':
+        'Domain setup, launch, SEO and GEO, cookies and GDPR, terms and conditions, and email marketing integration.',
+    'Záleží na rozsahu. Cenu vždy znáte předem: dostanete nabídku, ve které je přesně rozepsané, co obsahuje. Ještě než se rozhodnete, jestli do toho půjdete. Žádné skryté poplatky.':
+        'It depends on the scope. You always know the price upfront: you get a quote that lists exactly what it includes, before you decide to go ahead. No hidden fees.',
+    'Co všechno je v ceně?': 'What’s included in the price?',
+    'Návrh, design, texty, technické řešení, SEO a GEO, cookies a GDPR, napojení na doménu i spuštění webu. Hosting je u většiny webů zdarma, platí se jen u velkých projektů nebo rychlejších variant hostingu. Doménu si platíte sami u jejího poskytovatele.':
+        'The design, copy, technical build, SEO and GEO, cookies and GDPR, domain setup and launch. Hosting is free for most websites; you only pay for large projects or faster hosting plans. You pay for the domain yourself, directly to its registrar.',
+    'Můžu si web upravovat sám?': 'Can I edit the website myself?',
+    'Ano. Když ji potřebujete, dostanete administraci, ve které si texty, fotky nebo novinky změníte sami. Složitější úpravy za vás rádi uděláme, na požadavky reagujeme do jednoho až dvou pracovních dnů.':
+        'Yes. If you need it, you get an admin panel where you can change texts, photos or news yourself. We’re happy to handle more complex changes and respond within one to two business days.',
+    'Cenu znáte předem, bez skrytých poplatků': 'Price known upfront, no hidden fees',
     # ---------- FAQ ----------
     'Časté otázky': 'FAQ', 'Máte otázku?': 'Got a question?', 'Tady je odpověď.': 'Here is the answer.',
     'A když ne, zavolejte nebo napište. Odpovídáme lidsky a rychle.': 'And if not, call or message us. We reply quickly and in plain words.',

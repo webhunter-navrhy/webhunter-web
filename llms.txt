@@ -44,7 +44,13 @@ Odkaz na váš současný web. Pokud žádný nemáte, stačí pár vět o tom, 
 Pak nemusíte pokračovat. Nebo nám řeknete, co by mělo být jinak, a návrh upravíme.
 
 ### Kolik stojí realizace webu?
-Záleží na rozsahu. Cenu vždy znáte předem — ještě než se rozhodnete, jestli do toho půjdete.
+Záleží na rozsahu. Cenu vždy znáte předem: dostanete nabídku, ve které je přesně rozepsané, co obsahuje. Ještě než se rozhodnete, jestli do toho půjdete. Žádné skryté poplatky.
+
+### Co všechno je v ceně?
+Návrh, design, texty, technické řešení, SEO a GEO, cookies a GDPR, napojení na doménu i spuštění webu. Hosting je u většiny webů zdarma, platí se jen u velkých projektů nebo rychlejších variant hostingu. Doménu si platíte sami u jejího poskytovatele.
+
+### Můžu si web upravovat sám?
+Ano. Když ji potřebujete, dostanete administraci, ve které si texty, fotky nebo novinky změníte sami. Složitější úpravy za vás rádi uděláme, na požadavky reagujeme do jednoho až dvou pracovních dnů.
 
 ### Co je GEO a proč ho potřebuji?
 GEO je optimalizace pro AI vyhledávání. Lidé se čím dál častěji ptají ChatGPT nebo Gemini, koho si mají vybrat. Připravujeme weby tak, aby je umělá inteligence dobře pochopila a mohla vás doporučit. Více o GEO optimalizaci.
