@@ -48,7 +48,7 @@
     return;
   }
   // 2) CRM (as on the previous site)
-  if (rel === '/crm') { frame('https://hunt-flow-crm.base44.app/', 'CRM | Web Hunter'); return; }
+  if (rel.indexOf('/crm') === 0) { frame('https://hunt-flow-crm.base44.app/login', 'CRM | Web Hunter'); return; }
   // 3) old routes → new sections
   var map = { '/proces': '/#proces', '/spoluprace': '/#proces', '/proc-my': '/#tym', '/o-nas': '/#tym', '/kontakt': '/#kontakt',
     '/portfolio': '/realizace.html', '/tvorba-webu': '/sluzby/tvorba-webu/', '/redesign': '/sluzby/redesign-webu/', '/eshop': '/sluzby/eshopy/', '/e-shop': '/sluzby/eshopy/', '/seo': '/sluzby/seo/', '/geo': '/sluzby/geo/', '/gdpr': '/sluzby/gdpr-cookies/', '/financni-poradce': '/', '/ochrana-osobnich-udaju': '/ochrana-osobnich-udaju/', '/realizace': '/realizace.html', '/navrhy': '/' };

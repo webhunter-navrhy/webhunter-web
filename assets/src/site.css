@@ -1364,27 +1364,27 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
 /* moving diagonal pattern (transform only) */
 .bn-pat { position: absolute; inset: -40%; opacity: 0.16;
   background-image: repeating-linear-gradient(-45deg, currentColor 0 1.5px, transparent 1.5px 22px);
-  animation: bnPat 18s linear infinite; will-change: transform; }
+  animation: bnPat 18s linear infinite; }
 @keyframes bnPat { to { transform: translate(31.1px, 31.1px); } }
 /* drifting glow orbs */
-.bn-orb { position: absolute; border-radius: 50%; will-change: transform; }
+.bn-orb { position: absolute; border-radius: 50%; }
 .bn-orb.o1 { width: 70%; aspect-ratio: 1; right: -20%; top: -15%; animation: bnOrb 12s ease-in-out infinite; }
 .bn-orb.o2 { width: 55%; aspect-ratio: 1; left: -18%; bottom: -12%; animation: bnOrb 15s ease-in-out infinite reverse; }
 @keyframes bnOrb { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-12%, 10%) scale(1.12); } }
 /* glossy sweep */
 .bn-shine { position: absolute; top: -20%; bottom: -20%; left: -60%; width: 40%;
   background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
-  transform: translateX(0) skewX(-18deg); animation: bnShine 7s ease-in-out infinite; will-change: transform; }
+  transform: translateX(0) skewX(-18deg); animation: bnShine 7s ease-in-out infinite; }
 @keyframes bnShine { 0%, 55% { transform: translateX(0) skewX(-18deg); } 85%, 100% { transform: translateX(560%) skewX(-18deg); } }
 /* twinkling sparkles */
-.bn-fx .sp { position: absolute; width: 16px; height: 16px; color: #fff; animation: bnSp 3.2s ease-in-out infinite; will-change: transform, opacity; }
+.bn-fx .sp { position: absolute; width: 16px; height: 16px; color: #fff; animation: bnSp 3.2s ease-in-out infinite; }
 .bn-fx .sp svg { width: 100%; height: 100%; display: block; }
 .bn-fx .s1 { top: 14%; right: 38%; }
 .bn-fx .s2 { top: 44%; right: 8%; width: 11px; height: 11px; animation-delay: -1.1s; }
 .bn-fx .s3 { top: 30%; left: 12%; width: 9px; height: 9px; animation-delay: -2.2s; }
 @keyframes bnSp { 0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0; } 45% { transform: scale(1) rotate(45deg); opacity: 1; } }
 /* floating 3D objects */
-.bn-obj { position: absolute; z-index: 1; height: auto; will-change: transform; filter: drop-shadow(0 24px 30px rgba(5, 20, 60, 0.35)); }
+.bn-obj { position: absolute; z-index: 1; height: auto; filter: drop-shadow(0 24px 30px rgba(5, 20, 60, 0.35)); }
 .float-a { animation: floatA 6s ease-in-out infinite; }
 .float-b { animation: floatB 7.5s ease-in-out infinite; }
 @keyframes floatA { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-3deg); } }
@@ -1520,7 +1520,6 @@ footer { background: var(--ink); color: var(--ink-muted); margin: 0 var(--frame-
   .cta-link { width: 90px; top: -2.5rem; }
   .val.bnx { min-height: 190px; }
 }
-.bnx .bn-obj { will-change: transform; }
 /* placement fixes */
 .val.bnx { min-height: 270px; }
 .val .ob-val { width: 78px; max-width: none; right: 14px; top: 14px; }
@@ -2262,3 +2261,10 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
 @media (max-width: 1180px) { .nav-end { margin-left: auto; } .nav-inner { gap: 0.5rem; } }
 @media (max-width: 767px) { .lang-sw { width: 40px; height: 40px; font-size: 0.64rem; } }
 .foot-top.ft4 { grid-template-columns: 1.3fr 1fr 1.1fr 1fr; }
+
+/* ---------- PERF: card effects only animate while the card is on screen ---------- */
+.bn:not(.bn-live) .bn-fx *, .bnx:not(.bn-live) .bn-fx *, .bn:not(.bn-live) .bn-obj, .bnx:not(.bn-live) .bn-obj, .bn:not(.bn-live) .float-a, .bnx:not(.bn-live) .float-a,
+.bn:not(.bn-live) .float-b, .bnx:not(.bn-live) .float-b { animation: none !important; }
+.is-off .marquee-track, .is-off .reel-row, .is-off .strip-row, .is-off .hc-float, .is-off .sky-par, .is-off .bento-par, .is-off .ring, .is-off .hero-front, .is-off .sc-vp img { will-change: auto; }
+/* rounded clipping that survives 3D tilt + animated layers (Safari/Chrome square-corner bug) */
+.bn-fx { -webkit-mask-image: -webkit-radial-gradient(#fff, #000); }

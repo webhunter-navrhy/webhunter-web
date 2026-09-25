@@ -73,6 +73,7 @@ const whConsent = (() => {
       </div>
       <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Odmítnout vše</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
     </div>`;
+    d.querySelector('.ck-card').classList.add('bn-live');
     document.body.appendChild(d);
     const opts = d.querySelector('.ck-opts'), setBtn = d.querySelector('[data-ck-set]');
     const close = () => { d.hidden = true; document.body.classList.remove('ck-open'); };
@@ -186,19 +187,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  // Rail active section
+  // Rail active section — the section under the middle of the viewport (robust to fast scrolling and gaps)
   const railLinks = $$('.rail a[data-sec]');
   if (railLinks.length) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          const id = en.target.dataset.section;
-          railLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === id && !l.classList.contains('rail-cta')));
-        }
-      });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-    $$('[data-section]').forEach(s => io.observe(s));
+    const secs = $$('[data-section]');
+    let cur = '', rq = 0;
+    const upd = () => {
+      rq = 0; const mid = innerHeight * 0.45; let id = secs[0].dataset.section;
+      for (const sct of secs) { if (sct.getBoundingClientRect().top <= mid) id = sct.dataset.section; else break; }
+      if (id === cur) return; cur = id;
+      railLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === id && !l.classList.contains('rail-cta')));
+    };
+    window.addEventListener('scroll', () => { if (!rq) rq = requestAnimationFrame(upd); }, { passive: true }); upd();
   }
+
+  // Banner card effects animate only while the card is (nearly) on screen — keeps the layer count low while scrolling
+  const bnCards = $$('.bn, .bnx');
+  if ('IntersectionObserver' in window) {
+    const bnIO = new IntersectionObserver(entries => entries.forEach(en => en.target.classList.toggle('bn-live', en.isIntersecting)), { rootMargin: '120px 0px' });
+    bnCards.forEach(c => bnIO.observe(c));
+  } else bnCards.forEach(c => c.classList.add('bn-live'));
 
   // Pause CSS animation loops in sections that are off screen
   const offIO = new IntersectionObserver(entries => entries.forEach(en => en.target.classList.toggle('is-off', !en.isIntersecting)), { rootMargin: '100px 0px' });

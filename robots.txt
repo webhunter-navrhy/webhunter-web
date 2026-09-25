@@ -2,7 +2,6 @@
 User-agent: *
 Allow: /
 Disallow: /navrhy/
-Disallow: /crm
 
 User-agent: GPTBot
 Allow: /

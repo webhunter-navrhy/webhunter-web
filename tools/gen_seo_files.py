@@ -30,7 +30,7 @@ def sitemap():
 def robots():
     ai = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User',
           'Google-Extended', 'Applebot-Extended', 'Bingbot', 'SeznamBot', 'CCBot', 'meta-externalagent']
-    lines = ['# WebHunter — search engines and AI assistants are welcome', 'User-agent: *', 'Allow: /', 'Disallow: /navrhy/', 'Disallow: /crm', '']
+    lines = ['# WebHunter — search engines and AI assistants are welcome', 'User-agent: *', 'Allow: /', 'Disallow: /navrhy/', '']
     for a in ai:
         lines += [f'User-agent: {a}', 'Allow: /', 'Disallow: /navrhy/', '']
     lines += [f'Sitemap: {SITE}/sitemap.xml', '']
