@@ -2315,3 +2315,5 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
   .hc[style*="--i:-1"] { transform: translate(-28vw, -20px) rotate(-12deg) scale(0.62) !important; }
   .hc[style*="--i:1"] { transform: translate(28vw, -20px) rotate(12deg) scale(0.62) !important; }
 }
+/* automated browsers: no floating widgets over the footer */
+.wh-bot .wa-fab, .wh-bot .m-cta { display: none !important; }

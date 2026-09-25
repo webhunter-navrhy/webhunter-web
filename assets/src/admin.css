@@ -131,3 +131,6 @@
   .wa-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wa-bars li, .wa-funnel li { grid-template-columns: minmax(0, 1fr) 70px auto; }
 }
+.wp-h { font-family: var(--wa-mono, ui-monospace, monospace); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7684; margin: 1.2rem 0 0.4rem; }
+.wa-btn.ok { position: relative; box-shadow: 0 0 0 2px #17A35B inset; }
+.wa-btn.ok::after { content: '✓'; position: absolute; top: -8px; right: -6px; width: 18px; height: 18px; border-radius: 50%; background: #17A35B; color: #fff; font-size: 11px; display: grid; place-items: center; }

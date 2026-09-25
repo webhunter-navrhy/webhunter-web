@@ -41,20 +41,21 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && current) close(); });
   const copy = async (text, btn) => {
     try { await navigator.clipboard.writeText(text); } catch (e) { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
-    if (btn) { const o = btn.textContent; btn.textContent = 'Zkopírováno ✓'; btn.classList.add('ok'); setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1400); }
+    if (btn) { btn.classList.add('ok'); btn.setAttribute('title', 'Zkopírováno'); setTimeout(() => btn.classList.remove('ok'), 1400); }
   };
 
   /* =================================================================
      NÁVRHY (Proposal) — 1:1 with the previous site
      ================================================================= */
   function proposals() {
-    const s = shell('Návrhy', 'Nahrajte návrh a zkopírujte odkaz ve tvaru webhunter.cz/navrhy/…');
+    const s = shell('Správa návrhů', 'Nahrajte návrh a zkopírujte odkaz ve tvaru webhunter.cz/navrhy/…');
     s.body.innerHTML = `
       <form class="wp-form">
-        <label><span>Název</span><input name="name" required placeholder="Např. Prodej bytu 3+1 — Vršovice"></label>
-        <label><span>URL návrhu</span><input name="url" type="url" required placeholder="https://…"></label>
+        <label><span>Název</span><input name="name" type="text" required placeholder="Název *"></label>
+        <label><span>URL návrhu</span><input name="url" type="url" required placeholder="URL webu (https://...) *"></label>
         <button class="wa-btn wa-btn-dark" type="submit">Přidat návrh</button>
       </form>
+      <p class="wp-h">Všechny návrhy</p>
       <div class="wp-tools"><input class="wp-search" type="search" placeholder="Hledat podle názvu, URL nebo ID…" aria-label="Hledat návrhy"><span class="wp-count"></span></div>
       <ul class="wp-list"></ul>
       <div class="wp-more"><button class="wa-btn" type="button" hidden>Načíst další</button></div>`;
@@ -85,13 +86,13 @@
       list.innerHTML = '<li class="wa-empty">Hledám…</li>'; load(true);
     }, 300); });
     form.addEventListener('submit', async e => {
-      e.preventDefault(); const btn = form.querySelector('button'); btn.disabled = true;
+      e.preventDefault(); const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Ukládám...';
       try {
         const p = await db.create('Proposal', { name: form.name.value.trim(), url: form.url.value.trim() });
         form.reset(); const r = row(p); r.classList.add('wp-new'); list.prepend(r);
         const cb = r.querySelector('[data-copy]'); copy(cb.dataset.copy, cb);
       } catch (x) { alert('Návrh se nepodařilo uložit.'); }
-      btn.disabled = false;
+      btn.disabled = false; btn.textContent = 'Přidat návrh';
     });
     load(true);
     // total count (cheap: fetch ids only is not supported → estimate by paging in the background)

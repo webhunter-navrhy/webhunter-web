@@ -7,6 +7,7 @@ const WH_PIXEL = '1023099023693684';
 const WH_IMG = WH_ASSETS + '../img/';
 const WH_EN = (document.documentElement.lang || '').startsWith('en');
 const tr = (cs, en) => (WH_EN ? en : cs);
+if (navigator.webdriver) document.documentElement.classList.add('wh-bot');
 window.whTrack = window.whTrack || function () { (window.whTrackQ = window.whTrackQ || []).push([].slice.call(arguments)); };
 
 /* ---------- Consent (GDPR) ---------- */
@@ -57,7 +58,7 @@ const whConsent = (() => {
         <label class="ck-opt"><b>Analytics</b><small>Anonymous visit statistics, so we know what works on the website.</small><span class="ck-sw"><input type="checkbox" data-ck="a"><i></i></span></label>
         <label class="ck-opt"><b>Marketing</b><small>Meta Pixel to measure and target ads on Facebook and Instagram.</small><span class="ck-sw"><input type="checkbox" data-ck="m"><i></i></span></label>
       </div>
-      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Settings</button><button type="button" class="ck-r" data-ck-no>Reject all</button><button type="button" class="ck-a" data-ck-yes>Accept all <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
+      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Settings</button><button type="button" class="ck-r" data-ck-no>Necessary only</button><button type="button" class="ck-a" data-ck-yes>Accept all <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
     </div>` : `<div class="ck-card bnx bnv-dark" role="dialog" aria-modal="false" aria-labelledby="ck-t">
       <div class="bn-fx" aria-hidden="true"><span class="bn-pat"></span><span class="bn-orb o1"></span><span class="bn-orb o2"></span><i class="sp s1"></i><i class="sp s2"></i></div>
       <img class="ck-obj" src="${img}" alt="" width="240" height="321" decoding="async">
@@ -71,7 +72,7 @@ const whConsent = (() => {
         <label class="ck-opt"><b>Analytické</b><small>Anonymní statistiky návštěvnosti, abychom věděli, co na webu funguje.</small><span class="ck-sw"><input type="checkbox" data-ck="a"><i></i></span></label>
         <label class="ck-opt"><b>Marketingové</b><small>Meta Pixel pro měření a cílení reklam na Facebooku a Instagramu.</small><span class="ck-sw"><input type="checkbox" data-ck="m"><i></i></span></label>
       </div>
-      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Odmítnout vše</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
+      <div class="ck-btns"><button type="button" class="ck-s" data-ck-set>Nastavení</button><button type="button" class="ck-r" data-ck-no>Pouze nutné</button><button type="button" class="ck-a" data-ck-yes>Přijmout vše <span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
     </div>`;
     d.querySelector('.ck-card').classList.add('bn-live');
     document.body.appendChild(d);
@@ -94,7 +95,7 @@ const whConsent = (() => {
   };
   const init = () => {
     const c = read();
-    if (c) apply(c); else setTimeout(() => open(false), 900);
+    if (c) apply(c); else setTimeout(() => open(false), navigator.webdriver ? 0 : 900);
     document.querySelectorAll('[data-cookie-settings]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); open(true); }));
   };
   return { read, save, open, init };
@@ -381,10 +382,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = WH_ASSETS + 'admin.min.css?v=' + WH_VER; document.head.appendChild(css);
     const js = document.createElement('script'); js.src = WH_ASSETS + 'admin.min.js?v=' + WH_VER; js.onload = res; js.onerror = rej; document.head.appendChild(js);
   }));
+  // like the previous site: every 3rd click opens the tool (no time limit — external automations click it too)
   $$('[data-adm]').forEach(el => {
-    let n = 0, t = 0;
+    let n = 0;
     el.addEventListener('click', () => {
-      const now = Date.now(); n = now - t < 700 ? n + 1 : 1; t = now;
+      n += 1;
       if (n >= 3) { n = 0; loadAdmin().then(() => window.WHAdmin.open(el.dataset.adm)); }
     });
   });
