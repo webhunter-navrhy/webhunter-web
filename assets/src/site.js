@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lenis
   let lenis = null;
   if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
+    lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
     if (hasGsap) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(time => lenis.raf(time * 1000));
@@ -124,6 +124,45 @@ document.addEventListener('DOMContentLoaded', () => {
     links.classList.toggle('open', open); toggle.classList.toggle('open', open); nav.classList.toggle('menu-open', open);
   });
   $$('.nav-links a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // ---------- Mobile: swipe rails + auto-hiding nav ----------
+  const mq = window.matchMedia('(max-width: 767px)');
+  const rails = [];
+  const makeRail = (el, items) => {
+    if (!el || el._rail) return;
+    let host = el;
+    if (items) { // move a subset of children into a new rail (services: keep the before/after card full width)
+      host = document.createElement('div'); host.className = el.className.replace(/\bsv-grid\b/, '') + ' sv-rail';
+      el._moved = items; items.forEach(n => host.appendChild(n)); el.appendChild(host);
+    }
+    host.classList.add('m-rail'); el._rail = host;
+    const dots = document.createElement('div'); dots.className = 'm-rail-dots'; dots.setAttribute('aria-hidden', 'true');
+    const kids = [...host.children]; dots.innerHTML = kids.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('');
+    host.after(dots);
+    let raf = 0;
+    host.addEventListener('scroll', () => { if (raf) return; raf = requestAnimationFrame(() => { raf = 0;
+      const w = kids[0].getBoundingClientRect().width + 12; const i = Math.round(host.scrollLeft / w);
+      [...dots.children].forEach((d, k) => d.classList.toggle('on', k === Math.min(i, kids.length - 1))); }); }, { passive: true });
+    rails.push({ el, host, dots });
+  };
+  const unRail = () => rails.splice(0).forEach(({ el, host, dots }) => {
+    dots.remove();
+    if (el._moved) { el._moved.forEach(n => el.appendChild(n)); host.remove(); el._moved = null; } else host.classList.remove('m-rail');
+    el._rail = null;
+  });
+  const applyRails = () => {
+    if (!mq.matches) { unRail(); return; }
+    makeRail($('.bento')); makeRail($('.p-steps')); makeRail($('.vals'));
+    const sv = $('.sv-grid'); if (sv) makeRail(sv, $$('.sv', sv).filter(n => !n.classList.contains('sv-ba')));
+  };
+  applyRails(); mq.addEventListener('change', applyRails);
+
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (mq.matches) nav.classList.toggle('nav-hide', y > lastY && y > 300);
+    lastY = y;
+  }, { passive: true });
 
   // Nav state
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -263,12 +302,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const hide = new Set();
     const sync = () => mCta.classList.toggle('show', hide.size === 0 && window.scrollY > 200);
     const mio = new IntersectionObserver(en => { en.forEach(x => x.isIntersecting ? hide.add(x.target) : hide.delete(x.target)); sync(); }, { threshold: 0.15 });
-    $$('.hero, .sub-hero, #kontakt, .cta-band').forEach(el => mio.observe(el));
+    $$('.hero, .sub-hero, #kontakt, .cta-band, footer').forEach(el => mio.observe(el));
     window.addEventListener('scroll', sync, { passive: true });
     toggle.addEventListener('click', () => document.body.classList.toggle('menu-lock', links.classList.contains('open')));
   }
 
   whConsent.init();
+
+  // WhatsApp quick contact (floating button on every page)
+  const WA_NUM = '420777611634';
+  const isEN = (document.documentElement.lang || '').startsWith('en');
+  const waText = isEN ? 'Hello, I am interested in a free website design.' : 'Dobrý den, mám zájem o návrh webu zdarma.';
+  const waUrl = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(waText);
+  const WA_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.22-8.22 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>';
+  const fab = document.createElement('a');
+  fab.className = 'wa-fab'; fab.href = waUrl; fab.target = '_blank'; fab.rel = 'noopener';
+  fab.setAttribute('aria-label', isEN ? 'Message us on WhatsApp' : 'Napište nám na WhatsApp');
+  fab.innerHTML = WA_SVG + '<span>' + (isEN ? 'WhatsApp us' : 'Napište na WhatsApp') + '</span>';
+  document.body.appendChild(fab);
+  $$('[data-wa]').forEach(a => { a.href = waUrl; a.target = '_blank'; a.rel = 'noopener'; });
+  document.addEventListener('click', e => { if (e.target.closest('.wa-fab, [data-wa]')) window.whTrack('wa', 'whatsapp'); if (window.fbq && e.target.closest('.wa-fab, [data-wa]')) window.fbq('track', 'Contact'); });
 
   // Contact form -> Base44 sendContactEmail (same backend as the previous site)
   const form = $('.form');

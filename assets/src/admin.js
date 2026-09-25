@@ -138,7 +138,7 @@
   const SEQ = ['#eef4fd', '#cde2fb', '#9ec5f4', '#6da7ec', '#3987e5', '#256abf', '#184f95', '#0d366b'];
   const SEC_LABEL = { top: 'Úvod (hero)', realizace: 'Realizace', proces: 'Jak to funguje', sluzby: 'Co dostanete', geo: 'AI vyhledávání', tym: 'Tým', faq: 'Otázky', kontakt: 'Kontakt / formulář', paticka: 'Patička',
     hero: 'Úvod (hero)', benefits: 'Výhody', process: 'Proces', portfolio: 'Portfolio', contact: 'Kontakt' };
-  const EV_LABEL = { cta: 'Tlačítka (CTA)', out: 'Prokliky na weby klientů', faq: 'Otevřené otázky', tel: 'Kliknutí na telefon', mail: 'Kliknutí na e-mail', ba: 'Přepnutí předtím/teď', filter: 'Filtry realizací', nav: 'Navigace', showcase: 'Vybrané realizace', hero_form: 'Pole v úvodu', form_start: 'Začal vyplňovat formulář', lead: 'Odeslaná poptávka' };
+  const EV_LABEL = { cta: 'Tlačítka (CTA)', out: 'Prokliky na weby klientů', faq: 'Otevřené otázky', tel: 'Kliknutí na telefon', wa: 'WhatsApp', mail: 'Kliknutí na e-mail', ba: 'Přepnutí předtím/teď', filter: 'Filtry realizací', nav: 'Navigace', showcase: 'Vybrané realizace', hero_form: 'Pole v úvodu', form_start: 'Začal vyplňovat formulář', lead: 'Odeslaná poptávka' };
   const pageLabel = (path, legacy) => {
     const p = (path || '/').replace(/index\.html$/, '').replace(/\/+$/, '/') || '/';
     if (legacy) return 'Starý web ' + p;
@@ -330,7 +330,7 @@
 
       // funnel
       const steps = [['Návštěva', () => true], ['Scroll aspoň 50 %', x => x.rows.some(r => r.scroll >= 50)], ['Viděl kontaktní sekci', x => x.rows.some(r => r.secs.includes('kontakt') || r.secs.includes('contact'))],
-        ['Začal vyplňovat', x => x.rows.some(r => r.ev.some(e => e[1] === 'form_start' || e[1] === 'hero_form'))], ['Odeslal poptávku', x => x.rows.some(r => r.conv)]];
+        ['Začal vyplňovat / kontaktoval', x => x.rows.some(r => r.ev.some(e => ['form_start', 'hero_form', 'wa', 'tel', 'mail'].includes(e[1])))], ['Odeslal poptávku', x => x.rows.some(r => r.conv)]];
       const fr = steps.map(([l, f]) => [l, ss.filter(f).length]);
       $('[data-c="funnel"]').innerHTML = `<ol class="wa-funnel">${fr.map(([l, v], i) => `<li><span>${i + 1}. ${l}</span><span class="wa-bt"><i style="width:${ss.length ? Math.max(1.5, v / ss.length * 100) : 0}%"></i></span><b>${nf.format(v)}<small>${pct(v, ss.length)} %</small></b></li>`).join('')}</ol>`;
 

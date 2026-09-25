@@ -74,6 +74,7 @@
     const txt = (a.getAttribute('aria-label') || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50);
     const href = a.getAttribute && a.getAttribute('href');
     if (href && /^tel:/.test(href)) return ev('tel', href.slice(4));
+    if (href && /wa\.me\//.test(href)) return ev('wa', 'WhatsApp');
     if (href && /^mailto:/.test(href)) return ev('mail', href.slice(7));
     if (a.matches('[data-ba-case]')) return ev('ba', a.dataset.baCase);
     if (a.matches('.filter')) return ev('filter', a.dataset.f);
