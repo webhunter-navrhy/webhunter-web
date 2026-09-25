@@ -212,7 +212,7 @@ p { text-wrap: pretty; }
 .hero-content { position: relative; z-index: 4; text-align: center; padding-top: clamp(6.5rem, 13vh, 9rem); width: min(1100px, 100% - 3rem); margin-inline: auto; }
 .hero-pill {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.45rem 0.95rem 0.45rem 0.55rem; border-radius: 999px;
+  padding: 0.55rem 1.1rem; border-radius: 999px;
   background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
@@ -233,7 +233,7 @@ p { text-wrap: pretty; }
 .ring-stage { position: absolute; z-index: 2; left: 0; right: 0; top: 70.5%; height: 0; perspective: 1800px; perspective-origin: 50% 20%; }
 .ring { position: absolute; left: 50%; top: 0; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1100px) rotateX(-4deg); }
 .hc { position: absolute; left: 0; top: 0; transform-style: preserve-3d; transform: rotateY(calc(var(--i) * 15.5deg)) translateZ(1100px); }
-.hc-float { animation: bob 6s ease-in-out infinite; animation-delay: calc(var(--i) * -0.9s); }
+.hc-float { transform: translate(-50%, -50%); animation: bob 6s ease-in-out infinite; animation-delay: calc((var(--i) + 8) * -0.9s); }
 @keyframes bob { 0%,100% { transform: translate(-50%, -50%); } 50% { transform: translate(-50%, calc(-50% - 10px)); } }
 
 .hc-card {
@@ -2289,4 +2289,29 @@ body.ck-open .wa-fab, body.menu-lock .wa-fab { opacity: 0; pointer-events: none;
 }
 @media (max-width: 1180px) {
   .nav-links.open { background: radial-gradient(90% 55% at 100% 0%, rgba(30,98,240,0.12), transparent 70%), radial-gradient(70% 45% at 0% 100%, rgba(201,242,102,0.25), transparent 70%), #F2F5F8; }
+}
+
+/* ---------- MOBILE HERO v3: card fan in the flow instead of the scaled 3D ring ---------- */
+@media (max-width: 767px) {
+  .hero-frame { height: auto !important; min-height: 0 !important; padding-bottom: 1.4rem !important; display: flex; flex-direction: column; }
+  .hero-content { padding-top: 6.4rem; }
+  .hero h1 { font-size: clamp(2.45rem, 11.2vw, 3.05rem); }
+  .hero-sub { font-size: 0.97rem; max-width: 34ch; }
+  .hero-buttons { margin-top: 1.4rem; }
+  .ring-stage { position: relative !important; inset: auto !important; top: auto !important; bottom: auto !important; height: 286px !important; margin-top: 0.2rem;
+    transform: none !important; perspective: none; z-index: 2; pointer-events: none; }
+  .ring { position: absolute; inset: 0; left: 0 !important; width: 100% !important; height: 100% !important; transform: none !important; transform-style: flat; }
+  .hc { position: absolute; left: 50% !important; top: 50% !important; transform-style: flat; transition: none; }
+  .hc[style*="--i:0"] { transform: translateY(8px) scale(0.8) !important; z-index: 3; }
+  .hc[style*="--i:-1"] { transform: translate(-28vw, -24px) rotate(-12deg) scale(0.68) !important; z-index: 2; }
+  .hc[style*="--i:1"] { transform: translate(28vw, -24px) rotate(12deg) scale(0.68) !important; z-index: 2; }
+  .hc[style*="--i:-2"], .hc[style*="--i:2"], .hc[style*="--i:-3"], .hc[style*="--i:3"] { display: none !important; }
+  .hc-card { backface-visibility: visible; }
+  .hero-front { -webkit-mask-image: linear-gradient(180deg, transparent 84%, #000 97%); mask-image: linear-gradient(180deg, transparent 84%, #000 97%); }
+}
+@media (max-width: 380px) {
+  .ring-stage { height: 256px !important; }
+  .hc[style*="--i:0"] { transform: translateY(6px) scale(0.74) !important; }
+  .hc[style*="--i:-1"] { transform: translate(-28vw, -20px) rotate(-12deg) scale(0.62) !important; }
+  .hc[style*="--i:1"] { transform: translate(28vw, -20px) rotate(12deg) scale(0.62) !important; }
 }
