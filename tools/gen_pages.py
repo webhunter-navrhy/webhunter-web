@@ -217,7 +217,7 @@ def service_page(s):
   <div class="container svc-blocks">{blocks}</div>
 </section>
 
-{PROCESS}
+{'' if s.get('no_process') else PROCESS}
 
 {examples(s) if s.get('examples') else work_section(s)}
 

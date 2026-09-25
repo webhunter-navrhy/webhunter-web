@@ -210,6 +210,7 @@ SERVICES = [
     'obj': 'magnifier',
     'hstats': [('695 Kč', 'jednorázově'), ('0 Kč', 'za doménu'), ('SEO', '+ GEO')],
     'hchip': 'Web je hotový předem',
+    'no_process': True,
     'form': ('Odkaz na váš inzerát', 'sreality.cz/detail/…', 'Chci web k inzerátu', False),
     'answer': 'WebHunter připravuje pro realitní kanceláře a makléře samostatné prezentační weby ke konkrétním nemovitostem. Každý web má fotogalerii, parametry, mapu, kontakt přes WhatsApp a je optimalizovaný pro Google (SEO) i pro AI vyhledávače jako ChatGPT (GEO). Běží zdarma na subdoméně kanceláře a stojí 695 Kč jednorázově.',
     'benefits': [
