@@ -8,7 +8,7 @@ English: WebHunter is a Czech web design agency. It builds custom websites and o
 
 - Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).
 - Bez schůzek a technického zadání. Cena realizace je vždy známá předem.
-- 41 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace
+- 41 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
 - GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).
 - Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.
 - Kontakt: telefon +420777611634, e-mail info.webhunter@email.cz, WhatsApp https://wa.me/420777611634
@@ -152,7 +152,7 @@ Ano. Projdeme váš současný web a navrhneme, co je potřeba upravit — nebo 
 ## Stránky
 
 - [Úvod](https://webhunter.cz/)
-- [Realizace](https://webhunter.cz/realizace)
+- [Realizace](https://webhunter.cz/realizace.html)
 - [Služby](https://webhunter.cz/sluzby/)
 - [English version](https://webhunter.cz/en/)
 - [Ochrana osobních údajů](https://webhunter.cz/ochrana-osobnich-udaju/)

@@ -10,7 +10,7 @@ TODAY = datetime.date.today().isoformat()
 strip = lambda s: html.unescape(re.sub(r'<[^>]+>', '', s))
 
 # (cs path, en path or None, priority)
-URLS = [('/', '/en/', '1.0'), ('/realizace', '/en/work', '0.8'), ('/sluzby/', None, '0.9')] + \
+URLS = [('/', '/en/', '1.0'), ('/realizace.html', '/en/work.html', '0.8'), ('/sluzby/', None, '0.9')] + \
        [(f'/sluzby/{s["slug"]}/', None, '0.9') for s in SERVICES] + [('/ochrana-osobnich-udaju/', '/en/privacy/', '0.3'), ('/obchodni-podminky/', None, '0.3')]
 
 
@@ -49,7 +49,7 @@ def llms():
          '## Klíčová fakta', '',
          '- Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).',
          '- Bez schůzek a technického zadání. Cena realizace je vždy známá předem.',
-         f'- 41 realizovaných webů pro firmy z různých oborů: {SITE}/realizace',
+         f'- 41 realizovaných webů pro firmy z různých oborů: {SITE}/realizace.html',
          '- GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).',
          '- Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.',
          f'- Kontakt: telefon {PHONE}, e-mail {EMAIL}, WhatsApp https://wa.me/420777611634', '',
@@ -67,7 +67,7 @@ def llms():
     for u, n, d in work:
         if u in seen: continue
         seen.add(u); L.append(f'- [{strip(n)}]({u}): {strip(d)}')
-    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace)', f'- [Služby]({SITE}/sluzby/)',
+    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)',
           f'- [English version]({SITE}/en/)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 
