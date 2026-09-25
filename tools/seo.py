@@ -52,7 +52,7 @@ def faq_ld(pairs):
             "mainEntity": [{"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in pairs]}
 
 
-def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, robots='index, follow, max-image-preview:large, max-snippet:-1'):
+def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, robots='index, follow, max-image-preview:large, max-snippet:-1', og_type='website'):
     """canonical, hreflang, OG/Twitter. path = production path starting with '/'. alt = {'cs': '/x', 'en': '/en/x'}"""
     e = html.escape
     url = SITE + path
@@ -62,7 +62,7 @@ def head_extras(path, title, desc, og_img='img/og.jpg', lang='cs', alt=None, rob
             out.append(f'<link rel="alternate" hreflang="{k}" href="{SITE + v}">')
         out.append(f'<link rel="alternate" hreflang="x-default" href="{SITE + alt.get("cs", path)}">')
     out += [
-        '<meta property="og:type" content="website">', '<meta property="og:site_name" content="WebHunter">',
+        f'<meta property="og:type" content="{og_type}">', '<meta property="og:site_name" content="WebHunter">',
         f'<meta property="og:locale" content="{"cs_CZ" if lang == "cs" else "en_US"}">',
         f'<meta property="og:title" content="{e(title)}">', f'<meta property="og:description" content="{e(desc)}">',
         f'<meta property="og:url" content="{url}">', f'<meta property="og:image" content="{SITE}/{og_img}">',

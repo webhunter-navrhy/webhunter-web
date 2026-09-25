@@ -60,8 +60,8 @@ def relink(s, R):
     return s
 
 
-def page(R, path, title, desc, lds, body):
-    nav = NAV.replace('<a href="index.html#sluzby">Co dostanete</a>', '<a href="sluzby/">Služby</a>').replace('href="en/work.html" class="lang-sw"', 'href="en/" class="lang-sw"')
+def page(R, path, title, desc, lds, body, body_cls='page-sub page-svc', og_type='website', extra_head=''):
+    nav = NAV.replace('<a href="index.html#sluzby">Co dostanete</a>', '<a href="sluzby/">Služby</a><a href="blog/">Blog</a>').replace('<a href="index.html#tym">Tým</a>', '').replace('href="en/work.html" class="lang-sw"', 'href="en/" class="lang-sw"')
     out = f'''<!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -69,7 +69,7 @@ def page(R, path, title, desc, lds, body):
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
-{head_extras(path, title, desc)}
+{head_extras(path, title, desc, og_type=og_type)}{extra_head}
 {FAVICON}
 
 {FONTS}
@@ -82,7 +82,7 @@ def page(R, path, title, desc, lds, body):
 <link rel="stylesheet" href="assets/site.min.css?v=1">
 {chr(10).join(ld(x) for x in lds)}
 </head>
-<body class="page-sub page-svc">
+<body class="{body_cls}">
 
 <div class="scroll-progress"></div>
 {SPRITE}

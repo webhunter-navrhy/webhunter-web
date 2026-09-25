@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const applyRails = () => {
     if (!mq.matches) { unRail(); return; }
-    makeRail($('.bento')); makeRail($('.p-steps')); makeRail($('.vals')); makeRail($('.svc-more')); makeRail($('.svc-pf'));
+    makeRail($('.bento')); makeRail($('.p-steps')); makeRail($('.vals')); makeRail($('.svc-more')); makeRail($('.svc-pf')); makeRail($('.post-cards-3'));
     const sv = $('.sv-grid'); if (sv) makeRail(sv, $$('.sv', sv).filter(n => !n.classList.contains('sv-ba')));
   };
   applyRails(); mq.addEventListener('change', applyRails);
@@ -200,6 +200,16 @@ document.addEventListener('DOMContentLoaded', () => {
       railLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === id && !l.classList.contains('rail-cta')));
     };
     window.addEventListener('scroll', () => { if (!rq) rq = requestAnimationFrame(upd); }, { passive: true }); upd();
+  }
+
+  // Blog: highlight the table-of-contents entry of the section being read
+  const tocLinks = $$('.post-toc a[href^="#"]').filter(a => a.getAttribute('href').length > 1 && a.getAttribute('href') !== '#kontakt');
+  if (tocLinks.length) {
+    const heads = tocLinks.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    let tq = 0;
+    const tu = () => { tq = 0; let cur = heads[0]; for (const h of heads) { if (h.getBoundingClientRect().top < innerHeight * 0.35) cur = h; else break; }
+      tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur.id)); };
+    window.addEventListener('scroll', () => { if (!tq) tq = requestAnimationFrame(tu); }, { passive: true }); tu();
   }
 
   // Banner card effects animate only while the card is (nearly) on screen — keeps the layer count low while scrolling

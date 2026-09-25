@@ -4,6 +4,7 @@ import os, sys, re, datetime, html
 sys.path.insert(0, os.path.dirname(__file__))
 from seo import SITE, PHONE, EMAIL
 from services_data import SERVICES
+from blog_data import ARTICLES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = datetime.date.today().isoformat()
@@ -11,7 +12,8 @@ strip = lambda s: html.unescape(re.sub(r'<[^>]+>', '', s))
 
 # (cs path, en path or None, priority)
 URLS = [('/', '/en/', '1.0'), ('/realizace.html', '/en/work.html', '0.8'), ('/sluzby/', None, '0.9')] + \
-       [(f'/sluzby/{s["slug"]}/', None, '0.9') for s in SERVICES] + [('/ochrana-osobnich-udaju/', '/en/privacy/', '0.3'), ('/obchodni-podminky/', None, '0.3')]
+       [(f'/sluzby/{s["slug"]}/', None, '0.9') for s in SERVICES] + [('/ochrana-osobnich-udaju/', '/en/privacy/', '0.3'), ('/obchodni-podminky/', None, '0.3')] + \
+       [('/blog/', None, '0.8')] + [(f'/blog/{b["slug"]}/', None, '0.7') for b in ARTICLES]
 
 
 def sitemap():
@@ -56,6 +58,9 @@ def llms():
          '## Služby', '']
     for s in SERVICES:
         L.append(f'- [{s["nav"]}]({SITE}/sluzby/{s["slug"]}/): {s["answer"]}')
+    L += ['', '## Články (blog)', '']
+    for b in ARTICLES:
+        L.append(f'- [{b["title"]}]({SITE}/blog/{b["slug"]}/): {b["answer"]}')
     L += ['', '## Časté otázky', '']
     for q, a in faq:
         L += [f'### {strip(q).strip()}', strip(a).strip(), '']

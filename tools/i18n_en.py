@@ -155,7 +155,7 @@ T = {
     # ---------- footer ----------
     'Weby na míru pro firmy, podnikatele a organizace. Návrh zdarma do 48 hodin.': 'Custom websites for companies, entrepreneurs and organisations. Free design within 48 hours.',
     'Navigace': 'Navigation', 'Kontakt': 'Contact', 'Firma': 'Company', 'IČO: 29498511': 'Company ID: 29498511', 'IČO 29498511': 'Company ID 29498511',
-    'Zásady ochrany osobních údajů': 'Privacy policy', 'Obchodní podmínky': 'Terms & conditions (CZ)', 'Nastavení cookies': 'Cookie settings',
+    'Zásady ochrany osobních údajů': 'Privacy policy', 'Obchodní podmínky': 'Terms & conditions (CZ)', 'Blog': 'Blog (CZ)', 'Nastavení cookies': 'Cookie settings',
     # ---------- work page ----------
     'Videomakeři, fotografové, sportovní akce, farmy, e-shopy i realitní makléři. Každý web jsme navrhli pro konkrétní firmu a to, co mají její zákazníci udělat — zavolat, poptat nebo koupit.':
         'Videomakers, photographers, sports events, farms, online stores and real estate agents. We designed each website for a specific business and what its customers should do — call, enquire or buy.',
