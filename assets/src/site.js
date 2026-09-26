@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } finally { form.classList.remove('sending'); }
   });
 
-  // Hidden admin tools — triple-click in the footer (IČO = návrhy, © = analytika, firma = poptávky)
+  // Hidden admin tools — triple-click in the footer (IČO = návrhy, © = analytika)
   let admLoading = null;
   const loadAdmin = () => admLoading || (admLoading = new Promise((res, rej) => {
     const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = WH_ASSETS + 'admin.min.css?v=' + WH_VER; document.head.appendChild(css);

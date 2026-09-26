@@ -1,5 +1,5 @@
 /* WebHunter — hidden admin tools (loaded on demand after a triple-click in the footer).
-   IČO → Návrhy (Proposal) · © → Analytika (LandingPageMetric) · WebHunter s.r.o. → Poptávky (LeadInquiry)
+   IČO → Návrhy (Proposal) · © → Analytika (LandingPageMetric)
    Backend: Base44 app 6a366c8ba95efe01593d4844 (same data as the previous site). */
 (() => {
   const APP = '6a366c8ba95efe01593d4844';
@@ -97,39 +97,6 @@
     load(true);
     // total count (cheap: fetch ids only is not supported → estimate by paging in the background)
     (async () => { try { let n = 0, sk = 0; for (;;) { const b = await db.list('Proposal', { limit: 5000, skip: sk, sort: 'created_date', fields: 'id' }); n += b.length; if (b.length < 5000) break; sk += 5000; } if (current === s.root) s.sub.textContent = `Celkem ${nf.format(n)} návrhů · odkazy ve tvaru webhunter.cz/navrhy/…`; } catch (e) {} })();
-  }
-
-  /* =================================================================
-     POPTÁVKY (LeadInquiry) — like the previous site
-     ================================================================= */
-  function leads() {
-    const s = shell('Poptávky', 'Poptávky z kontaktního formuláře');
-    const ST = { new: 'Nová', contacted: 'Kontaktováno', closed: 'Uzavřeno' };
-    s.body.innerHTML = '<ul class="wl-list"><li class="wa-empty">Načítám…</li></ul>';
-    const list = s.body.querySelector('.wl-list');
-    async function load() {
-      try {
-        const b = await db.list('LeadInquiry', { limit: 200 });
-        s.sub.textContent = `${b.length} poptávek · ${b.filter(x => x.status === 'new').length} nových`;
-        list.innerHTML = b.length ? '' : '<li class="wa-empty">Zatím žádné poptávky.</li>';
-        b.forEach(l => list.appendChild(el(`<li class="wl-row" data-id="${esc(l.id)}">
-          <div class="wl-top"><b>${esc(l.name || '—')}</b>${l.company ? `<span>${esc(l.company)}</span>` : ''}<small>${fmtDate(l.created_date)}</small></div>
-          <div class="wl-contact">${l.email ? `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>` : ''}${l.phone ? `<a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>` : ''}${l.landing ? `<span class="wa-tag">${esc(l.landing)}</span>` : ''}</div>
-          ${l.message ? `<p>${esc(l.message)}</p>` : ''}
-          <div class="wl-act">${Object.entries(ST).map(([k, v]) => `<button class="wa-chip ${l.status === k ? 'on' : ''}" data-st="${k}">${v}</button>`).join('')}<button class="wa-btn wa-btn-del" data-del>Smazat</button></div>
-        </li>`)));
-      } catch (e) { list.innerHTML = '<li class="wa-empty">Načtení se nepovedlo.</li>'; }
-    }
-    list.addEventListener('click', async e => {
-      const li = e.target.closest('.wl-row'); if (!li) return;
-      const st = e.target.closest('[data-st]'), del = e.target.closest('[data-del]');
-      if (st) { await db.update('LeadInquiry', li.dataset.id, { status: st.dataset.st }).catch(() => {}); load(); }
-      if (del) {
-        if (del.dataset.confirm) { await db.del('LeadInquiry', li.dataset.id).catch(() => {}); load(); }
-        else { del.dataset.confirm = 1; del.textContent = 'Opravdu smazat?'; setTimeout(() => { if (del.isConnected) { delete del.dataset.confirm; del.textContent = 'Smazat'; } }, 3000); }
-      }
-    });
-    load();
   }
 
   /* =================================================================
@@ -380,5 +347,5 @@
     window.__waTimer = setInterval(() => { if (current === s.root) fetchAll(); }, 60000);
   }
 
-  window.WHAdmin = { open(kind) { if (kind === 'navrhy') proposals(); else if (kind === 'analytics') analytics(); else if (kind === 'leads') leads(); }, close };
+  window.WHAdmin = { open(kind) { if (kind === 'navrhy') proposals(); else if (kind === 'analytics') analytics(); }, close };
 })();
