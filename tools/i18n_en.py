@@ -85,7 +85,7 @@ T = {
     'Web Jakub Machala': 'Jakub Machala website', 'Web SportActive': 'SportActive website', 'Web Beka Bazar': 'Beka Bazar website', 'Web KovoTuk': 'KovoTuk website',
     'Web J2 Italské pece': 'J2 Italian Ovens website', 'Web Držíme ti palce': 'Držíme ti palce website', 'Web Axon Capital': 'Axon Capital website',
     'Web Comedy & Beat Circus': 'Comedy & Beat Circus website', 'Web Molver Group': 'Molver Group website',
-    'Portfolio': 'Portfolio', '41 webů': '41 websites', 'a žádný stejný': 'and no two alike',
+    'Portfolio': 'Portfolio', '41 webů': '41 websites', 'na míru': 'built to measure',
     'Pro videomakery, fotografy, sportovní akce, farmy i e-shopy.': 'For videomakers, photographers, sports events, farms and online stores.',
     'Prohlédnout realizace': 'See our work',
     # ---------- GEO ----------
