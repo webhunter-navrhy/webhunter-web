@@ -45,15 +45,83 @@
     if (sandbox) f.setAttribute('sandbox', sandbox); else f.setAttribute('allow', 'clipboard-read; clipboard-write');
     document.body.innerHTML = ''; document.body.appendChild(f);
   }
+  // Studentské Weby feedback bar (only called for ids from navrhy/sw.json) → Base44 function navrhReakce → e-mail for the SW mail watcher
+  function swBar(id) {
+    var f = document.querySelector('iframe'), KEY = 'swr_sent', GAP = 3 * 60 * 1000;
+    var st = document.createElement('style');
+    st.textContent = '.swr{position:fixed;left:0;right:0;bottom:0;z-index:5;box-sizing:border-box;background:#fff;border-top:1px solid #e6e8ec;box-shadow:0 -6px 24px rgba(10,14,20,.06);font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:#0A0E14;padding:9px 14px calc(9px + env(safe-area-inset-bottom))}' +
+      '.swr *{box-sizing:border-box}.swr-in{max-width:1080px;margin:0 auto}.swr-row{display:flex;align-items:center;gap:8px}' +
+      '.swr-q{flex:1;min-width:0;color:#4b5563}.swr-q b{color:#0A0E14;font-weight:600}' +
+      '.swr-b{appearance:none;-webkit-appearance:none;border:1px solid #0A0E14;background:#0A0E14;color:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}' +
+      '.swr-b.o{background:#fff;color:#0A0E14;border-color:#d1d5db}.swr-b:disabled{opacity:.55;cursor:default}' +
+      '.swr-x{appearance:none;-webkit-appearance:none;flex:none;border:0;background:none;width:32px;height:32px;border-radius:50%;font:22px/1 system-ui,sans-serif;color:#6b7280;cursor:pointer}.swr-x:hover{background:#f3f4f6}' +
+      '.swr-f{display:none;margin-bottom:8px}.swr.z .swr-f{display:block}.swr-f label{display:block;font-weight:600;margin:2px 0 6px}' +
+      '.swr textarea{display:block;width:100%;height:76px;max-height:30vh;resize:vertical;border:1px solid #d1d5db;border-radius:10px;padding:9px 11px;font:inherit;color:inherit;background:#fff}' +
+      '.swr textarea:focus{outline:2px solid #1E62F0;outline-offset:-1px;border-color:transparent}' +
+      '.swr-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}' +
+      '@media (max-width:640px){.swr{font-size:13px;padding:7px 8px calc(7px + env(safe-area-inset-bottom))}.swr-row{gap:6px}.swr-q{display:none}.swr.m .swr-row{flex-wrap:wrap}.swr.m .swr-q{display:block;flex:1 1 calc(100% - 40px)}.swr.m .swr-x{order:1}.swr.m .swr-b{order:2}' +
+      '.swr-b{flex:1 1 0;padding:8px 10px;white-space:normal;line-height:1.2;text-align:center}.swr-x{width:28px;height:28px}.swr.z .swr-f label{display:none}.swr textarea{height:64px}}';
+    document.head.appendChild(st);
+    var bar = document.createElement('div');
+    bar.className = 'swr'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', 'Reakce na návrh');
+    bar.innerHTML = '<div class="swr-in"><form class="swr-f" novalidate><label for="swr-t">Co byste na návrhu chtěli změnit?</label>' +
+      '<textarea id="swr-t" maxlength="2000" placeholder="Stačí pár slov – třeba jiné barvy, texty, fotky nebo pořadí sekcí."></textarea>' +
+      '<input class="swr-hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true"></form>' +
+      '<div class="swr-row"><span class="swr-q" aria-live="polite"></span><button type="button" class="swr-b" data-a="1"></button>' +
+      '<button type="button" class="swr-b o" data-a="2"></button><button type="button" class="swr-x" aria-label="Zavřít" title="Zavřít">×</button></div></div>';
+    document.body.appendChild(bar);
+    var q = bar.querySelector('.swr-q'), b1 = bar.querySelector('[data-a="1"]'), b2 = bar.querySelector('[data-a="2"]'),
+      ta = bar.querySelector('textarea'), hp = bar.querySelector('.swr-hp'), mode = 'idle';
+    function fit() { if (f) f.style.height = bar.parentNode ? 'calc(100% - ' + bar.offsetHeight + 'px)' : ''; }
+    function show(m, text, l1, l2, loud) {
+      mode = m; q.innerHTML = text;
+      bar.className = 'swr' + (m === 'zmena' ? ' z' : '') + (m === 'msg' || loud ? ' m' : '');
+      b1.hidden = !l1; b2.hidden = !l2; b1.textContent = l1 || ''; b2.textContent = l2 || ''; b1.disabled = b2.disabled = false;
+      fit();
+    }
+    function idle(msg) { show('idle', msg || '<b>Jak se Vám návrh líbí?</b> Dejte nám vědět jedním kliknutím.', 'Líbí se mi, chci pokračovat', 'Chci něco změnit', !!msg); }
+    function recent() { try { return Date.now() - (+localStorage.getItem(KEY) || 0) < GAP; } catch (e) { return false; } }
+    function send(typ) {
+      if (recent()) { idle('Vaši reakci už máme, děkujeme. Další můžete poslat za pár minut.'); return; }
+      var text = typ === 'zmena' ? ta.value.trim() : '';
+      if (typ === 'zmena' && !text) { ta.focus(); return; }
+      b1.disabled = b2.disabled = true; q.textContent = 'Odesílám…';
+      fetch('https://base44.app/api/apps/' + APP + '/functions/navrhReakce', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-App-Id': APP },
+        body: JSON.stringify({ id: id, typ: typ, text: text, hp: hp.value, test: /[?&]swtest=1/.test(location.search) }) })
+        .then(function (r) {
+          if (r.ok || r.status === 429) { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} }
+          if (r.ok) show('msg', typ === 'zmena' ? '<b>Děkujeme!</b> Vaše připomínky jsme dostali a brzy se Vám ozveme e-mailem.' : '<b>Děkujeme, to nás moc těší!</b> Brzy se Vám ozveme e-mailem s dalším postupem.');
+          else if (r.status === 429) idle('Vaši reakci už máme, děkujeme. Další můžete poslat za pár minut.');
+          else throw new Error(r.status);
+        })
+        .catch(function () { if (typ === 'zmena') show('zmena', 'Odeslání se nepovedlo. Zkuste to prosím za chvíli znovu, nebo nám odpovězte na e-mail s návrhem.', 'Odeslat', 'Zpět', true); else idle('Odeslání se nepovedlo. Zkuste to prosím za chvíli znovu, nebo nám odpovězte na e-mail s návrhem.'); });
+    }
+    b1.onclick = function () { send(mode === 'zmena' ? 'zmena' : 'pokracovat'); };
+    b2.onclick = function () { if (mode === 'zmena') idle(); else { show('zmena', 'Napište nám, co upravit – rádi to zapracujeme.', 'Odeslat', 'Zpět'); ta.focus(); } };
+    bar.querySelector('form').onsubmit = function (e) { e.preventDefault(); send('zmena'); };
+    bar.querySelector('.swr-x').onclick = function () { bar.parentNode.removeChild(bar); fit(); };
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(bar);
+    window.addEventListener('resize', fit);
+    idle();
+  }
   // 1) návrhy — identical behaviour to the previous site (/navrhy/:id → fullscreen iframe of the proposal URL)
   var m = rel.match(/^\/navrhy\/([^\/?#]+)$/);
   if (m) {
     document.title = 'Návrh | Web Hunter';
+    // Studentské Weby: only proposals listed in navrhy/sw.json (tools/sw_navrhy.py) get the feedback bar; every other proposal stays exactly as before
+    var isSW = window.fetch ? fetch(base + '/navrhy/sw.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { return !!(j && j.ids && j.ids.indexOf(m[1]) >= 0); })
+      .catch(function () { return false; }) : null;
     // one automatic retry on network / server errors, so a short API hiccup never shows "not found"
     var load = function (tries) {
       fetch('https://base44.app/api/apps/' + APP + '/entities/Proposal/' + encodeURIComponent(m[1]), { headers: { 'X-App-Id': APP } })
         .then(function (r) { if (r.status >= 500) throw new Error(r.status); return r.ok ? r.json() : null; })
-        .then(function (p) { if (p && p.url) frame(p.url, 'Návrh | Web Hunter', 'allow-scripts allow-same-origin allow-forms allow-popups'); else notFound('Stránka nenalezena.'); })
+        .then(function (p) {
+          if (!(p && p.url)) { notFound('Stránka nenalezena.'); return; }
+          frame(p.url, 'Návrh | Web Hunter', 'allow-scripts allow-same-origin allow-forms allow-popups');
+          if (isSW) isSW.then(function (yes) { if (yes) try { swBar(m[1]); } catch (e) {} });
+        })
         .catch(function () { if (tries > 0) setTimeout(function () { load(tries - 1); }, 1200); else notFound('Návrh se nepodařilo načíst. Zkuste stránku obnovit.'); });
     };
     load(2);
