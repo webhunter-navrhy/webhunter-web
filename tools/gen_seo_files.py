@@ -76,7 +76,7 @@ def llms():
     for u, n, d in work:
         if u in seen: continue
         seen.add(u); L.append(f'- [{strip(n)}]({u}): {strip(d)}')
-    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)', f'- [Pro agentury: white-label tvorba webů]({SITE}/partneri/)',
+    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)', f'- [Pro agentury: dlouhodobý white-label partner na weby]({SITE}/partneri/)',
           f'- [English version]({SITE}/en/)', f'- [Podrobný popis služeb pro AI]({SITE}/llms-full.txt)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 
