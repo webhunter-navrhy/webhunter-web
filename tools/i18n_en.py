@@ -17,7 +17,7 @@ BLOCKS = [
 T = {
     # ---------- nav / chrome ----------
     'Hlavní navigace': 'Main navigation', 'Realizace': 'Our work', 'Jak to funguje': 'How it works', 'Co dostanete': 'What you get',
-    'AI vyhledávání': 'AI search', 'Tým': 'Team', 'Otázky': 'FAQ', 'Chci návrh zdarma': 'Get a free design', 'Menu': 'Menu',
+    'AI vyhledávání': 'AI search', 'Tým': 'Team', 'Otázky': 'FAQ', 'Pro agentury': 'For agencies', 'Chci návrh zdarma': 'Get a free design', 'Menu': 'Menu',
     'Rychlá navigace': 'Quick navigation', 'Úvod': 'Home', 'Služby': 'Services',
     # ---------- hero ----------
     'Modrá obloha s mraky': 'Blue sky with clouds', 'Nezávazně · bez porad · do 48 hodin': 'No strings · no meetings · within 48 hours',

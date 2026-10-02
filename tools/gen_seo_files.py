@@ -25,6 +25,10 @@ def sitemap():
             if en:
                 out.append(f'    <xhtml:link rel="alternate" hreflang="cs" href="{SITE}{cs}"/><xhtml:link rel="alternate" hreflang="en" href="{SITE}{en}"/><xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{cs}"/>')
             out.append('  </url>')
+    for loc in ('/partneri/', '/partneri/sk/'):  # white-label page for agencies, cs <-> sk
+        out.append(f'  <url><loc>{SITE}{loc}</loc><lastmod>{TODAY}</lastmod><priority>0.7</priority>')
+        out.append(f'    <xhtml:link rel="alternate" hreflang="cs" href="{SITE}/partneri/"/><xhtml:link rel="alternate" hreflang="sk" href="{SITE}/partneri/sk/"/><xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/partneri/"/>')
+        out.append('  </url>')
     out.append('</urlset>')
     open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(out) + '\n')
 
@@ -72,7 +76,7 @@ def llms():
     for u, n, d in work:
         if u in seen: continue
         seen.add(u); L.append(f'- [{strip(n)}]({u}): {strip(d)}')
-    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)',
+    L += ['', '## Stránky', '', f'- [Úvod]({SITE}/)', f'- [Realizace]({SITE}/realizace.html)', f'- [Služby]({SITE}/sluzby/)', f'- [Pro agentury: white-label tvorba webů]({SITE}/partneri/)',
           f'- [English version]({SITE}/en/)', f'- [Podrobný popis služeb pro AI]({SITE}/llms-full.txt)', f'- [Ochrana osobních údajů]({SITE}/ochrana-osobnich-udaju/)', f'- [Obchodní podmínky]({SITE}/obchodni-podminky/)', '']
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 

@@ -185,6 +185,7 @@ Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 - [Úvod](https://webhunter.cz/)
 - [Realizace](https://webhunter.cz/realizace.html)
 - [Služby](https://webhunter.cz/sluzby/)
+- [Pro agentury: white-label tvorba webů](https://webhunter.cz/partneri/)
 - [English version](https://webhunter.cz/en/)
 - [Podrobný popis služeb pro AI](https://webhunter.cz/llms-full.txt)
 - [Ochrana osobních údajů](https://webhunter.cz/ochrana-osobnich-udaju/)
