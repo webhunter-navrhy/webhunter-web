@@ -1,1 +1,2 @@
 # Ručně přidané SW návrhy (jedno ID na řádek). Běžně stačí vyplnit proposal_link v CRM a spustit tools/sw_navrhy.py.
+6ac2a187aee167d6569c03d1
