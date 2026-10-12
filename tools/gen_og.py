@@ -99,8 +99,8 @@ def jobs():
     J.append(('home', page_html('Tvorba webů na míru', 'Nový web zdarma <em>do&nbsp;48&nbsp;hodin.</em>', 'Potom se sami rozhodnete, zda budete chtít pokračovat.', side_home(), fs=84, mw=640)))
     J.append(('navrh', page_html('Návrh webu zdarma', 'Váš nový web <em>je připravený.</em>', 'Prohlédněte si návrh. Zdarma a nezávazně, potom se sami rozhodnete.', side_navrh(), fs=84, mw=640, chips=['Návrh připraven'])))
     J.append(('en', page_html('Custom website design', 'Your new website, <em>free in 48 hours.</em>', 'Then you decide whether to continue.', side_home(True), fs=84, mw=640, chips=['Free concept', 'No obligation'])))
-    J.append(('realizace', page_html('Realizace', '41 webů. <em>Každý jiný.</em>', 'Videomakeři, fotografové, sportovní akce, farmy, e-shopy i reality.', side_work(), fs=88, mw=600, chips=['41 realizací'])))
-    J.append(('en-work', page_html('Our work', '41 websites. <em>Each different.</em>', 'Videomakers, photographers, sports events, farms, online stores and real estate.', side_work(), fs=88, mw=600, chips=['41 projects'])))
+    J.append(('realizace', page_html('Realizace', '47 webů. <em>Každý jiný.</em>', 'Videomakeři, fotografové, sportovní akce, farmy, e-shopy i reality.', side_work(), fs=88, mw=600, chips=['47 realizací'])))
+    J.append(('en-work', page_html('Our work', '47 websites. <em>Each different.</em>', 'Videomakers, photographers, sports events, farms, online stores and real estate.', side_work(), fs=88, mw=600, chips=['47 projects'])))
     J.append(('sluzby', page_html('Služby', 'Všechno pro web, který <em>přivádí zákazníky.</em>', 'Weby, e-shopy, SEO, GEO a GDPR pod jednou střechou.', side_obj('spark', 'c-sky', 'Návrh zdarma do 48 h'), fs=70, mw=640)))
     V = {'tvorba-webu': 'c-lime', 'redesign-webu': 'c-blue', 'eshopy': 'c-lime', 'seo': 'c-sky', 'geo': 'c-dark', 'gdpr-cookies': 'c-sky'}
     for s in SERVICES:

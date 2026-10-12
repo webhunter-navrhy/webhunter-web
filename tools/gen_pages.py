@@ -113,7 +113,7 @@ def words(h1):
 
 
 def hero(label, h1, lead, crumbs, card_obj, card_variant='bnv-lime', hstats=None, hchip='Návrh zdarma', form=('Odkaz na váš současný web', 'vasefirma.cz', 'Chci návrh zdarma', True)):
-    hstats = hstats or [('48 h', 'návrh webu'), ('0 Kč', 'za návrh'), ('41', 'realizací')]
+    hstats = hstats or [('48 h', 'návrh webu'), ('0 Kč', 'za návrh'), ('47', 'realizací')]
     h1 = words(h1)
     cr = ' <span>/</span> '.join(f'<a href="{u}">{E(n)}</a>' if u else E(n) for n, u in crumbs)
     return f'''<section class="sub-hero svc-hero" id="top">
@@ -145,7 +145,7 @@ def contact(landing):
 def work_section(s):
     return f'''<section class="svc-work">
   <div class="container">
-    <div class="arch-head"><h2 class="reveal">Weby, které jsme <span class="serif">postavili.</span></h2><a href="realizace.html" class="btn btn--dark reveal">Všech 41 realizací <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+    <div class="arch-head"><h2 class="reveal">Weby, které jsme <span class="serif">postavili.</span></h2><a href="realizace.html" class="btn btn--dark reveal">Všech 47 realizací <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
     <div class="pf-grid svc-pf">{''.join(pf_card(x) for x in s['work'])}</div>
   </div>
 </section>'''

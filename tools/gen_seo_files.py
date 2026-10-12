@@ -55,7 +55,7 @@ def llms():
          '## Klíčová fakta', '',
          '- Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).',
          '- Bez schůzek a technického zadání. Cena realizace je vždy známá předem.',
-         f'- 41 realizovaných webů pro firmy z různých oborů: {SITE}/realizace.html',
+         f'- 47 realizovaných webů pro firmy z různých oborů: {SITE}/realizace.html',
          '- GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).',
          '- Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.',
          f'- Kontakt: telefon {PHONE}, e-mail {EMAIL}, WhatsApp https://wa.me/420777611634', '',

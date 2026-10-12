@@ -21,13 +21,13 @@ OGT = {
 META = {
     ('home', 'cs'): ('WebHunter — Tvorba webů na míru, návrh zdarma do 48 hodin',
                      'Zdarma vám navrhneme nový web do 48 hodin. Potom se sami rozhodnete, zda budete chtít pokračovat. Tvorba webových stránek a e-shopů na míru s SEO, GEO a GDPR.', 'img/og/home.jpg'),
-    ('work', 'cs'): ('Realizace — 41 webů na míru | WebHunter',
-                     '41 webů, které jsme navrhli a postavili: videomakeři, fotografové, sportovní akce, farmy, e-shopy, řemeslníci i reality. Prohlédněte si portfolio WebHunter.', 'img/og/realizace.jpg'),
+    ('work', 'cs'): ('Realizace — 47 webů na míru | WebHunter',
+                     '47 webů, které jsme navrhli a postavili: videomakeři, fotografové, sportovní akce, farmy, e-shopy, řemeslníci i reality. Prohlédněte si portfolio WebHunter.', 'img/og/realizace.jpg'),
     ('privacy', 'cs'): ('Ochrana osobních údajů a cookies | WebHunter', 'Jak WebHunter s.r.o. zpracovává osobní údaje, jaké používá cookies a jaká máte práva.', 'img/og/home.jpg'),
     ('home', 'en'): ('WebHunter — Custom Website Design, Free Concept in 48 Hours',
                      'We design your new website for free within 48 hours. Then you decide whether to continue. Custom websites and online stores with SEO, GEO and GDPR from a Czech web agency.', 'img/og/en.jpg'),
-    ('work', 'en'): ('Our Work — 41 Custom Websites | WebHunter',
-                     '41 websites we designed and built for videomakers, photographers, sports events, farms, online stores, trades and real estate. Browse the WebHunter portfolio.', 'img/og/en-work.jpg'),
+    ('work', 'en'): ('Our Work — 47 Custom Websites | WebHunter',
+                     '47 websites we designed and built for videomakers, photographers, sports events, farms, online stores, trades and real estate. Browse the WebHunter portfolio.', 'img/og/en-work.jpg'),
     ('privacy', 'en'): ('Privacy Policy & Cookies | WebHunter', 'How WebHunter s.r.o. processes personal data, which cookies it uses and what rights you have.', 'img/og/en.jpg'),
 }
 SEO_LINE = re.compile(r'^<(?:link rel="(?:canonical|alternate)"|meta property="og:|meta name="(?:twitter:|theme-color|description|robots|format-detection))[^\n]*\n', re.M)

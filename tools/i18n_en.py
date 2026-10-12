@@ -10,8 +10,8 @@ BLOCKS = [
         <span class="l2"><span class="w"><span>nový</span></span> <span class="w"><span>web</span></span> <span class="w"><span>do</span></span> <span class="w"><span>48&nbsp;hodin.</span></span></span>''',
      '''<span class="w"><span>Your</span></span> <span class="w"><span>new</span></span> <span class="w"><span>website,</span></span><br>
         <span class="l2"><span class="w"><span><em class="serif">free</em></span></span> <span class="w"><span>in</span></span> <span class="w"><span>48&nbsp;hours.</span></span></span>'''),
-    ('<span class="w"><span>41</span></span> <span class="w"><span>webů.</span></span> <span class="w"><span>Každý</span></span> <span class="w"><span>jiný.</span></span><br><span class="l2"><span class="w"><span><em class="serif">Žádná</em></span></span> <span class="w"><span><em class="serif">šablona.</em></span></span></span>',
-     '<span class="w"><span>41</span></span> <span class="w"><span>websites.</span></span> <span class="w"><span>Each</span></span> <span class="w"><span>different.</span></span><br><span class="l2"><span class="w"><span><em class="serif">Zero</em></span></span> <span class="w"><span><em class="serif">templates.</em></span></span></span>'),
+    ('<span class="w"><span>47</span></span> <span class="w"><span>webů.</span></span> <span class="w"><span>Každý</span></span> <span class="w"><span>jiný.</span></span><br><span class="l2"><span class="w"><span><em class="serif">Žádná</em></span></span> <span class="w"><span><em class="serif">šablona.</em></span></span></span>',
+     '<span class="w"><span>47</span></span> <span class="w"><span>websites.</span></span> <span class="w"><span>Each</span></span> <span class="w"><span>different.</span></span><br><span class="l2"><span class="w"><span><em class="serif">Zero</em></span></span> <span class="w"><span><em class="serif">templates.</em></span></span></span>'),
 ]
 
 T = {
@@ -32,7 +32,7 @@ T = {
     'Nezbytné': 'Necessary', 'Analytické': 'Analytics', 'Marketing': 'Marketing',
     # ---------- marquee ----------
     'Klienti, pro které jsme postavili web': 'Clients we have built websites for', 'Weby, které jsme postavili ·': 'Websites we have built ·',
-    'všech 41 realizací →': 'all 41 projects →', 'Rodinný dům Píšť': 'Píšť Family Home', 'J2 Italské pece': 'J2 Italian Ovens',
+    'všech 47 realizací →': 'all 47 projects →', 'Rodinný dům Píšť': 'Píšť Family Home', 'J2 Italské pece': 'J2 Italian Ovens',
     # ---------- manifest / bento ----------
     'Proč WebHunter': 'Why WebHunter', 'Web nemá jen dobře vypadat.': 'A website should do more than look good.',
     'Má přivádět nové': 'It should bring you new', 'zákazníky.': 'customers.', 'Expresní návrh': 'Express design',
@@ -85,7 +85,7 @@ T = {
     'Web Jakub Machala': 'Jakub Machala website', 'Web SportActive': 'SportActive website', 'Web Beka Bazar': 'Beka Bazar website', 'Web KovoTuk': 'KovoTuk website',
     'Web J2 Italské pece': 'J2 Italian Ovens website', 'Web Držíme ti palce': 'Držíme ti palce website', 'Web Axon Capital': 'Axon Capital website',
     'Web Comedy & Beat Circus': 'Comedy & Beat Circus website', 'Web Molver Group': 'Molver Group website',
-    'Portfolio': 'Portfolio', '41 webů': '41 websites', 'na míru': 'built to measure',
+    'Portfolio': 'Portfolio', '47 webů': '47 websites', 'na míru': 'built to measure',
     'Pro videomakery, fotografy, sportovní akce, farmy i e-shopy.': 'For videomakers, photographers, sports events, farms and online stores.',
     'Prohlédnout realizace': 'See our work',
     # ---------- GEO ----------
@@ -160,8 +160,8 @@ T = {
     'Řešíte i GDPR a cookies?': 'Do you handle GDPR and cookies too?', 'Ano, a bereme to vážně. Spolupracujeme s odborníky z': 'Yes, and we take it seriously. We work with the experts at',
     ', takže cookies, souhlasy i zpracování osobních údajů jsou nastavené správně.': ', so cookies, consents and personal data processing are set up correctly.',
     'Můžu vidět weby, které jste už udělali?': 'Can I see websites you have built?', 'Jasně. Na stránce': 'Sure. On our',
-    'najdete 41 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.':
-        'page you will find 41 websites — such as videomaker Papa Pech’s personal brand, wedding photographer Jakub Machala or the Hasoběh running race. You can click through each one.',
+    'najdete 47 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.':
+        'page you will find 47 websites — such as videomaker Papa Pech’s personal brand, wedding photographer Jakub Machala or the Hasoběh running race. You can click through each one.',
     'Uděláte i e-shop, rezervace nebo registrace?': 'Can you build online stores, bookings or registrations?',
     'Ano. Stavíme e-shopy (Beka Bazar), prodej online kurzů (Papa Pech), rezervace lekcí (SportActive), registrace na akce s platbou (Hasoběh) i měsíční příspěvky (Držíme ti palce). V návrhu rovnou uvidíte, jak by to fungovalo u vás.':
         'Yes. We build online stores (Beka Bazar), online course sales (Papa Pech), class bookings (SportActive), paid event registrations (Hasoběh) and monthly donations (Držíme ti palce). Your design will show how it would work for you.',
@@ -170,7 +170,7 @@ T = {
     'uvidíte svůj nový web.': 'you’ll see your new website.', 'Zdarma a nezávazně. Potom se sami rozhodnete, zda budete chtít pokračovat.': 'Free and with no obligation. Then you decide whether to continue.',
     'Žádné schůzky ani technické zadání': 'No meetings or technical specs', 'Konkrétní návrh, ne obecná nabídka': 'A concrete design, not a generic offer',
     'Nic nám nedlužíte, ani když nepokračujete': 'You owe us nothing, even if you don’t continue',
-    'Přidejte se k Papa Pechovi, Jakubu Machalovi, Hasoběhu a dalším 38 klientům.': 'Join Papa Pech, Jakub Machala, Hasoběh and 38 other clients.',
+    'Přidejte se k Papa Pechovi, Jakubu Machalovi, Hasoběhu a dalším 44 klientům.': 'Join Papa Pech, Jakub Machala, Hasoběh and 44 other clients.',
     'Vyplnění zabere asi minutu.': 'Takes about a minute.', 'Jméno a příjmení': 'Full name', 'Jan Novák': 'Jane Smith', 'Odkaz na současný web': 'Link to your current website',
     'www.vasefirma.cz': 'www.yourcompany.com', 'Nebo pár vět o projektu': 'Or a few lines about your project', 'Čím se zabýváte a pro koho…': 'What you do and for whom…',
     'E-mail': 'Email', 'vas@email.cz': 'you@email.com', 'Telefon (nepovinné)': 'Phone (optional)',
@@ -235,7 +235,7 @@ T = {
         'Supporters choose an ambassador — an athlete or artist — and with a monthly donation help children with cancer and young wheelchair users. The website explains it in three steps.',
     'Výběr ambasadora': 'Choosing an ambassador', 'Měsíční příspěvek': 'Monthly donation', 'Transparentní dopad': 'Transparent impact', 'Otevřít drzimetipalce.cz': 'Open drzimetipalce.cz',
     'Živý web': 'Live website', 'Najeďte pro pauzu': 'Hover to pause', 'Mobilní verze webu Papa Pech': 'Mobile version of the Papa Pech website',
-    'Všech 41 realizací.': 'All 41 projects.', 'Najeďte a projeďte si je.': 'Hover and scroll through them.',
+    'Všech 47 realizací.': 'All 47 projects.', 'Najeďte a projeďte si je.': 'Hover and scroll through them.',
     'Reality a bydlení': 'Real estate & housing', 'Řemesla a firmy': 'Trades & companies', 'Obchod a e-shopy': 'Retail & online stores', 'Zdraví a péče': 'Health & care',
     'Byznys a finance': 'Business & finance', 'Zážitky, kreativa a komunity': 'Experiences, creative & communities', 'Vybraná': 'Featured', 'Vše': 'All',
     'Režisér a videomaker. Osobní značka, zakázková produkce a e-shop s online kurzy.': 'Director and videomaker. Personal brand, commissioned production and an online course store.',
@@ -277,10 +277,21 @@ T = {
     'Místní pošta v Havířově. Služby, otevírací doba a cesta k nově otevřené pobočce.': 'A local post office in Havířov. Services, opening hours and directions to the new branch.',
     'E-shop s rozvozem pramenité vody v barelech, výdejníky a servisem pro firmy i domácnosti.': 'An online store delivering spring water in bottles, with dispensers and service for businesses and homes.',
     'Byt Vršovická': 'Vršovická Apartment',
+    # ---------- realizace přidané 12. 10. 2026 ----------
+    'Restaurant Michal': 'Restaurant Michal', 'Hotel Skalský dvůr': 'Hotel Skalský dvůr', 'Hostinec U Zlaté lípy': 'U Zlaté lípy Inn', 'Alpakadabra': 'Alpakadabra',
+    'Hausbót Petržalka': 'Petržalka Houseboat', 'Dům Záhorská Bystrica': 'Záhorská Bystrica House',
+    'Web Restaurant Michal': 'Restaurant Michal website', 'Web Hotel Skalský dvůr': 'Hotel Skalský dvůr website', 'Web Hostinec U Zlaté lípy': 'U Zlaté lípy Inn website',
+    'Web Alpakadabra': 'Alpakadabra website', 'Web Hausbót Petržalka': 'Petržalka Houseboat website', 'Web Dům Záhorská Bystrica': 'Záhorská Bystrica House website',
+    'Rodinná restaurace u Karlova mostu s folklórním představením. Web v sedmi jazycích s menu, rezervací stolu a vlastní administrací.': 'A family restaurant by Charles Bridge with a folklore show. A website in seven languages with the menu, table booking and its own admin.',
+    'Hotel na břehu Skalského rybníka na Vysočině. Ubytování, restaurace, wellness i konference s poptávkou pobytu a firemní akce.': 'A hotel on the shore of Skalský Pond in the Vysočina highlands. Rooms, restaurant, wellness and conferences, with stay and corporate event enquiries.',
+    'Hostinec s penzionem pod Ralskem. Jídelní lístek, pokoje s online rezervací a administrace, ve které si majitelé obsah mění sami.': 'An inn with a guesthouse below Ralsko. Menu, rooms with online booking and an admin where the owners edit the content themselves.',
+    'Chov alpak v Rymicích. Zážitky se zvířaty, ceník a rezervace návštěvy podle volných termínů.': 'An alpaca farm in Rymice. Animal experiences, prices and visit booking by available dates.',
+    'Prodejní web pro hausbót na Jaroveckém rameni v Bratislavě pro ANZALÉ Real Estate. Galerie, parametry, lokalita a domluva prohlídky.': 'A sales website for a houseboat on the Jarovce river arm in Bratislava for ANZALÉ Real Estate. Gallery, key facts, location and viewing requests.',
+    'Prodejní web pro rodinný dům u lesa v Bratislavě pro realitní kancelář Babony. Galerie, videoprohlídka, půdorys a kalkulačka splátek.': 'A sales website for a family house by the forest in Bratislava for the Babony real estate agency. Gallery, video tour, floor plan and a mortgage calculator.',
     'Prodejní web pro jeden byt 3+1 v Praze 10. Galerie, videoprohlídka a orientační splátka hypotéky.': 'A sales website for one 3-bedroom flat in Prague 10. Gallery, video tour and an estimated mortgage payment.',
     'Nezávislá produkce comedy formátů. Výsledky, tři vlastní formáty a nabídka spolupráce pro značky.': 'Independent comedy production. Results, three original formats and partnerships for brands.',
     'Privátní klub majitelů firem a investorů. Co členství řeší, jak funguje vstup a přihláška do klubu.': 'A private club for business owners and investors. What membership offers, how joining works and the application.',
-    'Zobrazit všech 41 realizací': 'Show all 41 projects', 'Váš web může být další': 'Your website could be next', 'Návrh zdarma.': 'Free design.', 'Do 48 hodin.': 'Within 48 hours.',
+    'Zobrazit všech 47 realizací': 'Show all 47 projects', 'Váš web může být další': 'Your website could be next', 'Návrh zdarma.': 'Free design.', 'Do 48 hodin.': 'Within 48 hours.',
     'Pošlete odkaz na současný web nebo pár vět o firmě. Potom se sami rozhodnete, zda budete chtít pokračovat.': 'Send a link to your current website or a few lines about your business. Then you decide whether to continue.',
     # ---------- privacy ----------
     'Ochrana osobních údajů': 'Privacy policy', 'a cookies': 'and cookies', 'Platnost od 24. 9. 2026 · WebHunter s.r.o., IČO 29498511': 'Effective from 24 September 2026 · WebHunter s.r.o., Company ID 29498511',
