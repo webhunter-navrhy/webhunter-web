@@ -120,6 +120,15 @@
         .then(function (p) {
           if (!(p && p.url)) { notFound('Stránka nenalezena.'); return; }
           frame(p.url, 'Návrh | Web Hunter', 'allow-scripts allow-same-origin allow-forms allow-popups');
+          // visit counter without cookies (same as the rest of the site): which proposal was opened and when, nothing stored in the browser
+          try {
+            var nt = false; try { nt = !!localStorage.getItem('wh_notrack'); } catch (e) {}
+            if (!nt && !navigator.webdriver && /(^|\.)webhunter\.cz$/.test(location.hostname)) {
+              var hr = document.referrer || '', hd = JSON.stringify({ p: '/navrhy/' + m[1], r: hr.indexOf(location.origin) === 0 ? '' : hr, u: (location.search.match(/[?&]utm_source=([^&]*)/) || [])[1] || '', w: window.innerWidth || 0 });
+              var he = 'https://webhunter-admin.webhunter.workers.dev/api/webhunter/hit';
+              if (!(navigator.sendBeacon && navigator.sendBeacon(he, hd))) fetch(he, { method: 'POST', body: hd, keepalive: true, mode: 'no-cors' }).catch(function () {});
+            }
+          } catch (e) {}
           if (isSW) isSW.then(function (yes) { if (yes) try { swBar(m[1]); } catch (e) {} });
         })
         .catch(function () { if (tries > 0) setTimeout(function () { load(tries - 1); }, 1200); else notFound('Návrh se nepodařilo načíst. Zkuste stránku obnovit.'); });

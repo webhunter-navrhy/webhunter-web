@@ -14,6 +14,21 @@ const WH_LITE = /[?&]lite=1/.test(location.search) || (!/[?&]lite=0/.test(locati
   window.matchMedia('(prefers-reduced-motion: reduce)').matches));
 if (WH_LITE) document.documentElement.classList.add('lite');
 window.whTrack = window.whTrack || function () { (window.whTrackQ = window.whTrackQ || []).push([].slice.call(arguments)); };
+/* Visit counter without cookies (webhunter-admin /api/webhunter/hit, D1): nothing is stored in the browser and no IP is kept,
+   only page path, referrer, utm_source and window width. Own devices: open any page with ?nemerit=1 once. */
+(() => {
+  try {
+    if (!/(^|\.)webhunter\.cz$/.test(location.hostname) || navigator.webdriver) return;
+    if (/[?&]nemerit=1/.test(location.search)) localStorage.setItem('wh_notrack', '1');
+    if (localStorage.getItem('wh_notrack')) return;
+  } catch (e) {}
+  const E = 'https://webhunter-admin.webhunter.workers.dev/api/webhunter/hit';
+  let r = document.referrer || '', u = '';
+  try { if (r && new URL(r).hostname === location.hostname) r = ''; u = new URLSearchParams(location.search).get('utm_source') || ''; } catch (e) { r = ''; }
+  const d = JSON.stringify({ p: location.pathname, r, u, w: innerWidth || 0 });
+  try { if (navigator.sendBeacon && navigator.sendBeacon(E, d)) return; } catch (e) {}
+  try { fetch(E, { method: 'POST', body: d, keepalive: true, mode: 'no-cors' }); } catch (e) {}
+})();
 
 /* ---------- Consent (GDPR) ---------- */
 const whConsent = (() => {
