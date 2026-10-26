@@ -8,7 +8,7 @@ English: WebHunter is a Czech web design agency. It builds custom websites and o
 
 - Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).
 - Bez schůzek a technického zadání. Cena realizace je vždy známá předem.
-- 47 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
+- 49 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
 - GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).
 - Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.
 - Kontakt: telefon +420777611634, e-mail info.webhunter@email.cz, WhatsApp https://wa.me/420777611634
@@ -59,7 +59,7 @@ GEO je optimalizace pro AI vyhledávání. Lidé se čím dál častěji ptají 
 Ano, a bereme to vážně. Spolupracujeme s odborníky z Compliance Partner, takže cookies, souhlasy i zpracování osobních údajů jsou nastavené správně. Více o GDPR a cookies na webu.
 
 ### Můžu vidět weby, které jste už udělali?
-Jasně. Na stránce Realizace najdete 47 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.
+Jasně. Na stránce Realizace najdete 49 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.
 
 ### Uděláte i e-shop, rezervace nebo registrace?
 Ano. Stavíme e-shopy (Beka Bazar), prodej online kurzů (Papa Pech), rezervace lekcí (SportActive), registrace na akce s platbou (Hasoběh) i měsíční příspěvky (Držíme ti palce). V návrhu rovnou uvidíte, jak by to fungovalo u vás. Více o tvorbě e-shopů.
@@ -156,6 +156,8 @@ Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 - [Alpakadabra](https://alpakadabra.cz): Chov alpak v Rymicích. Zážitky se zvířaty, ceník a rezervace návštěvy podle volných termínů.
 - [Hausbót Petržalka](https://hausbot.anzalerealestate.sk): Prodejní web pro hausbót na Jaroveckém rameni v Bratislavě pro ANZALÉ Real Estate. Galerie, parametry, lokalita a domluva prohlídky.
 - [Dům Záhorská Bystrica](https://pridavkova.babonytre.sk): Prodejní web pro rodinný dům u lesa v Bratislavě pro realitní kancelář Babony. Galerie, videoprohlídka, půdorys a kalkulačka splátek.
+- [A-Studio Odolena Voda](https://astudioodolenavoda.cz): Boutique studio barre, pilates a jógy v Odolené Vodě. Rozvrh lekcí, ceník permanentek a rezervace lekce online.
+- [Podlahy Šťastný](https://www.podlahystastny.cz): Podlahové studio na Praze 2. Vinylové, dřevěné a masivní podlahy, renovace, reference a nezávazná poptávka.
 - [Reality Centrum Praha](https://rkvitkadlec.cz): Prémiové reality v Praze od roku 1997. Nabídka nemovitostí, služby a osobní přístup makléře.
 - [Alissa Beauté](https://alissabeaute-ks.cz): Kosmetické studio ve Žďáře nad Sázavou. Ošetření, přístroje, ceník a reálné výsledky klientek.
 - [Galenit](https://galenit-e.cz): Elektroinstalace pro firmy i domácnosti. Přehled služeb, vybrané realizace a nezávazná poptávka.
