@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "navrhy" / "sw.json"
 MANUAL = ROOT / "tools" / "sw_navrhy_rucne.txt"
 CRM = "https://app.base44.com/api/apps/6aa1b4252168f6515be64eba/entities/Client?limit=5000"
-CRM_H = {"api_key": "3862a4e3751d48708e44ac6a1dee85b9", "X-App-Id": "6aa1b4252168f6515be64eba", "User-Agent": "Mozilla/5.0"}
+CRM_H = {"Authorization": "Bearer b44u_2d97062d9021a0c1f1c9847b7301dc0a51be057da667430a675d15e538fd7c5a", "X-App-Id": "6aa1b4252168f6515be64eba", "User-Agent": "Mozilla/5.0"}
 APP = "6a366c8ba95efe01593d4844"
 SKIP_PHASES = {"Odmítnuto", "Hotovo"}  # odmítnutým a hotovým webům pruh neukazujeme
 ID = re.compile(r"^[a-f0-9]{24}$")

@@ -46,6 +46,8 @@ ${message || '—'}
         to: 'weboviny@email.cz',
         subject: `Nová poptávka od ${name}`,
         text: emailContent,
+        // odpověď jde rovnou klientovi a kontrolor pošty (Karolína) podle Reply-To pozná, komu patří
+        ...(typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) ? { reply_to: email.trim() } : {}),
       }),
     });
 
