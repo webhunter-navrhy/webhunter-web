@@ -8,7 +8,7 @@ English: WebHunter is a Czech web design agency. It builds custom websites and o
 
 - Návrh nového webu: zdarma, nezávazně, do 48 hodin od zaslání odkazu na současný web (nebo pár vět o firmě).
 - Bez schůzek a technického zadání. Cena realizace je vždy známá předem.
-- 51 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
+- 68 realizovaných webů pro firmy z různých oborů: https://webhunter.cz/realizace.html
 - GDPR a cookies ve spolupráci s Compliance Partner (https://www.compliancepartner.cz).
 - Působnost: celá Česká republika a Slovensko, komunikace česky i anglicky.
 - Kontakt: telefon +420777611634, e-mail info.webhunter@email.cz, WhatsApp https://wa.me/420777611634
@@ -59,7 +59,7 @@ GEO je optimalizace pro AI vyhledávání. Lidé se čím dál častěji ptají 
 Ano, a bereme to vážně. Spolupracujeme s odborníky z Compliance Partner, takže cookies, souhlasy i zpracování osobních údajů jsou nastavené správně. Více o GDPR a cookies na webu.
 
 ### Můžu vidět weby, které jste už udělali?
-Jasně. Na stránce Realizace najdete 51 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.
+Jasně. Na stránce Realizace najdete 68 webů — třeba osobní značku videomakera Papa Pecha, svatebního fotografa Jakuba Machalu nebo běžecký závod Hasoběh. Každý si můžete rovnou proklikat.
 
 ### Uděláte i e-shop, rezervace nebo registrace?
 Ano. Stavíme e-shopy (Beka Bazar), prodej online kurzů (Papa Pech), rezervace lekcí (SportActive), registrace na akce s platbou (Hasoběh) i měsíční příspěvky (Držíme ti palce). V návrhu rovnou uvidíte, jak by to fungovalo u vás. Více o tvorbě e-shopů.
@@ -160,6 +160,18 @@ Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 - [Podlahy Šťastný](https://www.podlahystastny.cz): Podlahové studio na Praze 2. Vinylové, dřevěné a masivní podlahy, renovace, reference a nezávazná poptávka.
 - [Penzion Bella](https://penzion-bella.cz): Rodinný penzion v Desné v Jizerských horách. Čtyři apartmány pro 12–17 hostů, ceník, galerie, okolí a poptávka termínu s ověřením dostupnosti.
 - [Frydrych reality](https://frydrych-reality.cz): Osobní web pražského makléře Jakuba Frydrycha. Aktuální nabídka nemovitostí, úspěšné prodeje, recenze a odhad ceny zdarma, vše upravitelné vlastní administrací.
+- [by IV & Italy brands](https://byiv.cz): Dámská móda šitá v české dílně a butik ve Zlíně. E-shop s kolekcemi podle kategorií, vyhledáváním, slevami a košíkem.
+- [Med Shop](https://www.med-shop.cz): Stáčírna medu v Olomouci-Lošově. E-shop s pěti druhy medu, košíkem a QR platbou, nabídka pro obchody a osobní odběr.
+- [Penzion Maxova Bouda](https://www.maxovabouda.cz): Rodinný penzion na břehu Kamenice v Jizerských horách. Pokoje a ceny, kalendář volných termínů a rezervace přímo z webu.
+- [Gastro Vondráček](https://www.gastrovondracek.cz): Obědy a svačinky pro pražské školky od roku 2009. Jídelníček s alergeny, služby, tábory a rauty a nezávazná kalkulace pro školku.
+- [PRES-TEL](https://prestel.sk): Zemní, výkopové a bourací práce a podvrtávání ze Štúrova. Slovenský web se službami, strojovým parkem a nezávaznou poptávkou.
+- [BRISTALL](https://bristall.cz): Elektroinstalace, revize, stavební práce a osvětlení v Praze a okolí. Přehled služeb, ukázky zakázek a poptávkový formulář.
+- [T SERVICE](https://tlmocnickatechnika.sk): Technika pro konference a akce v Bratislavě: tlumočnické kabiny, ozvučení, LED stěny a streaming. Slovenský web s kalkulací a vlastní administrací.
+- [Martin Strašík](https://martinstrasik.cz): Osobní web realitního makléře z Plzně. Jak pracuje, služby, videa, reference a nezávazný odhad ceny nemovitosti.
+- [Byty v Egyptě](https://bytyvegypte.cz): Byty a apartmány v Hurghadě a Sahl Hasheesh pro QARA Reality & Finance. Nabídka bytů s filtry, pronájmy, videa a poptávka bytu.
+- [Elegantní pes](https://elegantnipes.cz): Psí salon v Tetově. Služby a ceník péče, galerie proměn, časté otázky a objednání pejska přímo z webu.
+- [The Dental Escape](https://thedentalescape.com): Zubní turistika z Velké Británie do Tirany. Anglický web s balíčky ošetření, výsledky pacientů a rezervací konzultace zdarma.
+- [Chata U veselého turisty](https://chatauveselehoturisty.cz): Celá chata k pronájmu pro 4–15 osob v Desné na pomezí Jizerských hor a Krkonoš. Ubytování, ceník, aktivity v okolí a poptávka termínu.
 - [Reality Centrum Praha](https://rkvitkadlec.cz): Prémiové reality v Praze od roku 1997. Nabídka nemovitostí, služby a osobní přístup makléře.
 - [Alissa Beauté](https://alissabeaute-ks.cz): Kosmetické studio ve Žďáře nad Sázavou. Ošetření, přístroje, ceník a reálné výsledky klientek.
 - [Galenit](https://galenit-e.cz): Elektroinstalace pro firmy i domácnosti. Přehled služeb, vybrané realizace a nezávazná poptávka.
@@ -187,6 +199,11 @@ Ano. Web obsahuje místo pro video i 3D prohlídku, stačí nám poslat odkaz.
 - [Pošta Trojka](https://postatrojka.cz): Místní pošta v Havířově. Služby, otevírací doba a cesta k nově otevřené pobočce.
 - [AQUAcoolers](https://aquacoolers.cz): E-shop s rozvozem pramenité vody v barelech, výdejníky a servisem pro firmy i domácnosti.
 - [Byt Vršovická](https://vrsovicka76.jakubfrydrych.cz): Prodejní web pro jeden byt 3+1 v Praze 10. Galerie, videoprohlídka a orientační splátka hypotéky.
+- [Dům Koliba](https://prva2.babonytre.sk): Web k pronájmu zrekonstruovaného domu na Kolibě v Bratislavě pro realitní kancelář Babony. Galerie, půdorys, parametry a domluva prohlídky.
+- [Dům Luženičky](https://luzenicky.vlasta-marklova.cz): Prodejní web pro rodinný dům s bazénem u Domažlic pro makléřku Vlastu Marklovou. Galerie, popis, prohlídka domu a lokalita.
+- [Areál Nové Zámky](https://areal.vassereality.sk): Prodejní web pro plně pronajatý průmyslový areál v Nových Zámcích pro Vasse Reality. Přehled, galerie, parametry a domluva obhlídky.
+- [Byt Škroupova](https://skroupova15.jakubfrydrych.cz): Prodejní web pro byt 2+kk u Labe v Hradci Králové pro Frydrych Reality. Galerie, parametry, mapa a domluva prohlídky.
+- [Dům Ježov](https://jezov.luciekoprivova.cz): Prodejní web pro novostavbu 4+1 s uzavřeným dvorem v Ježově pro makléřku Lucii Kopřivovou. Galerie, parametry, popis a domluva prohlídky.
 - [Keylight](https://klight.cz): Nezávislá produkce comedy formátů. Výsledky, tři vlastní formáty a nabídka spolupráce pro značky.
 - [Credentia Aurora](https://www.credora.cz): Privátní klub majitelů firem a investorů. Co členství řeší, jak funguje vstup a přihláška do klubu.
 
